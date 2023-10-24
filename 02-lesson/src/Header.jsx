@@ -7,7 +7,6 @@ const Header = () => {
     borderRadius: "10px",
     pading: "10px"
   }
-  
   return (
     <header style={headerStyle}>
       <h1>WELCOME TO REACT JS CLASS </h1>
