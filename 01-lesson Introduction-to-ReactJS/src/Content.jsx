@@ -7,6 +7,7 @@ const Content = () => {
       const int =Math.floor(Math.random() * 3)
         return names [int]
     }
+    
     const handleClick = () => {
       console.log("You click it")
     }
