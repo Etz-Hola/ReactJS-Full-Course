@@ -2,8 +2,10 @@ import React from 'react'
 
 const Header = () => {
   const headerStyle = {
-    backgroundColor: "red",
+    backgroundColor: "blue",
     color: "white",
+    borderRadius: "10px",
+    pading: "10px"
   }
   return (
     <header style={headerStyle}>
