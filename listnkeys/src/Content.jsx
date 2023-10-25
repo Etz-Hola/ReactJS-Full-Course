@@ -24,12 +24,23 @@ const Content = () => {
     const listItems = items.map((item) => item.id === id ? 
     {...item, checked: !item.checked} : item);
     setItems(listItems)
+
+    localStorage.setItem('Shoppinglist', JSON.stringify(listItems))
+  }
+
+  const handleDelete = (id) => {
+    const listItems =items.filter((item) => item.id !== id);
+    setItems(listItems);
+    localStorage.setItem('Shoppinglist', JSON.stringify(listItems))
   }
 
   
 
   return (
     <main>
+      {items.length ? (
+
+    
       <ul>
           {items.map((item) => (
             <li className='item' key={item.id}>
@@ -45,12 +56,16 @@ const Content = () => {
              
 
               <BsTrash3 
+              onClick={() =>handleDelete(item.id)}
               role='button' 
               tabIndex="0"/>
             </li>
 
           ))}
-      </ul> 
+      </ul>
+      ) : (
+        <p style={{marginTop: "2rem"}}>Your list is Empty</p>
+      ) }
 
 
     </main>
