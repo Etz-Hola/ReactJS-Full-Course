@@ -1,23 +1,22 @@
-import './App.css'
+import './index.css'
 import Content from './Content'
 import Footer from './Footer'
 import Header from './Header'
-import Recap from './Recap'
+
 
 
 function App() { 
 
   return (
-    <>
+    <div className='App'>
    
-        <p>
+        
           <Header />
           <Content />
           <Footer />
-          <Recap />
-        </p>
+        
       
-    </>
+    </div>
   )
 }
 
