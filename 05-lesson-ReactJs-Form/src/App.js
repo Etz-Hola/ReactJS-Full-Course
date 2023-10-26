@@ -57,8 +57,19 @@ function App() {
     <div className='App'>
 
           <Header title="Cohort 3 list" />
-          <AddItem />
-          <Content items={items} handleCheck={handleCheck} handleDelete={handleDelete}/>
+          <AddItem 
+          newItem={newItem}
+          setNewItem={setNewItem}
+          handleSubmit={handleSubmit}
+
+          />;
+
+          <Content 
+          items={items} 
+          handleCheck={handleCheck} 
+          handleDelete={handleDelete}
+          />;
+          
           <Footer length={items.length}/>
           
         
