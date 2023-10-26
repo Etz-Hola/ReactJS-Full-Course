@@ -34,7 +34,6 @@ function App() {
   }
 
   const handleCheck = (id) => {
-
     const listItems = items.map((item) => item.id === id ? 
     {...item, checked: !item.checked} : item);
     setItems(listItems)
@@ -45,6 +44,13 @@ function App() {
     const listItems =items.filter((item) => item.id !== id);
     setItems(listItems);
     localStorage.setItem('Shoppinglist', JSON.stringify(listItems))
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if(!newItem) return;
+    addItem(newItem)
+    setNewItem('');
   }
 
   return (
