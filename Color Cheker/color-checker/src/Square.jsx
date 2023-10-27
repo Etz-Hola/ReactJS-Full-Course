@@ -1,11 +1,18 @@
 import React from 'react'
 
-const Square = () => {
+const Square = ({colorValue, hexValue}) => {
   return (
-    <div>
-      
-    </div>
+    <section className='square' style={{backgroundColor: colorValue}}>
+        <p>{colorValue ? colorValue : "Empty Value"}</p>
+        <p>{hexValue ? hexValue : null} </p>
+        
+
+    </section>
   )
 }
 
-export default Square
+Square.defaultProps = {
+    colorValue: "Empty color value"
+}
+
+export default Square;
