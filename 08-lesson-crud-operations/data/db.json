@@ -8,7 +8,7 @@
     {
       "id": 2,
       "cheked": false,
-      "item": "Water"
+      "item": "School"
     },
     {
       "id": 3,
@@ -16,7 +16,9 @@
       "item": "Cohort"
     },
     {
-      "id": 4
+      "id": 4,
+      "checked": false,
+      "item": "DLTAfrica"
     }
   ]
 }
