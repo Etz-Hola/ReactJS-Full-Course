@@ -1,0 +1,40 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "Ola🐌👨🏿‍🤝‍👨🏿",
+      "date": "July 01, 2021 11:17:36 AM",
+      "body": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet corrupti facere dignissimos laborum! Numquam autem inventore vel architecto nam iure id placeat? Iste, maxime nisi."
+    },
+    {
+      "id": 2,
+      "title": "Soji",
+      "date": "July 01, 2024 11:55:36 AM",
+      "body": " consectetur adipisicing elit. Amet corrupti facere dignissimos laborum! Numquam autem inventore vel architecto nam iure id placeat? Iste, "
+    },
+    {
+      "id": 3,
+      "title": "Shola✔",
+      "date": "November 02, 2023 12:27:59 AM",
+      "body": "DLTAfrica Dao"
+    },
+    {
+      "id": 4,
+      "title": "C++",
+      "date": "November 02, 2023 12:30:32 AM",
+      "body": "With the function-per-file style, you can pick just what you need and stop bloating your project with useless functionality.\n\nIt works well with modern module bundlers such as webpack, Browserify, and Rollup and also supports tree-shaking."
+    },
+    {
+      "id": 5,
+      "title": "C-Sharp✌",
+      "date": "November 02, 2023 10:59:20 AM",
+      "body": "Learn C#\nC# (C-Sharp) is a programming language developed by Microsoft that runs on the .NET Framework.\n\nC# is used to develop web apps, desktop apps, mobile apps, games and much more."
+    },
+    {
+      "id": 7,
+      "title": "Edited Post",
+      "date": "November 06, 2023 2:11:03 PM",
+      "body": "pooooo"
+    }
+  ]
+}
