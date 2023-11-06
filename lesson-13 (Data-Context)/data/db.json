@@ -31,10 +31,10 @@
       "body": "Learn C#\nC# (C-Sharp) is a programming language developed by Microsoft that runs on the .NET Framework.\n\nC# is used to develop web apps, desktop apps, mobile apps, games and much more."
     },
     {
-      "id": 7,
-      "title": "Edited Post",
-      "date": "November 06, 2023 2:11:03 PM",
-      "body": "pooooo"
+      "id": 9,
+      "title": "Const",
+      "date": "November 06, 2023 3:19:30 PM",
+      "body": "import useAxiosFetch from \"../hooks/useAxiosFetch\";\nimport api from \"../api/posts\";\n\nconst DataContext = createContext({})\n\nexport const DataProvider = ({ children }) => {\n  \n    const [posts, setPosts] = useState([]);\n\n    const [search, setSearch] = useState(\"\");\n    const [searchResult, setSearchResult] = useState([]);\n    const [editTitle, setEditTitle] = useState(\"\");\n    const [editBody, setEditBody] = useState(\"\");\n    const { width } = useWindowSize();\n    const { data, fetchError, isLoading } = useAxiosFetch(\"http://localhost:3500/posts\");\n   "
     }
   ]
 }
