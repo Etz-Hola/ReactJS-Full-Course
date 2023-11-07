@@ -1,5 +1,5 @@
 import { createStore, action, thunk, computed } from "easy-peasy"; 
-import posts from "./api/posts";
+import api from "./api/posts";
 
 export default createStore({
     posts: [],
@@ -31,10 +31,10 @@ export default createStore({
         state.searchResults = payload;   
     }),
     setPostCount: computed((state) => state.posts.length),
-    getPostById: computed((id) => {
-        return state.posts.find(post => post.id.toString() === id)
+    getPostById: computed((state) => {
+        return (id) => state.posts.find(post => post.id.toString() === id)
     }),
-    savePost: thunk(async (actions, newpost, helpers) => {
+    savePost: thunk(async (actions, newPost, helpers) => {
         const { posts } = helpers.getState()
         try {
             const response = await api.post("/posts", newPost);
@@ -67,6 +67,5 @@ export default createStore({
           } catch (error) {
             console.log(`Error: ${error.message}`);
           }
-
     }) 
 });
