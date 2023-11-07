@@ -1,5 +1,5 @@
 import { createStore, action, thunk, computed } from "easy-peasy"; 
-import api from "./api/posts";
+import api from "../api/posts";
 
 export default createStore({
     posts: [],
@@ -59,13 +59,14 @@ export default createStore({
         const { id } = updatedPost;
         try {
             const response = await api.put(`/posts/${id}`, updatedPost);
-            action.setPosts(
+            actions.setPosts(
               posts.map((post) => (post.id === id ? { ...response.data } : post))
             );
-            action.setEditTitle("");
-            action.setEditBody("");
+            actions.setEditTitle("");
+            actions.setEditBody("");
           } catch (error) {
             console.log(`Error: ${error.message}`);
           }
     }) 
 });
+ 
