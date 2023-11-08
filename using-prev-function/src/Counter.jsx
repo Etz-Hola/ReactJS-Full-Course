@@ -7,8 +7,8 @@ const Counter = () => {
     const add = () => {
         setCount(prev => prev + 1)
         setCount(prev => prev + 1)
-
     }
+    
     const subtract = () => {
         setCount(count - 4)
     }
