@@ -16,7 +16,9 @@ const App = () => {
   }, [sum])  
 
   return (
-    
+    <main className="">
+
+    </main>
   )
 }
 
