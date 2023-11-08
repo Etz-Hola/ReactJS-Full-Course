@@ -17,7 +17,9 @@ const App = () => {
 
   return (
     <main className="App">
-      <input type="text" />
+      <input type="text" placeholder="input"
+        value={userInput} onChange={(e) => setUserInput}
+      />
 
     </main>
   )
