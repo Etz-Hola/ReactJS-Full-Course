@@ -20,7 +20,7 @@ const App = () => {
       <input className="inputText" type="text" placeholder="input"
         value={userInput} onChange={(e) => setUserInput(e.target.value)}
       />
-      <h1>OutPut: <span style={{ color: "blue" }}> {userInput || ".."}</span></h1>
+      <h1>OutPut: <span style={{ color: "aqua" }}> {userInput || ".."}</span></h1>
     </main>
   )
 }
