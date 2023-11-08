@@ -13,12 +13,12 @@ const Counter = () => {
         setCount(count - 4)
     }
 
-    const updateArray = (newVal) => {
-        setValues({...values, last: "Shola"})
-        setValues(prev => ({...prev, last: "Hassan"}))
-    }
-    updateArray()
-    console.log(values);
+    // const updateArray = (newVal) => {
+    //     setValues({...values, last: "Shola"})
+    //     setValues(prev => ({...prev, last: "Hassan"}))
+    // }
+    // updateArray()
+    // console.log(values);
 
   return (
     <section className="Counter">

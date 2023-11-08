@@ -1,19 +1,23 @@
-import { useEffect } from "react"
-import { useState } from "react"
+import { useState, useEffect, useCallback } from "react"
 
 import React from 'react'
 
 const App = () => {
   const [userInput, setUserInput] = useState('')
-  const [num1] = useState(4)
+  const [result, setResult] = useState(0)
+  const [num1] = useState(5)
   const [num2] = useState(5)
 
-  const sum = () => num1 + num2
+  const sum = useCallback(() => num1 + num2, [num1, num2]) 
+
+  const buildArray = useCallback(() => [num1, num2], [num1, num2])
 
   useEffect(() => {
-    console.log(`New sum. Value: ${sum()}`)
+    console.log(`New sum. Value: ${buildArray()}`)
+    setResult(buildArray());
 
-  }, [sum])
+  }, [buildArray])
+  
 
   return (
     <main className="App">
