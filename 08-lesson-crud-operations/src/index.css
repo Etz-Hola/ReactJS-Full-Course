@@ -10,7 +10,6 @@ html {
 
 body {
   min-height: 100vh;
-
 }
 
 .App {
@@ -22,12 +21,12 @@ body {
   width: 100%;
   max-width: 500px;
   border: 1px solid mediumblue;
-  margin:  auto;
+  margin: auto;
 }
 
 header {
   width: calc(100% - 2px);
-  padding:  0 0.25em;
+  padding: 0 0.25em;
   background-color: mediumblue;
   color: aliceblue;
   display: flex;
@@ -43,7 +42,6 @@ main {
   justify-content: flex-start;
   align-items: center;
   overflow-y: scroll;
-  
 }
 
 ul {
@@ -128,7 +126,7 @@ Footer {
   left: -99999px;
 }
 
-.addForm input[type='text'] {
+.addForm input[type="text"] {
   flex-grow: 1;
   max-width: calc(100% - 50px);
   min-height: 48px;
@@ -150,7 +148,7 @@ button {
   cursor: pointer;
 }
 
-button:focus, 
+button:focus,
 button:hover {
   color: white;
   background-color: limegreen;
@@ -171,7 +169,7 @@ button:hover {
   left: -99999px;
 }
 
-.searchForm input[type='text'] {
+.searchForm input[type="text"] {
   flex-grow: 1;
   max-width: 100%;
   min-height: 48px;
