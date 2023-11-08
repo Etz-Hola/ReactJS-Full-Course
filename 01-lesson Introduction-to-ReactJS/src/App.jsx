@@ -7,20 +7,20 @@ import InputFields from './InputField'
 
 
 
-function App() { 
+function App() {
 
   return (
     <div className='App'>
-   
-        
-          <Header />
-          <Content />
-          <Counter />
-          <InputFields />
-          <Footer />
-          
-        
-      
+
+
+      <Header />
+      <Content />
+      <Counter />
+      <InputFields />
+      <Footer />
+
+
+
     </div>
   )
 }

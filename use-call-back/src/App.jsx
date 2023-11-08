@@ -20,7 +20,7 @@ const App = () => {
       <input type="text" placeholder="input"
         value={userInput} onChange={(e) => setUserInput(e.target.value)}
       />
-
+      <h1>outPut: {userInput || ".."}</h1>
     </main>
   )
 }
