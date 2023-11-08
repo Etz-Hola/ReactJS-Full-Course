@@ -13,7 +13,6 @@ const Content = ({ items, handleCheck, handleDelete }) => {
         <p style={{ marginTop: "2rem" }}>Your list is Empty</p>
       )}
 
-
     </>
   );
 };
