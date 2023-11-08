@@ -13,8 +13,7 @@ const App = () => {
   useEffect(() => {
     console.log(`New sum. Value: ${sum()}`)
   
-  }, [third])
-  
+  }, [sum])  
 
   return (
     
