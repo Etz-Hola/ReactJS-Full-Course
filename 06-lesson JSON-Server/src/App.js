@@ -9,20 +9,19 @@ import SearchItem from "./SearchItem";
 function App() {
   const [newItem, setNewItem] = useState("");
   const [items, setItems] = useState(
-    JSON.parse(localStorage.getItem("Shoppinglist")) || []);
+    JSON.parse(localStorage.getItem("Shoppinglist")) || [];
+  );
   const [search, setSearch] = useState("");
 
   //useEffect syntax
 
   useEffect(() => {
     localStorage.setItem("Shoppinglist", JSON.stringify(items));
-  }, [items])
-
-  
+  }, [items]);
 
   // const setAndSaveItems = (newItem) => {
   //   setItems(newItem);
-    
+
   // };
 
   const addItem = (item) => {
@@ -62,7 +61,9 @@ function App() {
       <SearchItem search={search} setSearch={setSearch} />
 
       <Content
-        items={items.filter(item => ((item.item).toLowerCase()).includes(search.toLowerCase()))}
+        items={items.filter((item) =>
+          item.item.toLowerCase().includes(search.toLowerCase())
+        )}
         handleCheck={handleCheck}
         handleDelete={handleDelete}
       />
