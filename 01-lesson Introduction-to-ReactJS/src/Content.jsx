@@ -9,7 +9,7 @@ const Content = () => {
   const handleNamechange = () => {
     const names = ['Qadir', 'Soji', 'Shola']
     const int = Math.floor(Math.random() * 3)
-    setName (names[int])
+    setName(names[int])
   }
 
   const handleClick = () => {
@@ -36,12 +36,12 @@ const Content = () => {
       <p>
         Hello {name} 👍
       </p>
-      
-        
+
+
       <div style={styling}>
         <button onClick={handleNamechange}><span>Change Name</span></button>
         <button onClick={handleClick}><span>Click it</span></button>
-        
+
         <button onClick={() => handleClickOne('Qadir')}>Click name</button>
         <button onClick={(e) => handleClickTwo(e)}><span>Click Now</span></button>
       </div>
