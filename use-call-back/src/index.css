@@ -59,6 +59,14 @@ button:focus-visible {
   gap: 1rem;
 }
 
+.inputText {
+  border-radius: 12px;
+  padding: 1rem;
+  font-size: 30px;
+  width: 15rem;
+  height: 3rem;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
