@@ -11,7 +11,7 @@ const App = () => {
   const sum = () => num1 + num2
 
   useEffect(() => {
-    first
+    console.log(`New sum. Value: ${sum()}`)
   
   }, [third])
   
