@@ -7,7 +7,6 @@ const getArray = () => {
 }
 
 
-
 const App = () => {
   const [userInput, setUserInput] = useState('')
   const [randomInput, setRandomInput] = useState("")
@@ -18,27 +17,27 @@ const App = () => {
 
   const fibNumber = useMemo(() => fib(userInput), [userInput, fib])
 
-const myArray = useMemo(() => getArray(), [])
+  const myArray = useMemo(() => getArray(), [])
 
-useEffect(() => {
-  console.log("New Array")
-}, [myArray])
+  useEffect(() => {
+    console.log("New Array")
+  }, [myArray])
 
 
 
   return (
     <main className="App">
       <label>Fibonacci Sequence</label>
-      <input type="text" 
+      <input type="text"
         placeholder="Position"
-        value={userInput} 
+        value={userInput}
         onChange={(e) => setUserInput(e.target.value)}
       />
 
       <p>Number: {fibNumber || "--"} </p>
 
-      <br/>
-      <br/>
+      <br />
+      <br />
 
       <label>Random Inpuy:</label>
       <input type="text"
