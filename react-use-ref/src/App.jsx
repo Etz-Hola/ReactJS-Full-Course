@@ -52,7 +52,7 @@ const App = () => {
 
       <section>
         {/* <button onClick={focusOnInput}>Focus</button> */}
-        <button>Stop</button>
+        <button onClick={stopTimer}>Stop</button>
         <button onClick={startTimer}>Start</button>
       </section>
       <button>Reset</button>
