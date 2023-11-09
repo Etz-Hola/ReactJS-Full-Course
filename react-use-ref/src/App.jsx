@@ -19,6 +19,10 @@ const App = () => {
     }, 1000)
   }
 
+  const stopTimer = () => {
+    clearInterval(timer)
+  }
+
   const handleInputChange = (e) => {
     setRandomInput(e.target.value);
     renders.current++;
