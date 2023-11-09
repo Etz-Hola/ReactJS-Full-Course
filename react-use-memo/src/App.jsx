@@ -41,8 +41,7 @@ useEffect(() => {
       <br/>
 
       <label>Random Inpuy:</label>
-      
-      
+      <h1>OutPut: <span style={{ color: "aqua" }}> {userInput || ".."}</span></h1>
     </main>
   )
 }
