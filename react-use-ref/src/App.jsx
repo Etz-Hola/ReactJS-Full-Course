@@ -16,6 +16,10 @@ const App = () => {
 
     renders.current++
   }
+
+  const focusOnInput = () => {
+    inputRef.current.focus()
+  }
    
   return (
     <main className="App">
