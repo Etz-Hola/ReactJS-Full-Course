@@ -11,6 +11,8 @@ const App = () => {
 
   const handleInputChange = () => {
     setRandomInput(e.target.value);
+
+    renders.current++
   }
    
 
