@@ -37,7 +37,7 @@ const App = () => {
       <br/>
       <br/>
 
-      <p>{}</p>
+      <p>{randomInput}</p>
 
 
     </main>
