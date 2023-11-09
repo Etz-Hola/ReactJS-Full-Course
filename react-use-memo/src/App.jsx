@@ -39,7 +39,7 @@ const App = () => {
       <br />
       <br />
 
-      <label>Random Inpuy:</label>
+      <label>Random Input:</label>
       <input type="text"
         value={randomInput}
         placeholder="Type anything..."
