@@ -3,16 +3,20 @@ import { useState, useReducer } from "react"
 const reducer = (state, action) => {
   switch(action.type){
     case 'increment':
-      return {count: state.count +1}
+      return {...state, count: state.count +1}
     case 'decrement':
-      return {count: state.count -1}
+      return {...state, count: state.count -1}
+    case 'newUserInput':
+      return {...state, userInput: action.payload}
+    case 'tgColor':
+      return {...state, color: !state.color}
     default: 
       throw new Error()
   }
 }
 
 const App = () => {
-  const [state, dispatch] = useReducer(reducer, {count: 0});
+  const [state, dispatch] = useReducer(reducer, {count: 0, userInput:'', color: false});
   const [userInput, setUserInput] = useState('');
   // const [count, setCount] = useState(0);
   const [color, setColor] = useState(false);
