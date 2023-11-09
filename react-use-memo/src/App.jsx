@@ -46,6 +46,7 @@ useEffect(() => {
         placeholder="Type anything..."
         onChange={(e) => setRandomInput(e.target.value)}
       />
+      <p></p>
     </main>
   )
 }
