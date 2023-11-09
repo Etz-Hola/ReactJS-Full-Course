@@ -1,11 +1,14 @@
 import { useState, useEffect, useCallback, useMemo } from "react"
 
 const getArray = () => {
-  for(let i = 0; i < 1000000000; i++) {
+  for (let i = 0; i < 1000000000; i++) {
   }
   return ['Muhammad', "Fine Boy"]
 }
 
+const fibNumber = useMemo(() => fib(userInput), [userInput, fib])
+
+const myArray = useMemo(() => getArray(), [])
 
 const App = () => {
   const [userInput, setUserInput] = useState('')
@@ -14,8 +17,8 @@ const App = () => {
   const fib = useCallback((n) => {
     return n <= 1 ? n : fib(n - 1) + fib(n - 2)
   }, [])
-  
-  
+
+
 
   return (
     <main className="App">
