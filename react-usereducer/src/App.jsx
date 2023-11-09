@@ -23,7 +23,9 @@ const App = () => {
 
       <section>
         {/* <button onClick={focusOnInput}>Focus</button> */}
-        <button onClick={stopTimer}>Stop</button>
+        <button onClick={() => setCount(prev => prev -1)}>-</button>
+        <button onClick={() => setCount(prev => prev -1)}>+</button>
+        <button onClick={() => setColor(prev => prev -1)}>+</button>
         <button onClick={startTimer}>Start</button>
       </section>
       <button onClick={resetTimer}>Reset</button>
