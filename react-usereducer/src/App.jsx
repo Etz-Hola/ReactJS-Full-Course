@@ -1,8 +1,9 @@
-import { useState } from "react"
+import { useState, useReducer } from "react"
 
 
 
 const App = () => {
+  const = 
   const [userInput, setUserInput] = useState('');
   const [count, setCount] = useState(0);
   const [color, setColor] = useState(false);
@@ -22,7 +23,6 @@ const App = () => {
 
 
       <section>
-        {/* <button onClick={focusOnInput}>Focus</button> */}
         <button onClick={(() => setCount(prev => prev -1))}>-</button>
         <button onClick={(() => setCount(prev => prev -1))}>+</button>
         <button onClick={(() => setColor(prev => !prev))}>Color</button>
@@ -31,7 +31,7 @@ const App = () => {
       <br/>
       <br/>
 
-      <p>(userInput)</p>
+      <p>{userInput}</p>
     </main>
   )
 }
