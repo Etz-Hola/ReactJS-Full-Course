@@ -23,7 +23,7 @@ const App = () => {
   const stopTimer = () => {
     clearInterval(timerId.current);
     timerId.current = 0;
-
+    
   }
 
   const handleInputChange = (e) => {
@@ -31,7 +31,7 @@ const App = () => {
     renders.current++;
   }
 
-  // const focusOnInput = ( ) => {
+  // const focusOnInput = () => {
   //   inputRef.current.focus()
   // }
    
