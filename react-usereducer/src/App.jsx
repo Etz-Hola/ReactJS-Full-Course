@@ -1,4 +1,4 @@
-import { useState, useReducer } from "react"
+import { useReducer } from "react"
 
 const reducer = (state, action) => {
   switch(action.type){
@@ -17,16 +17,16 @@ const reducer = (state, action) => {
 
 const App = () => {
   const [state, dispatch] = useReducer(reducer, {count: 0, userInput:'', color: false});
-  const [userInput, setUserInput] = useState('');
+  // const [userInput, setUserInput] = useState('');
   // const [count, setCount] = useState(0);
-  const [color, setColor] = useState(false);
+  // const [color, setColor] = useState(false);
   
    
   return (
     <main className="App" style={{color: color ? '#fff' : '#fff952'}}>
       <input
         type="text"
-        value={userInput}
+        value={state.userInput}
         onChange={(e) => setUserInput(e.target.value)}        
       />
 
