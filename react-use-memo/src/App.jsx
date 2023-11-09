@@ -24,6 +24,7 @@ const App = () => {
   }, [myArray])
 
 
+
   return (
     <main className="App">
       <label>Fibonacci Sequence</label>
