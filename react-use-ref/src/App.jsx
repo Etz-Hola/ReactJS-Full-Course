@@ -3,7 +3,7 @@ import { useState, useEffect } from "react"
 
 
 const App = () => {
-  const [userInput, setUserInput] = useState('')
+
   const [randomInput, setRandomInput] = useState("")
 
 
