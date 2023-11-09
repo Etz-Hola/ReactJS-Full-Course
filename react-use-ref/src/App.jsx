@@ -23,12 +23,11 @@ const App = () => {
   const stopTimer = () => {
     clearInterval(timerId.current);
     timerId.current = 0;
-    inputRef.current.focus();
-    
+    inputRef.current.focus();    
   }
 
   const resetTimer = () => {
-    startTimer();
+    stopTimer();
     if (seconds) {
       renders.current++;
       setSeconds(0)
