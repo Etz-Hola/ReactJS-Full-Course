@@ -23,11 +23,11 @@ const App = () => {
   
    
   return (
-    <main className="App" style={{color: color ? '#fff' : '#fff952'}}>
+    <main className="App" style={{color: state.color ? '#fff' : '#fff952'}}>
       <input
         type="text"
         value={state.userInput}
-        onChange={(e) => setUserInput(e.target.value)}        
+        onChange={(e) => dispatch({type: 'newUserInput', payload: e.target.value})}        
       />
 
       <br/>
