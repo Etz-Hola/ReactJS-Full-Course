@@ -23,21 +23,7 @@ const App = () => {
       <br/>
       <br/>
 
-      <section>
-        <button>Stop</button>
-        <button>Start</button>
-      </section>
-      <button>Reset</button>
 
-      <br/>
-      <br/>
-
-      <p>Second</p>
-
-      <br/>
-      <br/>
-
-      <p>{randomInput}</p>
 
 
     </main>
