@@ -5,7 +5,8 @@ import { useState, useRef } from "react"
 const App = () => {
 
   const [randomInput, setRandomInput] = useState("")
-  
+  const [seconds, setSeconds] = useState(second)
+
 
   return (
     <main className="App">
