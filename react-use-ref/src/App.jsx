@@ -1,10 +1,5 @@
-import { useState, useEffect, useCallback, useMemo } from "react"
+import { useState, useEffect } from "react"
 
-const getArray = () => {
-  for (let i = 0; i < 1000000000; i++) {
-  }
-  return ['Muhammad', "Fine Boy"]
-}
 
 
 const App = () => {
