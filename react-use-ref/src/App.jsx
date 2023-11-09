@@ -23,6 +23,7 @@ const App = () => {
   const stopTimer = () => {
     clearInterval(timerId.current);
     timerId.current = 0;
+    
   }
 
   const handleInputChange = (e) => {
