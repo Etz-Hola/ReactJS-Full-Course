@@ -20,9 +20,11 @@ const App = () => {
   return (
     <main className="App">
       <input
+        ref={inputRef}
         type="text"
         value={randomInput}
         placeholder="Type anything..."
+        o
         
       />
       <p>Result: {randomInput}</p>
