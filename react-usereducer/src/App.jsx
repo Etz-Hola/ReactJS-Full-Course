@@ -15,6 +15,13 @@ const reducer = (state, action) => {
   }
 }
 
+const ACTION = {
+  INCREMENT: 'increment',
+  DECREMENT: 'decrement',
+  NEW_USER_INPUT: 'newUserInput',
+  TG_COLOR: 'tgColor',
+}
+
 const App = () => {
   const [state, dispatch] = useReducer(reducer, {count: 0, userInput:'', color: false});
   // const [userInput, setUserInput] = useState('');
