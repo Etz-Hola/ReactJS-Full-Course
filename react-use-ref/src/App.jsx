@@ -17,9 +17,9 @@ const App = () => {
     renders.current++
   }
 
-  const focusOnInput = () => {
-    inputRef.current.focus()
-  }
+  // const focusOnInput = () => {
+  //   inputRef.current.focus()
+  // }
    
   return (
     <main className="App">
@@ -37,7 +37,7 @@ const App = () => {
       <br/>
 
       <section>
-        <button onClick={focusOnInput}>Focus</button>
+        {/* <button onClick={focusOnInput}>Focus</button> */}
         <button>Stop</button>
         <button>Start</button>
       </section>
