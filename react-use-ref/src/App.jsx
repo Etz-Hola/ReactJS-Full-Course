@@ -3,7 +3,6 @@ import { useState, useRef } from "react"
 
 
 const App = () => {
-
   const [randomInput, setRandomInput] = useState("");
   const [seconds, setSeconds] = useState(0);
 
@@ -11,9 +10,8 @@ const App = () => {
 
   const inputRef = useRef()
 
-  const handleInputChange = () => {
+  const handleInputChange = (e) => {
     setRandomInput(e.target.value);
-
     renders.current++
   }
 
@@ -31,7 +29,7 @@ const App = () => {
         onChange={handleInputChange}
         
       />
-      <p>Render: {renders.current}</p>
+      <p>Renders: {renders.current}</p>
 
       <br/>
       <br/>
