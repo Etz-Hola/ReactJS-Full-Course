@@ -9,14 +9,14 @@ const App = () => {
 
   const renders = useRef(0);
 
+  const inputRef = useRef()
+
   const handleInputChange = () => {
     setRandomInput(e.target.value);
 
     renders.current++
   }
    
-
-
   return (
     <main className="App">
       <input
