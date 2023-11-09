@@ -34,6 +34,11 @@ const App = () => {
 
       <p>Second</p>
 
+      <br/>
+      <br/>
+
+      <p>{randomInput}</p>
+
 
     </main>
   )
