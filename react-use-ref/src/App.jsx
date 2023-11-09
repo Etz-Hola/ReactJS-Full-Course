@@ -31,7 +31,7 @@ const App = () => {
         onChange={handleInputChange}
         
       />
-      <p>Result: {randomInput}</p>
+      <p>Render: {renders.current}</p>
 
       <br/>
       <br/>
