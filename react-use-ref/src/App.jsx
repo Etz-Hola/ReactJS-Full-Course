@@ -46,7 +46,7 @@ const App = () => {
       <section>
         {/* <button onClick={focusOnInput}>Focus</button> */}
         <button>Stop</button>
-        <button>Start</button>
+        <button onClick={startTimer}>Start</button>
       </section>
       <button>Reset</button>
 
