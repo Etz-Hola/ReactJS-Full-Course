@@ -9,7 +9,7 @@ const App = () => {
   
    
   return (
-    <main className="App" style={{color: color ? '#fff' : '#fff92'}}>
+    <main className="App" style={{color: color ? '#fff' : '#fff952'}}>
       <input
         type="text"
         value={userInput}
@@ -31,14 +31,7 @@ const App = () => {
       <br/>
       <br/>
 
-      <p>Second: {seconds}</p>
-
-      <br/>
-      <br/>
-
-   
-
-
+      <p>(userInput)</p>
     </main>
   )
 }
