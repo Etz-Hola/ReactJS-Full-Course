@@ -24,7 +24,7 @@ const App = () => {
         type="text"
         value={randomInput}
         placeholder="Type anything..."
-        o
+        onChange={handleInputChange}
         
       />
       <p>Result: {randomInput}</p>
