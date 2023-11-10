@@ -27,7 +27,7 @@ const Register = () => {
   const [matchFocus, setMatchFocus] = useState((false))
 
   const [errMsg, setErrMsg] = useState("")
-  const [ success, setSuccess] = useState(false)
+  const [success, setSuccess] = useState(false)
 
   useEffect(() => {
     useRef.current.focus();
@@ -42,13 +42,23 @@ const Register = () => {
   }, [pwd, matchPwd])
 
   useEffect(() => {
-    m
-  })
-  
+    setErrMsg("")
+
+  }, [user, pwd, matchPwd])
+
 
   return (
-    <div>Register</div>
-  )
+    <>
+      <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive"> {errMsg} </p>
+      <form>
+        <label htmlFor="username">
+            username: 
+              <FontAwesomeIcon icon={faCheck} className={validMatch && matchPwd ? "valid" : "hide"} />
+              <FontAwesomeIcon icon={faTimes} className={validMatch || matchPwd ? "hide" : "invalid"} />
+        </label>
+      </form>
+    </>
+  )_
 }
 
 export default Register
