@@ -67,8 +67,10 @@ const Register = () => {
           aria-describedby="uidnote"
           onFocus={() => setUserFocus(true)}
           onBlur={() => setUserFocus(false)}
-
         />
+        <p>
+          
+        </p>
 
 
       </form>
