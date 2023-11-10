@@ -1,7 +1,7 @@
 import { useRef, useState, useEffect } from "react";
-import { faCheck, faTimes, faInfoCircle } from "@fortawesome/free-svg-icons";
+import { faCheck, faTimes, faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import axios from "./api/axios"
+// import axios from "./api/axios"
 
 
 const USER_REGEX = /^[A-Z][a-z0-9-_]{3,23}$/;
@@ -30,7 +30,7 @@ const Register = () => {
   const [success, setSuccess] = useState(false)
 
   useEffect(() => {
-    useRef.current.focus();
+    userRef.current.focus();
   }, []);
 
   useEffect(() => {
