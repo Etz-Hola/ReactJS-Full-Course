@@ -6,7 +6,7 @@ import axios from "./api/axios"
 
 const USE_REGEX = /^[A-Z][A-Z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
-const REGISTER_URL = "./Register.js";
+const REGISTER_URL = "./register";
 
 import React from 'react'
 
