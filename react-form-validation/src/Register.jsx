@@ -70,11 +70,18 @@ const Register = () => {
         />
         <p id="uidnote" className={userFocus && user && !validName ? "instruction" : "offscreen"}>
           <FontAwesomeIcon icon={faInfoCircle} />
-              8 to 24 characters.<br/>
-
-
-
+              3 to 23 characters.<br/> 
+                  must begin with a letter, <br/> number, hyphens Allowd
         </p>
+
+        <label htmlFor="password">
+            password: 
+              <FontAwesomeIcon icon={faCheck} className={validPwd ? "valid" : "hide"} />
+              <FontAwesomeIcon icon={faTimes} className={validPwd || !pwd ? "hide" : "invalid"} />
+        </label>
+
+        Must include UpperCase and LowerCase Letters, special character and a number.<br/>
+                      Allowed special characters:
 
 
       </form>
