@@ -20,7 +20,7 @@ const Register = () => {
 
   const [pwd, setPwd] = useState('')
   const [validPwd, setValidPwd] = useState(false)
-  const [pwdFocus, setpwdFocus] = useState(false)
+  const [pwdFocus, setPwdFocus] = useState(false)
 
   const [matchPwd, setMatchPwd] = useState("")
   const [validMatch, setValidMatch] = useState(false)
@@ -82,17 +82,17 @@ const Register = () => {
 
         <input type="password"
           id="password"
-          ref={userRef}
-          autoComplete="off"
-          onChange={(e) => setUser(e.target.value)}
-          value={user}
+          onChange={(e) => setPwd(e.target.value)}
+          value={pwd}
           required
-          aria-invalid={validName ? "false" : "true"}
+          aria-invalid={validPwd ? "false" : "true"}
           aria-describedby="uidnote"
-          onFocus={() => setUserFocus(true)}
-          onBlur={() => setUserFocus(false)}
+          onFocus={() => setPwdFocus(true)}
+          onBlur={() => setPwdFocus(false)}
         />
 
+        <FontAwesomeIcon icon={faInfoCircle} />
+        8 to 24 characters
         Must include UpperCase and LowerCase Letters, special character and a number.<br/>
                       Allowed special characters:
 
