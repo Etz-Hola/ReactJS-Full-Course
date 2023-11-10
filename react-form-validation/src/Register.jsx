@@ -68,7 +68,7 @@ const Register = () => {
           onFocus={() => setUserFocus(true)}
           onBlur={() => setUserFocus(false)}
         />
-        <p id="uidnote" className={userFocus && user && !validName ? "instruction" : "offscreen"}>
+        <p id="uidnote" className={userFocus && user && !validName ? "instructions" : "offscreen"}>
           <FontAwesomeIcon icon={faInfoCircle} />
               3 to 23 characters.<br/> 
                   must begin with a letter, <br/> number, hyphens Allowd
@@ -91,10 +91,13 @@ const Register = () => {
           onBlur={() => setPwdFocus(false)}
         />
 
+        <p id="pwdnote" className={pwdFocus && !validPwd ? "instructions" : "offscreen"}> 
         <FontAwesomeIcon icon={faInfoCircle} />
         8 to 24 characters
-        Must include UpperCase and LowerCase Letters, special character and a number.<br/>
-                      Allowed special characters:
+        Must include UpperCase and LowerCase Letters, a number and a special characters.<br/>
+
+        Allowed special characters:  <span aria-label="exclamation mark">!</span> <span aria-label="at symbol">@</span> <span aria-label="hashtag">#</span> <span aria-label="dollar sign">$</span> <span aria-label="percent">%</span>
+        </p>
 
 
       </form>
