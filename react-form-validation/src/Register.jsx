@@ -80,8 +80,8 @@ const Register = () => {
               <FontAwesomeIcon icon={faTimes} className={validPwd || !pwd ? "hide" : "invalid"} />
         </label>
 
-        <input type="text"
-          id="username"
+        <input type="password"
+          id="password"
           ref={userRef}
           autoComplete="off"
           onChange={(e) => setUser(e.target.value)}
