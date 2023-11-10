@@ -68,8 +68,12 @@ const Register = () => {
           onFocus={() => setUserFocus(true)}
           onBlur={() => setUserFocus(false)}
         />
-        <p>
-          
+        <p id="uidnote" className={userFocus && user && !validName ? "instruction" : "offscreen"}>
+          <FontAwesomeIcon icon={faInfoCircle} />
+              8 to 24 characters.<br/>
+
+
+
         </p>
 
 
