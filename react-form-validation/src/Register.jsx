@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "./api/axios"
 
 
-const USE_REGEX = /^[A-Z][a-z0-9-_]{3,23}$/;
+const USER_REGEX = /^[A-Z][a-z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 const REGISTER_URL = "/register";
 
@@ -34,13 +34,16 @@ const Register = () => {
   }, []);
 
   useEffect(() => {
-    setValidName(USE_REGEX.test(user));
+    setValidName(USER_REGEX.test(user));
   }, [user]);
 
   useEffect(() => {
-    setValidPwd(USE_REGEX.test(pwd));
+    setValidPwd(PWD_REGEX.test(pwd));
   }, [pwd, matchPwd])
 
+  useEffect(() => {
+    m
+  })
   
 
   return (
