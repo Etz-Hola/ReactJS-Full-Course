@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import axios from "./api/axios"
 
 
-const USER_REGEX = /^[A-Z][a-z0-9-_]{3,23}$/;
+const USER_REGEX = /^[A-z][a-z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 const REGISTER_URL = "/register";
 
@@ -53,10 +53,11 @@ const Register = () => {
       <form>
         <label htmlFor="username">
           username:
-          <FontAwesomeIcon icon={faCheck} className={validMatch && matchPwd ? "valid" : "hide"} />
-          <FontAwesomeIcon icon={faTimes} className={validMatch || matchPwd ? "hide" : "invalid"} />
+          <FontAwesomeIcon icon={faCheck} className={validName ? "valid" : "hide"} />
+          <FontAwesomeIcon icon={faTimes} className={validName || !user ? "hide" : "invalid"} />
         </label>
-        <input type="text"
+        <input 
+          type="text"
           id="username"
           ref={userRef}
           autoComplete="off"
@@ -98,6 +99,8 @@ const Register = () => {
 
           Allowed special characters:  <span aria-label="exclamation mark">!</span> <span aria-label="at symbol">@</span> <span aria-label="hashtag">#</span> <span aria-label="dollar sign">$</span> <span aria-label="percent">%</span>
         </p>
+
+        <label
 
 
       </form>
