@@ -56,10 +56,6 @@ const Login = () => {
             <span className="line">
                 <a href="#"> Sign Up</a>
             </span>
-
-            
-            
-
             
              
         </p>
