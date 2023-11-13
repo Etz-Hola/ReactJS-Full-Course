@@ -29,13 +29,21 @@ const Login = () => {
 
   return (
     <>
+    {success ? (
+      <section>
+        <h1>Success</h1>
+        <p>
+          <a href="#">Sign In</a>
+        </p>
+      </section>
+    ) : (
     <section>
         <p ref={errRef} className={errMsg ? "errMsg" : "offscreen"} aria-live="assertive" >
             {errMsg}
         </p>
         <h1>Sign In</h1>
-        <form>
-            <label onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
+            <label>
                 Username:
             </label>
             <input
@@ -69,6 +77,7 @@ const Login = () => {
              
         </p>
     </section>
+    )}
     </>
   )
 }
