@@ -22,8 +22,8 @@ const Login = () => {
         e.preventDefault()     
           console.log(user, pwd);
           setSuccess(true);
-          input('');
-          password('');
+          setUserName('');
+          setPassword('');
       }
 
 
