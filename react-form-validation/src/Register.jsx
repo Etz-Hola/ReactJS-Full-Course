@@ -46,6 +46,8 @@ const Register = () => {
     setErrMsg("")
   }, [user, pwd, matchPwd])
 
+  const
+
 
   return (
     <>
