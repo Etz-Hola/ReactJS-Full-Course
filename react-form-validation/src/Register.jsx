@@ -72,7 +72,6 @@ const Register = () => {
           <a href="#">Sign In</a>
         </p>
       </section>
-
     ) : (
       <section>
           <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive"> {errMsg} </p>
