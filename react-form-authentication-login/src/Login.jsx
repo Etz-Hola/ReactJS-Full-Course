@@ -57,7 +57,7 @@ const Login = () => {
                 <a href="#"> Sign Up</a>
             </span>
 
-            <button>Si
+            <button>S
             
 
             
