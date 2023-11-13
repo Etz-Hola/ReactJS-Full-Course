@@ -56,6 +56,7 @@ const Login = () => {
             <span className="line">
                 <a href="#"> Sign Up</a>
             </span>
+            <object data="" type=""></object>
              
         </p>
     </section>
