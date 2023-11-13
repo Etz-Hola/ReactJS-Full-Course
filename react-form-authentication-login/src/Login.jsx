@@ -22,7 +22,7 @@ const Login = () => {
     <>
     <section>
         <p ref={errRef} className={errMsg ? "errMsg" : "offscreen"} aria-live="assertive" >
-            j
+            {errMsg}
         </p>
     </section>
     </>
