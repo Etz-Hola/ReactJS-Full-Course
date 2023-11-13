@@ -57,7 +57,9 @@ const Register = () => {
       console.log(user, pwd);
       setSuccess(true);
       // clear state and control input fields
-          
+      setUser('');
+      setPwd('');
+      setMatchPwd('');         
   }
 
 
