@@ -46,7 +46,19 @@ const Register = () => {
     setErrMsg("")
   }, [user, pwd, matchPwd])
 
-  const
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    const v1 = USER_REGEX.test(user);
+    const v2 = PWD_REGEX.test(pwd);
+    if(!v1 || !v2) {
+      setErrMsg('Invalid Entry');
+      return
+    }
+      console.log(user, pwd);
+      setSuccess(true);
+      // clear state and control input fields
+          
+  }
 
 
   return (
