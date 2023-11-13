@@ -25,7 +25,30 @@ const Login = () => {
             {errMsg}
         </p>
         <h1>Sign In</h1>
-        <form action="">
+        <form>
+            <label>
+                Username:
+                <input
+                    type="text"
+                    id="username"
+                    ref={userRef}
+                    autoComplete="off"
+                    onChange={(e) => setUserName(e.target.value)}
+                    value={username}
+                    required
+                />
+            </label>
+            <label>
+                Password:
+                <input
+                    type="password"
+                    id="password"
+                    onChange={(e) => setUserName(e.target.value)}
+                    value={password}
+                    required
+                />
+            </label>
+            <button>Sign In</button>
             
         </form>
     </section>
