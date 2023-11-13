@@ -21,7 +21,7 @@ const Login = () => {
   return (
     <>
     <section>
-        <p>
+        <p ref={errRef} className={errMsg ? "errMsg" : "offscreen"} >
             j
         </p>
     </section>
