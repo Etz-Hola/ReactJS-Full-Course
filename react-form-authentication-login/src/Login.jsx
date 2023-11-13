@@ -21,7 +21,7 @@ const Login = () => {
   return (
     <>
     <section>
-        <p ref={errRef} className={errMsg ? "errMsg" : "offscreen"} >
+        <p ref={errRef} className={errMsg ? "errMsg" : "offscreen"} aria-live="assertive" >
             j
         </p>
     </section>
