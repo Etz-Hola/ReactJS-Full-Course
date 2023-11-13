@@ -48,7 +48,7 @@ const Login = () => {
                     required
                 />
             </label>
-            <button>Sign In</button>
+            <button>Sign Up</button>
             
         </form>
     </section>
