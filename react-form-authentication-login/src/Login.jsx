@@ -52,9 +52,9 @@ const Login = () => {
             
         </form>
         <p>
-            Need an account? <br />
+            Need an account? <br/>
             <span className="line">
-
+                <a href="#"> Sign Up</a>
             </span>
              
         </p>
