@@ -39,11 +39,11 @@ const Register = () => {
 
   useEffect(() => {
     setValidPwd(PWD_REGEX.test(pwd));
+    setValidMatch(pwd === matchPwd)
   }, [pwd, matchPwd])
 
   useEffect(() => {
     setErrMsg("")
-
   }, [user, pwd, matchPwd])
 
 
@@ -115,7 +115,7 @@ const Register = () => {
                 aria-invali={validMatch ? "false" : "true"}
                 aria_describedby="confirmnote"
                 onFocus={() => setMatchFocus(true)}
-                onBlur={() => setMatchFocus(false)}
+                onBlur={() =>setMatchFocus(false)}
               />
               <p id="confirmnote" className={matchFocus && !validMatch ? "instructions" : "offscreen"}>
                 <FontAwesomeIcon icon={faInfoCircle} />
