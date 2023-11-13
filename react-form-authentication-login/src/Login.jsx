@@ -18,6 +18,15 @@ const Login = () => {
     }, [username, password])
 
 
+    const handleSubmit = async (e) => {
+        e.preventDefault()     
+          console.log(user, pwd);
+          setSuccess(true);
+          input('');
+          password('');
+      }
+
+
   return (
     <>
     <section>
@@ -26,7 +35,7 @@ const Login = () => {
         </p>
         <h1>Sign In</h1>
         <form>
-            <label>
+            <label onSubmit={handleSubmit}>
                 Username:
             </label>
             <input
