@@ -66,6 +66,11 @@ button {
   margin-top: 1rem;
 }
 
+/* label{
+    display: flex;
+    flex-direction: column;
+} */
+
 button {
   padding: 0.5rem;
   cursor: pointer;
