@@ -3,7 +3,7 @@ import Login from './Login'
 
 const App = () => {
   return (
-    <main>
+    <main className='App'>
       <Login />
     </main>
   )
