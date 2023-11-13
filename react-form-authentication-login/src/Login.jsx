@@ -4,7 +4,7 @@ const Login = () => {
     const userRef = useRef()
     const errRef = useRef()
 
-    const [username, setUserName] = useState("")
+    const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [errMsg, setErrMsg] = useState("")
     const [success, setSuccess] = useState(false)
@@ -20,9 +20,9 @@ const Login = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()     
-          console.log(user, pwd);
+          console.log(username, password);
           setSuccess(true);
-          setUserName('');
+          setUsername('');
           setPassword('');
       }
 
@@ -33,7 +33,7 @@ const Login = () => {
       <section>
         <h1>Success</h1>
         <p>
-          <a href="#">Sign In</a>
+          <a href="/">Sign In</a>
         </p>
       </section>
     ) : (
@@ -51,7 +51,7 @@ const Login = () => {
                 id="username"
                 ref={userRef}
                 autoComplete="off"
-                onChange={(e) => setUserName(e.target.value)}
+                onChange={(e) => setUsername(e.target.value)}
                 value={username}
                 required
             />
