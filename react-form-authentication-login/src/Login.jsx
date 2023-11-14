@@ -78,7 +78,7 @@ const Login = () => {
                 type="password"
                 id="password"
                 onChange={(e) => setPwd(e.target.value)}
-                value={pwd}
+                // value={pwd}
                 required
             />
             <button>Sign In</button>
