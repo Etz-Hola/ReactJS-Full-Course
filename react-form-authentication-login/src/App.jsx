@@ -10,6 +10,13 @@ import Lounge from './components/Lounge'
 import Admin from './components/Admin'
 import Missing from './components/Missing'
 
+const ROLES = {
+  'User': 2001,
+  'Editor': 1984,
+  'Admin': 5158,
+
+}
+
 const App = () => {
   return (     
     <Routes>
