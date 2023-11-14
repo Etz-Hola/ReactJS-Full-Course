@@ -9,7 +9,7 @@ const Lounge = () => {
         <p>Admin and the editor can hang out here</p>
         <div className="flexGroe">
             <Link to='/'>Home</Link>
-        {/* </div> */}
+        </div>
 
     </section>
   )
