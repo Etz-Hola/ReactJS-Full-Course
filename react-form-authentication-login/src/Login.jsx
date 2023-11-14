@@ -25,8 +25,17 @@ const Login = () => {
 
 
     const handleSubmit = async (e) => {
-        e.preventDefault()     
-          console.log(username, password);
+        e.preventDefault()  
+        try {
+            
+        } catch (error) {
+            
+        }   
+        if (username === "" || password === "") {
+            setErrMsg("Username and password are required");
+            return
+        }
+        //   console.log(username, password);
           setSuccess(true);
           setUsername('');
           setPassword('');
