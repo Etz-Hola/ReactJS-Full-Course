@@ -8,6 +8,7 @@ import Home from './components/Home'
 import Editor from './components/Editor'
 import Lounge from './components/Lounge'
 import Admin from './components/Admin'
+import Missing from './components/Missing'
 
 const App = () => {
   return (     
@@ -23,7 +24,13 @@ const App = () => {
         <Route path='/' element={<Home/>}/>
         <Route path='editor' element={<Editor/>}/>
         <Route path='admin' element={<Admin/>}/>
-        {/* <Route path='lounge' element={<Lounge/>}/> */}
+        <Route path='lounge' element={<Lounge/>}/>
+
+        {/* catch all/ */}
+        <Route path='*' element={<Missing/>}/>
+
+
+
         
 
       </Route> 
