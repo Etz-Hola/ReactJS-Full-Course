@@ -11,6 +11,7 @@ const Lounge = () => {
             <Link to='/'>Home</Link>
         </div>
         
+
     </section>
   )
 }
