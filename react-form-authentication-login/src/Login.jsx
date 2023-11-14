@@ -10,8 +10,8 @@ const Login = () => {
     const userRef = useRef()
     const errRef = useRef()
 
-    const [username, setUsername] = useState("")
-    const [password, setPassword] = useState("")
+    const [user, setUser] = useState("")
+    const [pwd, setPwd] = useState("")
     const [errMsg, setErrMsg] = useState("")
     const [success, setSuccess] = useState(false)
 
@@ -21,24 +21,24 @@ const Login = () => {
 
     useEffect(() => {
         setErrMsg('')
-    }, [username, password])
+    }, [user, pwd])
 
 
     const handleSubmit = async (e) => {
         e.preventDefault()  
         try {
             setSuccess(true);
-            setUsername('');
-            setPassword('');
+            setUser('');
+            setPwd('');
             
         } catch (error) {
             
         }   
-        // if (username === "" || password === "") {
-        //     setErrMsg("Username and password are required");
+        // if (user === "" || pwd === "") {
+        //     setErrMsg("user and password are required");
         //     return
         // }
-        //   console.log(username, password);
+        //   console.log(user, pwd);
           
       }
 
@@ -60,15 +60,15 @@ const Login = () => {
         <h1>Sign In</h1>
         <form onSubmit={handleSubmit}>
             <label>
-                Username:
+            user:
             </label>
             <input
                 type="text"
                 id="username"
                 ref={userRef}
                 autoComplete="off"
-                onChange={(e) => setUsername(e.target.value)}
-                value={username}
+                onChange={(e) => setUser(e.target.value)}
+                value={user}
                 required
             />
             <label>
@@ -77,8 +77,8 @@ const Login = () => {
             <input
                 type="password"
                 id="password"
-                onChange={(e) => setPassword(e.target.value)}
-                value={password}
+                onChange={(e) => setPwd(e.target.value)}
+                value={pwd}
                 required
             />
             <button>Sign In</button>
