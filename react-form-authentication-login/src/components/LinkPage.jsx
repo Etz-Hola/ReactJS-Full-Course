@@ -13,6 +13,7 @@ const LinkPage = () => {
         <h2>Private</h2>
         <Link tp='/'>Home</Link>
         <Link tp='/editor'>Editors Page</Link>
+        <Link tp='/admin'>Admin Page</Link>
 
     </section>
   )
