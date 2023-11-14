@@ -26,6 +26,8 @@ body {
   align-items: center;
   min-height: 100vh; 
   padding: 1rem 0.5rem;
+  /* border-top-right-radius: 6px; */
+  /* border-end-start-radius: 5px; */
   
 }
 
