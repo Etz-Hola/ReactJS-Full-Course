@@ -31,10 +31,10 @@ const Login = () => {
         } catch (error) {
             
         }   
-        if (username === "" || password === "") {
-            setErrMsg("Username and password are required");
-            return
-        }
+        // if (username === "" || password === "") {
+        //     setErrMsg("Username and password are required");
+        //     return
+        // }
         //   console.log(username, password);
           setSuccess(true);
           setUsername('');
