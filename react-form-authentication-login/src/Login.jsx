@@ -42,11 +42,11 @@ const Login = () => {
             setPwd('');
             
         } catch (error) {
-            if (!error.message) {
+            if (!error.response) {
                 setErrMsg('No Server Response')
             }else if (error.response?.status === 400) {
                 setErrMsg('Missing Username or Password')
-            }else if (error.response?.status === 4001) {
+            }else if (error.response?.status === 401) {
                 setErrMsg('Unauthorized');
             }else {
                 setErrMsg('Login Failed');
