@@ -4,6 +4,10 @@ import Login from './components/Login'
 import LinkPage from './components/LinkPage'
 import Unauthorized from './components/Unauthorized'
 import Layout from './components/Layout'
+import Home from './components/Home'
+import Editor from './components/Editor'
+import Lounge from './components/Lounge'
+import Admin from './components/Admin'
 
 const App = () => {
   return (     
@@ -16,7 +20,10 @@ const App = () => {
         <Route path='/unauthorized' element={<Unauthorized />}/>
 
         {/* private routes/ */}
-        <Route path='/linkpage' element={<LinkPage />}/>
+        <Route path='/' element={<Home/>}/>
+        <Route path='editor' element={<Editor/>}/>
+        <Route path='admin' element={<Admin/>}/>
+        <Route path='lounge' element={<Lounge/>}/>
         
 
       </Route> 
