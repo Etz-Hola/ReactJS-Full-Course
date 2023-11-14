@@ -16,7 +16,8 @@ body {
     min-height: 100vh;
     background-color: dodgerblue;
     /* background: url('/glaa.jpg'); */
-    background: url('/public/gooooolaa.jpg');
+    /* background: url('/public/gooooolaa.jpg'); */
+    background-repeat: no-repeat;
 }
 
 .App {
