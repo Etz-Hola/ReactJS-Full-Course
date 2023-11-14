@@ -8,7 +8,10 @@ const LinkPage = () => {
         <br />
         <h2>Publicc</h2>
         <Link to='/login'></Link>
-        <Link to='/login'></Link>
+        {/* <Link to='/register'>Register</Link> */}
+
+        <h2>Private</h2>
+        <Link tp='/'>Home</Link>
 
     </section>
   )
