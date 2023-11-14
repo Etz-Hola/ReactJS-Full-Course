@@ -14,6 +14,11 @@ const App = () => {
         <Route index element={<Login />}/>
         <Route path='/linkpage' element={<LinkPage />}/>
         <Route path='/unauthorized' element={<Unauthorized />}/>
+
+        {/* private routes/ */}
+        <Route path='/linkpage' element={<LinkPage />}/>
+        
+
       </Route> 
 
     </Routes>    
