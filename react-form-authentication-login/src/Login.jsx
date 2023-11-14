@@ -74,7 +74,7 @@ const Login = () => {
       </section>
     ) : (
     <section>
-        <p ref={errRef} className={errMsg ? "errMsg" : "offscreen"} aria-live="assertive" >
+        <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive" >
             {errMsg}
         </p>
         <h1>Sign In</h1>
@@ -101,7 +101,7 @@ const Login = () => {
                 value={pwd}
                 required
             />
-            <button>Sign In</button>
+            <button disabled={!user || !pwd ? true : false} >Sign In</button>
             
         </form>
         <p>
