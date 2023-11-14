@@ -27,6 +27,9 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()  
         try {
+            setSuccess(true);
+            setUsername('');
+            setPassword('');
             
         } catch (error) {
             
@@ -36,9 +39,7 @@ const Login = () => {
         //     return
         // }
         //   console.log(username, password);
-          setSuccess(true);
-          setUsername('');
-          setPassword('');
+          
       }
 
 
