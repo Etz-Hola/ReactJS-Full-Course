@@ -13,7 +13,7 @@ import Missing from './components/Missing'
 const ROLES = {
   'User': 2001,
   'Editor': 1984,
-  'Admin': 5158,
+  'Admin': 5158
 }
 
 const App = () => {
