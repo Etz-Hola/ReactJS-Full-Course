@@ -11,9 +11,9 @@ const App = () => {
       <Routes>
         <Route path='/' element={<Layout />}>
           {/* public routes/ */}
-          <Route path='login' element={<Login />}/>
-          <Route path='linkpage' element={<LinkPage />}/>
-          <Route path='unauthorized' element={<Unauthorized />}/>
+          <Route path='/' element={<Login />}/>
+          <Route path='/linkpage' element={<LinkPage />}/>
+          <Route path='/unauthorized' element={<Unauthorized />}/>
           {/* <Route path='unauthorized' element={<Unauthorized />}/> */}
           
 
