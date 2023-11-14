@@ -14,10 +14,12 @@ html {
 
 body {
     min-height: 100vh;
-    background-color: dodgerblue;
+    /* background-color: dodgerblue; */
     /* background: url('/glaa.jpg'); */
-    /* background: url('/public/gooooolaa.jpg'); */
+    background: url('/public/gooooolaa.jpg');
+    background-size: cover;
     background-repeat: no-repeat;
+    background-attachment: fixed;
     
 }
 
