@@ -44,7 +44,7 @@ const Login = () => {
 
             setUser('');
             setPwd('');
-            
+            navigate(from, {replace: true});            
         } catch (error) {
             if (!error.response) {
                 setErrMsg('No Server Response')
@@ -103,7 +103,7 @@ const Login = () => {
         <p>
             Need an account? <br/>
             <span className="line">
-                <a href="#"> Sign Up</a>
+                <Link to='/register'>Sign Up</Link>
             </span>
             
              

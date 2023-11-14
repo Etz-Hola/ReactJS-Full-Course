@@ -24,12 +24,12 @@ const App = () => {
       <Route path='/' element={<Layout/>}> 
 
         {/* public routes/ */}
-        <Route index element={<Login />}/>
+        <Route path='login' element={<Login />}/>
           <Route path='/linkpage' element={<LinkPage />}/>
         <Route path='/unauthorized' element={<Unauthorized />}/>
 
         {/* private routes/ */}
-        <Route element={<RequireAuth allowedRoles={[ROLES.User]} />}>
+        <Route element={<RequireAuth allowedRoles={[ROLES.User, ROLES.Editor, ROLES.Admin]} />}>
           <Route path='/' element={<Home />} />
         </Route>
 
