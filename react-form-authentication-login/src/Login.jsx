@@ -36,12 +36,22 @@ const Login = () => {
             const roles = response?.data?.roles
 
             setAuth({user, pwd, roles, accessToken});
-            
+
             setSuccess(true);
             setUser('');
             setPwd('');
             
         } catch (error) {
+            if (!error.message) {
+                setErrMsg('No Server Response')
+            }else if (error.response?.status === 400) {
+                setErrMsg('Missing Username or Password')
+            }else if (error.response?.status === 4001) {
+                setErrMsg('Unauthorized');
+            }else {
+                setErrMsg('Login Failed');
+            }
+            errRef.current.focus();
             
         }   
         // if (user === "" || pwd === "") {
