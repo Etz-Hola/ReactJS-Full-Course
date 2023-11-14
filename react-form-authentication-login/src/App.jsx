@@ -25,8 +25,8 @@ const App = () => {
 
         {/* public routes/ */}
         <Route path='login' element={<Login />}/>
-          <Route path='/linkpage' element={<LinkPage />}/>
-        <Route path='/unauthorized' element={<Unauthorized />}/>
+          <Route path='linkpage' element={<LinkPage />}/>
+        <Route path='unauthorized' element={<Unauthorized />}/>
 
         {/* private routes/ */}
         <Route element={<RequireAuth allowedRoles={[ROLES.User, ROLES.Editor, ROLES.Admin]} />}>

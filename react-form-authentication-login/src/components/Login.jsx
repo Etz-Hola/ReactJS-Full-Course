@@ -4,14 +4,14 @@ import useAuth from "../hooks/useAuth";
 import { useNavigate, Link, useLocation } from "react-router-dom";
 
 
+const LOGIN_URL = './auth'
 
 const Login = () => {
-    const LOGIN_URL = './auth'
     const {setAuth} = useAuth()
 
     const navigate = useNavigate()
     const location = useLocation()
-    const form = location.state?.from?.pathname || '/'
+    const from = location.state?.from?.pathname || '/'
 
     const userRef = useRef()
     const errRef = useRef()
@@ -97,7 +97,7 @@ const Login = () => {
                 value={pwd}
                 required
             />
-            <button disabled={!user || !pwd ? true : false} >Sign In</button>
+            <button  >Sign In</button>
             
         </form>
         <p>
