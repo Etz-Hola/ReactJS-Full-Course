@@ -10,7 +10,7 @@ const Lounge = () => {
         <div className="flexGroe">
             <Link to='/'>Home</Link>
         </div>
-
+k
     </section>
   )
 }
