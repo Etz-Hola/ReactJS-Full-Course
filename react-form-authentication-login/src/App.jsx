@@ -28,7 +28,7 @@ const App = () => {
 
         {/* catch all/ */}
         <Route path='*' element={<Missing/>}/>
-          
+        
 
       </Route> 
 
