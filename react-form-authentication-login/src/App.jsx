@@ -6,18 +6,20 @@ import LinkPage from './components/LinkPage'
 import Unauthorized from './components/Unauthorized'
 
 const App = () => {
-  return (    
-    <Routes>
-      <Route path='/' element={<Layout />}>
-        {/* public routes/ */}
-        <Route path='login' element={<Login />}/>
-        <Route path='linkpage' element={<LinkPage />}/>
-        <Route path='unauthorized' element={<Unauthorized />}/>
-        {/* <Route path='unauthorized' element={<Unauthorized />}/> */}
-        
+  return (
+    <main className='App'>   
+      <Routes>
+        <Route path='/' element={<Layout />}>
+          {/* public routes/ */}
+          <Route path='login' element={<Login />}/>
+          <Route path='linkpage' element={<LinkPage />}/>
+          <Route path='unauthorized' element={<Unauthorized />}/>
+          {/* <Route path='unauthorized' element={<Unauthorized />}/> */}
+          
 
-      </Route>
+        </Route>
     </Routes>    
+      </main> 
   )
 }
 
