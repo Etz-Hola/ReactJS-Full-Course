@@ -5,8 +5,8 @@ import useAxiosPrivate from "../hooks/userAxiosPrivate";
 const Users = () => {
     const [users, setUsers] = useState()
     const axiosPrivate = useAxiosPrivate()
-    
 
+n
     useEffect(() => {
         let isMounted = true;
         const controller = new AbortController()
