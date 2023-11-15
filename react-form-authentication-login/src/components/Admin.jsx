@@ -1,4 +1,3 @@
-import React from 'react'
 import { Link } from 'react-router-dom'
 import Users from './Users'
 
@@ -8,11 +7,11 @@ const Admin = () => {
     <h1>Admin Page.</h1>
     <br />
     {/* <p>You must have been assigned an Admin Role</p> */}
-    
+
     <Users />
     <br />
 
-    <div>
+    <div className='flexGrow'>
         <Link to='/'>Home</Link>
     </div>
     </section>
