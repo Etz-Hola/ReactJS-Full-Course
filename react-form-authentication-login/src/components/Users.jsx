@@ -6,7 +6,7 @@ const Users = () => {
     const [users, setUsers] = useState()
     const axiosPrivate = useAxiosPrivate()
 
-nnnoa
+nnno
     useEffect(() => {
         let isMounted = true;
         const controller = new AbortController()
