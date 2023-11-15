@@ -1,7 +1,10 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect } from "react";
+import axios from "../api/axios";
+
 
 const Users = () => {
     const [users, setUser] = useState()
+    
   return (
     <article>
         <h2>Users List</h2>
