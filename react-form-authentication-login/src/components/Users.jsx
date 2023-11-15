@@ -3,7 +3,7 @@ import axios from "../api/axios";
 
 
 const Users = () => {
-    const [users, setUser] = useState()
+    const [users, setUsers] = useState()
 
     useEffect(() => {
         let isMounted = true;
@@ -17,12 +17,18 @@ const Users = () => {
 
                 })
                 console.log(response.data)
+                isMounted && setUsers(response.data)
                 
             } catch (err) {
-                console.log(err)
-                
+                console.log(err)                
             }
         }
+        getUsers()
+        return () => {
+            isMounted = false;
+            controller.abort()
+        }
+
 
     }, [])
 
