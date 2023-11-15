@@ -16,13 +16,12 @@ const Users = () => {
             try {
                 const response = await axios.get('/users', {
                     signal: controller.signal
-
                 })
                 console.log(response.data)
                 isMounted && setUsers(response.data)
                 
-            } catch (err) {
-                console.log(err)                
+            } catch (error) {
+                console.error(error)                
             }
         }
         getUsers()
@@ -40,7 +39,8 @@ const Users = () => {
         {users?.length
             ? (
                 <ul>
-                    {users.map((user,i) => <li key={i}>{user?.username}</li>)}
+                    {users.map((user, i) => <li key={i}>{user?.
+                        username}</li>)}
                 </ul>
             ) : <p>No user to display</p>
         }
