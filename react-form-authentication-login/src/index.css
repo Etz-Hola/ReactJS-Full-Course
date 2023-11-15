@@ -30,9 +30,11 @@ body {
   align-items: center;
   min-height: 100vh; 
   padding: 1rem 0.5rem;
-  /* border-top-right-radius: 6px; */
-  /* border-end-start-radius: 5px; */
+
   
+}
+ul{
+    list-style: none;
 }
 
 section {
@@ -44,6 +46,9 @@ section {
     justify-content: flex-start;
     padding: 1rem;
     background-color: rgba(0,0,0,0.4);
+    border-top-right-radius: 20px;
+    border-end-start-radius: 30px;
+    /* background-color: aqua; */
 }
 
 form {
