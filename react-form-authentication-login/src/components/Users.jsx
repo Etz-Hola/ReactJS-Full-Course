@@ -4,8 +4,10 @@ import axios from "../api/axios";
 
 const Users = () => {
     const [users, setUser] = useState()
-    
+
     useEffect(() => {
+        let isMounted = true;
+        const controller = new AbortController()
 
     }, [])
 
