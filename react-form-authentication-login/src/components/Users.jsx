@@ -9,6 +9,21 @@ const Users = () => {
         let isMounted = true;
         const controller = new AbortController()
 
+        const getUsers = async () => {
+
+            try {
+                const response = await axios.get('/users', {
+                    signal: controller.signal
+
+                })
+                console.log(response.data)
+                
+            } catch (err) {
+                console.log(err)
+                
+            }
+        }
+
     }, [])
 
   return (
