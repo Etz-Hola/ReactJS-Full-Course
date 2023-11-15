@@ -13,13 +13,11 @@ const useRefreshToken = () => {
             console.log(JSON.stringify(prev))
             console.log(response.data.accessToken);
 
-            return(...prev, sccessToken: res)
+            return{...prev, sccessToken: response.data.accessToken}
         })
-        return
+        return response.data.accessToken
     }
-  return (
-    <div>useRefreshToken</div>
-  )
+  return refresh
 }
 
 export default useRefreshToken
