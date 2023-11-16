@@ -4,7 +4,7 @@ import useRefreshToken from "../hooks/useRefreshToken"
 import useAuth from "../hooks/useAuth"
 
 const PersistLogin = () => {
-    const [isLoadin, setIsLoadin] = useState(true);
+    const [isLoading, setIsLoading] = useState(true);
     const refresh = useRefreshToken();
 
     const { auth } = useAuth();
@@ -17,10 +17,10 @@ const PersistLogin = () => {
             } catch (error) {
                 console.log(error)
             } finally {
-                setIsLoadin(false)
+                setIsLoading(false)
             }
         }
-        !auth?.accessToken ? verifyRefreshToken() : setIsLoadin(false);
+        !auth?.accessToken ? verifyRefreshToken() : setIsLoading(false);
 
         // return () => isMounted = false;
     }, [])
@@ -29,13 +29,13 @@ const PersistLogin = () => {
         console.log(`isLoading: ${isLoading}`);
         console.log(`aT: ${JSON.stringify(auth?.accessToken)}`);
 
-    }, [isLoadin])
+    }, [isLoading])
 
 
   return (
     <>
-        {isLoadin ? 
-            <p>Loading...</p>
+        {isLoading ? 
+            <p>Loading...    .....</p>
             :
             <Outlet />
         }
