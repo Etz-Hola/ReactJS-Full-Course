@@ -18,44 +18,44 @@ const ROLES = {
 }
 
 const App = () => {
-  return (     
+  return (
     <Routes>
-      <Route path='/' element={<Layout/>}> 
+      <Route path='/' element={<Layout />}>
 
         {/* public routes/ */}
-        <Route path='login' element={<Login />}/>
-          <Route path='linkpage' element={<LinkPage />}/>
-        <Route path='unauthorized' element={<Unauthorized />}/>
+        <Route path='login' element={<Login />} />
+        <Route path='linkpage' element={<LinkPage />} />
+        <Route path='unauthorized' element={<Unauthorized />} />
 
         {/* private routes/ */}
         <Route element={<PersistLogin />}>
-          
-        <Route element={<RequireAuth allowedRoles={[ROLES.User, ROLES.Editor, ROLES.Admin]} />}>
-          <Route path='/' element={<Home />} />
-        </Route>
 
-        <Route element={<RequireAuth allowedRoles={[ROLES.Editor]} />}>
-          <Route path='editor' element={<Editor />} />
-        </Route>
+          <Route element={<RequireAuth allowedRoles={[ROLES.User, ROLES.Editor, ROLES.Admin]} />}>
+            <Route path='/' element={<Home />} />
+          </Route>
 
-        <Route element={<RequireAuth allowedRoles={[ROLES.Admin]} />}>
-          <Route path='admin' element={<Admin />} />
-        </Route>
+          <Route element={<RequireAuth allowedRoles={[ROLES.Editor]} />}>
+            <Route path='editor' element={<Editor />} />
+          </Route>
 
-        <Route element={<RequireAuth allowedRoles={[ROLES.Editor, ROLES.Admin]} />}>
-          <Route path='lounge' element={<Lounge />} />
-        </Route>
+          <Route element={<RequireAuth allowedRoles={[ROLES.Admin]} />}>
+            <Route path='admin' element={<Admin />} />
+          </Route>
+
+          <Route element={<RequireAuth allowedRoles={[ROLES.Editor, ROLES.Admin]} />}>
+            <Route path='lounge' element={<Lounge />} />
+          </Route>
         </Route>
 
 
         {/* catch all/ */}
-        <Route path='*' element={<Missing/>}/>
-        
+        <Route path='*' element={<Missing />} />
 
-      </Route> 
 
-    </Routes>    
-     
+      </Route>
+
+    </Routes>
+
   )
 }
 
