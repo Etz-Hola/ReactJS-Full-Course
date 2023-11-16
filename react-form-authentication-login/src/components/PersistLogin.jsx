@@ -6,6 +6,10 @@ import useAuth from "../hooks/useAuth"
 const PersistLogin = () => {
     const [isLoadin, setIsLoadin] = useState(true)
     const refresh = useRefreshToken();
+
+    const { auth } = useAuth();
+
+
   return (
     <div>PersistLogin</div>
   )
