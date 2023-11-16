@@ -7,7 +7,7 @@ const PersistLogin = () => {
     const [isLoading, setIsLoading] = useState(true);
     const refresh = useRefreshToken();
 
-    const { auth } = useAuth();
+    const { auth, persist } = useAuth();
 
     useEffect(() => {
         // let isMounted = true;
@@ -34,8 +34,10 @@ const PersistLogin = () => {
 
   return (
     <>
-        {isLoading ? 
-            <p>Loading...</p>
+        {!persist
+            ?  <Outlet/>
+            :isLoading
+            ?<p>Loading...</p>
             :
             <Outlet />
         }
