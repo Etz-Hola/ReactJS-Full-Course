@@ -29,6 +29,7 @@ const App = () => {
 
         {/* private routes/ */}
         <Route element={<PersistLogin />}>
+          
         <Route element={<RequireAuth allowedRoles={[ROLES.User, ROLES.Editor, ROLES.Admin]} />}>
           <Route path='/' element={<Home />} />
         </Route>
