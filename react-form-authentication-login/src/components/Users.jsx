@@ -8,7 +8,7 @@ const Users = () => {
     const axiosPrivate = useAxiosPrivate()
 
     const navigate = useNavigate()
-    const location = useLocation()
+    // const location = useLocation()
 
 
     useEffect(() => {
