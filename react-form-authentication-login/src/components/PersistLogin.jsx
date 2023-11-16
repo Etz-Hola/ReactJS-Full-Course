@@ -9,6 +9,18 @@ const PersistLogin = () => {
 
     const { auth } = useAuth();
 
+    useEffect(() => {
+        const verifyRefreshToken = async () => {
+            try {
+                await refresh();
+            } catch (error) {
+                console.log(error)
+            } finally {
+                setIsLoadin(false)
+            }
+        }
+    })
+
 
   return (
     <div>PersistLogin</div>
