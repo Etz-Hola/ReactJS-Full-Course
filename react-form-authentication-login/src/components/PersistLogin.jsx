@@ -10,7 +10,7 @@ const PersistLogin = () => {
     const { auth } = useAuth();
 
     useEffect(() => {
-        let isMounted = true
+        let isMounted = true;
         const verifyRefreshToken = async () => {
             try {
                 await refresh();
@@ -20,12 +20,26 @@ const PersistLogin = () => {
                 setIsLoadin(false)
             }
         }
-        !auth?.accessToken ? verifyRefreshToken() : setIsLoadin(false)
-    })
+        !auth?.accessToken ? verifyRefreshToken() : setIsLoadin(false);
+
+        return () => isMounted = false;
+    }, [])
+
+    useEffect(() => {
+        console.log(`isLoading: ${isLoading}`);
+        console.log(`aT: ${JSON.stringify(auth?.accessToken)}`);
+
+    }, [isLoadin])
 
 
   return (
-    <div>PersistLogin</div>
+    <>
+        {isLoadin ? 
+            <p>Loading...</p>
+            :
+            <Outlet />
+        }
+    </>
   )
 }
 
