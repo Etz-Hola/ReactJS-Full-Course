@@ -4,13 +4,13 @@ import useRefreshToken from "../hooks/useRefreshToken"
 import useAuth from "../hooks/useAuth"
 
 const PersistLogin = () => {
-    const [isLoadin, setIsLoadin] = useState(true)
+    const [isLoadin, setIsLoadin] = useState(true);
     const refresh = useRefreshToken();
 
     const { auth } = useAuth();
 
     useEffect(() => {
-        let isMounted = true;
+        // let isMounted = true;
         const verifyRefreshToken = async () => {
             try {
                 await refresh();
@@ -22,7 +22,7 @@ const PersistLogin = () => {
         }
         !auth?.accessToken ? verifyRefreshToken() : setIsLoadin(false);
 
-        return () => isMounted = false;
+        // return () => isMounted = false;
     }, [])
 
     useEffect(() => {
