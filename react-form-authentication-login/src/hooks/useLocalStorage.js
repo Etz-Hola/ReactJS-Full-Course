@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 
-const useLocalStorage = () => {
+const useLocalStorage = (key, initValue) => {
+    const [value, setValue] = useState(JSON)
   return (
     <div>useLocalStorage</div>
   )
