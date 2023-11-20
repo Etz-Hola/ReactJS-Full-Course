@@ -52,11 +52,17 @@ li {
 
 button {
     margin: 0.5rem 0.5rem 0 0;
+    cursor: pointer;
     width: 150px;
     font-family: 'Nunito', sans-serif;
     font-size: 22px;
     padding: 0.25rem;
     border-radius: 0.5rem;
+    transition: 2s ease-in-out;
+}
+
+button:hover {
+    background-color: #cb8ae9;
 }
 
 .row {
