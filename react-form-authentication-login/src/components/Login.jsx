@@ -9,7 +9,7 @@ const LOGIN_URL = './auth'
 
 
 const Login = () => {
-    const {setAuth, persist, setPersist} = useAuth()
+    const {setAuth} = useAuth()
 
     const navigate = useNavigate()
     const location = useLocation()
@@ -21,7 +21,7 @@ const Login = () => {
     const [user, resetUser, userAttribs] =useInput('user', '')       //useState("")
     const [pwd, setPwd] = useState("")
     const [errMsg, setErrMsg] = useState("")
-    const 
+    const [check, toggleCheck] = useToggle('persist', false)
 
     useEffect(() => {
         userRef.current.focus()
@@ -69,13 +69,13 @@ const Login = () => {
           
       }
 
-    const togglePersist = () => {
-        setPersist(prev => !prev)
-    }
+    // const togglePersist = () => {
+    //     setPersist(prev => !prev)
+    // }
 
-    useEffect(() => {
-        localStorage.setItem('persist', persist)
-    }, [persist])
+    // useEffect(() => {
+    //     localStorage.setItem('persist', persist)
+    // }, [persist])
 
 
   return (
