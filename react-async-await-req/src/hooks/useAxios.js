@@ -35,4 +35,8 @@ const useAxios = (configObj) => {
         return () => controller.abort();
     })
 
+    return [response, loading, error]
+
 }
+
+export default useAxios;
