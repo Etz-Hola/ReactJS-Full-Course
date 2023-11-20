@@ -16,7 +16,7 @@ html {
 body {
     min-height: 100vh;
     background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), 
-                linear-gradient(dodgerblue,dodgerblue); /* first bg is on top of this */
+                linear-gradient(rgb(30, 255, 188),rgb(255, 30, 225)); /* first bg is on top of this */
 }
 
 .App {
