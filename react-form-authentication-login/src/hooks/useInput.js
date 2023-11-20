@@ -1,4 +1,5 @@
 import { useState } from "react"
+import useLocalStorage from "./useLocalStorage"
 
 const useInput = (initValue) => {
     const [value, setValue] = useState(initValue)
