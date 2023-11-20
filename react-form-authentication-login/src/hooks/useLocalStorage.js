@@ -18,7 +18,7 @@ const getLocalValue = (key, initValue) => {
 
 const useLocalStorage = (key, initValue) => {
     const [value, setValue] = useState(() => {
-        return getLocalValue(key, initValue)
+        return getLocalValue(key, initValue) 
     })
 
     useEffect(() => {
