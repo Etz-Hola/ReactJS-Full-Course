@@ -3,7 +3,7 @@ import useAxios from '../hooks/useAxios'
 import axios from '../apis/dadjokes'
 
 const Jokes = () => {
-    const  [joke, error, loading] = useAxios({
+    const  [joke, loading, error] = useAxios({
         axiosInstance : axios,
         method: 'GET',
         url: '/',
