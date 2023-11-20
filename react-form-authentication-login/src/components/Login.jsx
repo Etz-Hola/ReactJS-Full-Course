@@ -93,7 +93,7 @@ const Login = () => {
                 id="username"
                 ref={userRef}
                 autoComplete="off"
-                {}
+                {...userAttribs}
                 required
             />
             <label>
