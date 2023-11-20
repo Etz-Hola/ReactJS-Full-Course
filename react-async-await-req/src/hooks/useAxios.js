@@ -14,6 +14,23 @@ const useAxios = (configObj) => {
 
     useEffect(() => {
         const controller = new AbortController();
+
+        const fetchData = async () => {
+            try {
+                const res = await axiosInstance[method.toLowerCase()](url, {
+                    ...requestConfig,
+                    signal: controller.signal
+                })
+                console.log(res)
+                setResponse(res.data)
+            } catch (error) {
+                console.log(error)
+                setError(error.message)
+            } finally {
+                setLoading(false)
+            }
+        }
+        fetchData();
     })
 
 }
