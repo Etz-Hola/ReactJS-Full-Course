@@ -44,7 +44,7 @@ const Login = () => {
 
             setAuth({user, pwd, roles, accessToken});
 
-            setUser('');
+            resetUser('');
             setPwd('');
             navigate(from, {replace: true});            
         } catch (error) {
@@ -93,7 +93,7 @@ const Login = () => {
                 id="username"
                 ref={userRef}
                 autoComplete="off"
-                onChange={(e) => setUser(e.target.value)}
+                onChange={(e) => resetUser(e.target.value)}
                 value={user}
                 required
             />
