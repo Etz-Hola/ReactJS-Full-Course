@@ -109,7 +109,7 @@ const Login = () => {
             />
             <button  >Sign In</button>
             <div className="persistCheck">
-                <input type="checkbox" id="persist" onChange={togglePersist} checked={persist} />
+                <input type="checkbox" id="persist" onChange={toggleCheck} checked={check} />
                 <label htmlFor="persist">Trust this device</label>
             </div>
             
