@@ -14,7 +14,17 @@ const Jokes = () => {
         }
     })
   return (
-    <article></article>
+    <article>
+        <h2>Random Dad Jokes.</h2>
+
+        {loading && <p>loading...</p>}
+
+        {!loading && error && <p className='errMsg'>{error}</p>}
+
+        {!loading && !error && joke && <p>{joke?.joke}</p>}
+
+        {!loading && !error && !joke && <p>No Joke to display! 😜</p>}
+    </article>
   )
 }
 
