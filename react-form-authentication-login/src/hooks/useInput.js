@@ -8,7 +8,7 @@ const useInput = (initValue) => {
         value,
         onchange: (e) => setValue(e.target.value)
     }
-//   return [ value, reset, attributeObj ]
+  return [ value, reset, attributeObj ]
 }
 
 export default useInput
