@@ -11,7 +11,7 @@ const getLocalValue = (key, initValue) => {
     if (locaValue) return locaValue
 
     // return result of a function
-    if (initValue instanceof Function) return initValue
+    if (initValue instanceof Function) return initValue()
 
     return initValue
 }
