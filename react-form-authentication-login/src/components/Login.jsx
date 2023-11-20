@@ -93,8 +93,7 @@ const Login = () => {
                 id="username"
                 ref={userRef}
                 autoComplete="off"
-                onChange={(e) => resetUser(e.target.value)}
-                value={user}
+                
                 required
             />
             <label>
