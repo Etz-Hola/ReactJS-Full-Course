@@ -9,7 +9,11 @@ const useAxios = (configObj) => {
     } = configObj;
 
     const [response, setResponse] = useState([]);
-    const [error, setError] = useState('')
-    const [loading, setLoading] = useState(true)
+    const [error, setError] = useState('');
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const controller = new AbortController();
+    })
 
 }
