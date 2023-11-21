@@ -50,7 +50,7 @@ const Posts = () => {
                 </ul>}
             {!loading && !error && posts?.data && 
                 <p>
-                    userId: { posts.data?.userId}, title: {posts.data.title}, body: {posts.data.body}
+                    userId: { posts.data?.userId}, title: {posts.data?.title}, body: {posts.data.body}
                 </p>
             }
             {!loading && !error && !posts && <p>No Post to display! 😜</p>}
