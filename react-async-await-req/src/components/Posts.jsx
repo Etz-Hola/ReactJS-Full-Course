@@ -4,7 +4,7 @@ import { useEffect } from "react";
 
 
 const Posts = () => {
-    const [response, loading, error, axiosFetch] = useAxiosFunction();
+    const [posts, loading, error, axiosFetch] = useAxiosFunction();
 
     const getData = () => {
         axiosFetch({
@@ -39,7 +39,9 @@ const Posts = () => {
 
         {loading && <p>loading...</p>}
         {!loading && error && <p className='errMsg'>{error}</p>}
-        {!loading && !error && posts && <p>{joke?.joke}</p>}
+        {!loading && !error && posts?.length && {
+            
+        }}
         {!loading && !error && !joke && <p>No Joke to display! 😜</p>}
 
     </article>
