@@ -4,7 +4,7 @@ import { useEffect } from "react";
 
 
 const Posts = () => {
-    const []
+    const [response, loading, error, axiosFetch]
   return (
     <div>Posts</div>
   )
