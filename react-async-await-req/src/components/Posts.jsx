@@ -23,12 +23,27 @@ const Posts = () => {
             axiosInstance : axios,
             url: "/posts",
             method: 'post',
-            
+            requestConfig: {
+                data: {
+                    userId: 10,
+                    title: "Adeshola",
+                    body: "Boda oni chicken..",
+                }
+            }
         })
     }
 
   return (
-    <div>Posts</div>
+    <article>
+        <h2>Posts</h2>
+
+        {loading && <p>loading...</p>}
+        {!loading && error && <p className='errMsg'>{error}</p>}
+        {!loading && !error && joke && <p>{joke?.joke}</p>}
+        {!loading && !error && !joke && <p>No Joke to display! 😜</p>}
+        
+    </article>
+
   )
 }
 
