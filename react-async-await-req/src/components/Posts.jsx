@@ -4,6 +4,7 @@ import { useEffect } from "react";
 
 
 const Posts = () => {
+    const []
   return (
     <div>Posts</div>
   )
