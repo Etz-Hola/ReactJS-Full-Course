@@ -27,7 +27,7 @@ const Posts = () => {
                 data: {
                     userId: 10,
                     title: "Adeshola",
-                    body: "Boda oni chicken..",
+                    body: "Boda oni chicken...",
                 }
             }
         })
