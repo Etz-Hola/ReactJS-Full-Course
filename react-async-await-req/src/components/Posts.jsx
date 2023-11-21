@@ -4,7 +4,8 @@ import { useEffect } from "react";
 
 
 const Posts = () => {
-    const [response, loading, error, axiosFetch]
+    const [response, loading, error, axiosFetch] = useAxiosFunction;
+    
   return (
     <div>Posts</div>
   )
