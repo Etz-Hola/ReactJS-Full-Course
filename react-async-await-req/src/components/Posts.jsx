@@ -56,7 +56,7 @@ const Posts = () => {
             {!loading && !error && !posts && <p>No Post to display! 😜</p>}
 
         </article>
-    );
+    ); 
 };
 
 export default Posts
