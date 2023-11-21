@@ -37,7 +37,7 @@ const Posts = () => {
         <article>
             <h2>Posts</h2>
             <div className="row">
-                <button onClick={handleSubmit()}>Submit</button>
+                <button onClick={() => handleSubmit()}>Submit</button>
             </div>
 
             {loading && <p>loading...</p>}
@@ -53,7 +53,7 @@ const Posts = () => {
                     userId: { posts.data.userId} title: {posts.data.title} body: {posts.data.body}
                 </p>
             }
-            {!loading && !error && !posts?.length && <p>No Post to display! 😜</p>}
+            {!loading && !error && !posts && <p>No Post to display! 😜</p>}
 
         </article>
     );
