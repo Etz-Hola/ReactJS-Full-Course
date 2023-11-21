@@ -48,9 +48,9 @@ const Posts = () => {
                             <li key={i}>{post.id}. {post.title}</li>
                         ))}
                 </ul>}
-            {!loading && !error && posts?.length && posts?.data && 
+            {!loading && !error && posts?.data && 
                 <p>
-                    `$`
+                    userId: { posts.data.userId} title: {posts.data.title} body: {posts.data.body}
                 </p>
             }
             {!loading && !error && !posts?.length && <p>No Post to display! 😜</p>}
