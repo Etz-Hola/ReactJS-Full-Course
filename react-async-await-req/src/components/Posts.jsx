@@ -39,7 +39,7 @@ const Posts = () => {
 
         {loading && <p>loading...</p>}
         {!loading && error && <p className='errMsg'>{error}</p>}
-        {!loading && !error && joke && <p>{joke?.joke}</p>}
+        {!loading && !error && posts && <p>{joke?.joke}</p>}
         {!loading && !error && !joke && <p>No Joke to display! 😜</p>}
 
     </article>
