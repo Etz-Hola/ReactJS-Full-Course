@@ -8,7 +8,7 @@ const Posts = () => {
 
     const getData = () => {
         axiosFetch({
-            axiosInstance : axios,
+            axiosInstance: axios,
             url: "/posts",
             method: 'GET',
         })
@@ -20,7 +20,7 @@ const Posts = () => {
 
     const handleSubmit = () => {
         axiosFetch({
-            axiosInstance : axios,
+            axiosInstance: axios,
             url: "/posts",
             method: 'post',
             requestConfig: {
@@ -33,22 +33,25 @@ const Posts = () => {
         })
     }
 
-  return (
-    <article>
-        <h2>Posts</h2>
+    return (
+        <article>
+            <h2>Posts</h2>
+            <div className="row">
+                <button onClick={() => handleSubmit()}>Submit</button>
+            </div>
 
-        {loading && <p>loading...</p>}
-        {!loading && error && <p className='errMsg'>{error}</p>}
-        {!loading && !error && posts?.length && 
-            <ul>
-                {
-                    posts.map((post, i) => ())
-                }
-            </ul>}
-        {!loading && !error && !joke && <p>No Joke to display! 😜</p>}
+            {loading && <p>loading...</p>}
+            {!loading && error && <p className='errMsg'>{error}</p>}
+            {!loading && !error && posts?.length &&
+                <ul>
+                    {posts.map((post, i) => (
+                            <li key={i}>{post.id}. {post.title}</li>
+                        ))}
+                </ul>}
+            {!loading && !error && !posts?.length && <p>No Post to display! 😜</p>}
 
-    </article>
-  );
+        </article>
+    );
 };
 
 export default Posts
