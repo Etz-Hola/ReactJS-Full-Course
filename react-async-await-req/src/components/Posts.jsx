@@ -15,6 +15,7 @@ const Posts = () => {
     }
 
     useEffect(() => {
+        // to get the data from the endpoint
         getData()
     }, [])
 
@@ -27,7 +28,7 @@ const Posts = () => {
                 data: {
                     userId: 10,
                     title: "Adeshola",
-                    body: "Boda oni chicken...",
+                    body: "Boda oni chicken🐓...",
                 }
             }
         })
@@ -38,6 +39,7 @@ const Posts = () => {
             <h2>Posts</h2>
             <div className="row">
                 <button onClick={ handleSubmit}>Submit</button>
+                <button onClick={ getData}>Re-request</button>
             </div>
 
             {loading && <p>loading...</p>}
