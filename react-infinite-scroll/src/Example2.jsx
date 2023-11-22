@@ -10,7 +10,6 @@ const Example2 = () => {
     useInfiniteQuery()
 
 
-
   const intObserver = useRef();
 
   const lastPostRef = useCallback(
