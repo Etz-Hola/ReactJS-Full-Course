@@ -46,7 +46,7 @@ const Example2 = () => {
       });
 
       if (post) intObserver.current.observe(post)
-    }, [isFetchingNextPage,  fetchNextPage, hasNextPage])
+    }, [isFetchingNextPage, fetchNextPage, hasNextPage])
 
   if (isError) return <p className="center">Error : {error.message}</p>
 
