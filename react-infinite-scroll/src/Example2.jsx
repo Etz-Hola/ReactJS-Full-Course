@@ -18,7 +18,7 @@ const Example2 = () => {
 
   const lastPostRef = useCallback(
     (post) => {
-      if (loading) return;
+      if (isFetchingNextPage) return;
 
       if (intObserver.current) intObserver.current.disconnect();
 
