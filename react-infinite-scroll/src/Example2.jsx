@@ -6,8 +6,7 @@ import { useInfiniteQuery } from "react-query";
 import { getPostsPage} from "./api/axios";
 
 const Example2 = () => {
-  const [pageNum, setPageNum] = useState(1)
-  const { loading, isError, error, results, hasNextPage } = usePosts(pageNum)
+
 
 
   const intObserver = useRef();
