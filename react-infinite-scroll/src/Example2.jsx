@@ -30,6 +30,7 @@ const Example2 = () => {
             {
               label: 'Yes',
               onClick: () => {
+                fetchNextPage()
                 
               }
             },
