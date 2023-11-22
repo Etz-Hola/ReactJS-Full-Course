@@ -8,7 +8,9 @@ import { getPostsPage } from "./api/axios";
 const Example2 = () => {
     const { fetchNextPage, hasNextPage, isFetchingNextPage, data, status, error} = 
     useInfiniteQuery('/posts', ({pageParam = 1}) => getPostsPage(pageParam), {
-        getNextPageParam:
+        getNextPageParam: (lastPage, allPages) => {
+            return lastPage.length ? allPages.length + 1 : undefined
+        }
     })
 
 
