@@ -35,7 +35,6 @@ const Example1 = () => {
 
       intObserver.current = new IntersectionObserver((post) => {
         if (post[0].isIntersecting && hasNextPage){
-
           console.log("we are near the last post");
         setPageNum(prev => prev + 1);
         }
