@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Post = React.forwardRef(({ post }) => {
+const Post = React.forwardRef(({ post }, ref) => {
     const postBody = (
         <>
             <h2>{post.title}</h2>
