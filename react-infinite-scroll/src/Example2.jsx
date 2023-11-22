@@ -13,7 +13,7 @@ const Example2 = () => {
         }
     })
 
-
+ 
   const intObserver = useRef();
 
   const lastPostRef = useCallback(
