@@ -30,8 +30,7 @@ const Example2 = () => {
             {
               label: 'Yes',
               onClick: () => {
-                fetchNextPage()
-                
+                fetchNextPage()                
               }
             },
             {label: 'No'}
@@ -47,7 +46,7 @@ const Example2 = () => {
       });
 
       if (post) intObserver.current.observe(post)
-    }, [loading, hasNextPage])
+    }, [isFetchingNextPage, fetchNextPage, hasNextPage])
 
   if (isError) return <p className="center">Error : {error.message}</p>
 
