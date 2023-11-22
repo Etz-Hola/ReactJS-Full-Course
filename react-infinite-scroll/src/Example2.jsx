@@ -30,7 +30,7 @@ const Example2 = () => {
             {
               label: 'Yes',
               onClick: () => {
-                setPageNum
+                setPage
               }
             },
             {label: 'No'}
