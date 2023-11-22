@@ -3,11 +3,11 @@ import { confirmAlert } from "react-confirm-alert";
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import Post from "./Post";
 import { useInfiniteQuery } from "react-query";
-import { getPostsPage} from "./api/axios";
+import { getPostsPage } from "./api/axios";
 
 const Example2 = () => {
     const { fetchNextPage, hasNextPage, isFetchingNextPage, data, status, error} = 
-    useInfiniteQuery()
+    useInfiniteQuery('/posts', ({pageParam = 1}) => getPostsPage(pageParam))
 
 
   const intObserver = useRef();
