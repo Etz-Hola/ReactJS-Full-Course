@@ -1,7 +1,8 @@
-import { useState, useRef, useCallback } from "react"
+import { useRef, useCallback } from "react"
 import { confirmAlert } from "react-confirm-alert";
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import Post from "./Post";
+import { useInfiniteQuery } from "react-query";
 
 const Example2 = () => {
   const [pageNum, setPageNum] = useState(1)
