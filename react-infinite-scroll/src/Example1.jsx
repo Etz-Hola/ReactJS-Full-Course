@@ -28,6 +28,7 @@ const Example1 = () => {
 
   const content = results.map((post, i) => {
     if(results.length === i + 1) {
+      return <Post ref={lastPosrRef} key={post.id} post={post}/>
     }
 
     return <Post key={post.id} post={post}/>
