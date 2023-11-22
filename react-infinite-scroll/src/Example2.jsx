@@ -7,7 +7,9 @@ import { getPostsPage } from "./api/axios";
 
 const Example2 = () => {
     const { fetchNextPage, hasNextPage, isFetchingNextPage, data, status, error} = 
-    useInfiniteQuery('/posts', ({pageParam = 1}) => getPostsPage(pageParam))
+    useInfiniteQuery('/posts', ({pageParam = 1}) => getPostsPage(pageParam), {
+        getNextPageParam:
+    })
 
 
   const intObserver = useRef();
