@@ -12,7 +12,7 @@ const Example2 = () => {
             return lastPage.length ? allPages.length + 1 : undefined
         }
     })
-
+ 
  
   const intObserver = useRef();
 
