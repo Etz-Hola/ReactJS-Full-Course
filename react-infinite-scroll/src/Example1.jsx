@@ -24,8 +24,7 @@ const Example1 = () => {
         setPageNum(prev => prev + 1);
       });
       if(post) intObserver.current.observe(post)
-  }, 
-  [loading, hasNextPage])
+  }, [loading, hasNextPage])
 
   const content = results.map((post, i) => {
     if(results.length === i + 1) {
