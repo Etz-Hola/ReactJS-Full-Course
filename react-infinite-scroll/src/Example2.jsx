@@ -66,7 +66,7 @@ const Example2 = () => {
       <h1 id='top'>
         &infin; Infinite Query &amp; Scroll
         <br />
-        &infin; Ex. 1 - React Only
+        &infin; Ex. 2 - React query
       </h1>
 
       {content}
