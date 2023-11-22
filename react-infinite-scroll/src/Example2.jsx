@@ -50,7 +50,9 @@ const Example2 = () => {
 
   if (status === 'error') return <p className="center">Error : {error.message}</p>
 
-  const content = 
+  const content =  data?.pages.map(pg > {
+    
+  })
   
   results.map((post, i) => {
     if (results.length === i + 1) {
