@@ -6,6 +6,7 @@ import { ChakraProvider } from '@chakra-ui/react'
 import {mode} from "@chakra-ui/theme-tools"
 import { extendTheme } from '@chakra-ui/theme-utils'
 import { ColorModeScript } from '@chakra-ui/color-mode'
+import { BrowserRouter } from 'react-router-dom'
 
 const styles = {
   global: (props) => ({
