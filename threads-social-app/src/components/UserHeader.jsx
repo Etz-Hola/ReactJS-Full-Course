@@ -78,5 +78,5 @@ const UserHeader = () => {
   </VStack>
   )
 }
-    
+
 export default UserHeader
