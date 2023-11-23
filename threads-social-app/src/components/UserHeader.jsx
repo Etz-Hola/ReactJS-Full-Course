@@ -10,7 +10,7 @@ const UserHeader = () => {
     const toast = useToast();
     const copyURL = () => {
         const currentURL = window.location.href;
-        navigator
+        navigator.clipboard.writeText(currentURL).then
     }
 
 
