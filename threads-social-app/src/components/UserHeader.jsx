@@ -1,8 +1,16 @@
-import React from 'react'
+import { Box, Flex, VStack, Text } from "@chakra-ui/layout"
 
 const UserHeader = () => {
-  return (
-    <div>UserHeader</div>
+  return ( <VStack gap={4} alignItems={'start'}>
+    <Flex justifyContent={'space-between'} w={'full'}>
+        <Box>
+            <Text >
+                Aliu Musa
+            </Text>
+        </Box>
+
+    </Flex>
+  </VStack>
   )
 }
 
