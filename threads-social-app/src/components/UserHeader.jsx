@@ -38,7 +38,7 @@ const UserHeader = () => {
             <Box width={1} h={1} bg={"gray.light"} borderRadius="50%"></Box>
             <Link color={"gray.light"}>instagram.com</Link>
         </Flex>
-        <Flex gap={2}>
+        <Flex className="icon-container " gap={2}>
             <Box><BsInstagram size={24} cursor={"pointer"}/></Box>
             <Box><CgMoreO size={24} cursor={"pointer"} /> </Box>
         </Flex>
