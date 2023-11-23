@@ -32,7 +32,9 @@ const UserHeader = () => {
     <Text>Founder, executive chairman and CEO of DLTAfrica</Text>
     <Flex w={"full"} justifyContent={"space-between"}>
         <Flex gap={2} alignItems={"center"}>
-            
+            <Text color={"gray.light"}>3.2k followers</Text>
+            <Box></Box>
+
         </Flex>
     </Flex>
   </VStack>
