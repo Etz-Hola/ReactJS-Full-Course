@@ -10,7 +10,15 @@ const UserHeader = () => {
     const toast = useToast();
     const copyURL = () => {
         const currentURL = window.location.href;
-        navigator.clipboard.writeText(currentURL).then
+        navigator.clipboard.writeText(currentURL).then(() => {
+            toast({
+                title: 'Account created.',
+                description: "Profile link copy",
+                status: 'success',
+                duration: 3000,
+                isClosable: true,
+              })
+        })
     }
 
 
