@@ -4,7 +4,7 @@ const UserHeader = () => {
   return ( <VStack gap={4} alignItems={'start'}>
     <Flex justifyContent={'space-between'} w={'full'}>
         <Box>
-            <Text fontSize={"2xl"} >
+            <Text fontSize={"2xl"} fontWeight={"bold"} >
                 Aliu Musa
             </Text>
         </Box>
