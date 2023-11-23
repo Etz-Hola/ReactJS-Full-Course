@@ -1,4 +1,4 @@
-import { Box, Flex, VStack, Text } from "@chakra-ui/layout"
+import { Box, Flex, VStack, Text, Link } from "@chakra-ui/layout"
 import { Avatar } from "@chakra-ui/react"
 
 const UserHeader = () => {
@@ -34,6 +34,7 @@ const UserHeader = () => {
         <Flex gap={2} alignItems={"center"}>
             <Text color={"gray.light"}>3.2k followers</Text>
             <Box width={1} h={1} bg={"gray.light"} borderRadius="50%"></Box>
+            <Link color={"gray.light"}>instagram.com</Link>
 
         </Flex>
     </Flex>
