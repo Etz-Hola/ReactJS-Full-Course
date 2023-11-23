@@ -24,7 +24,7 @@ const UserHeader = () => {
             <Avatar 
                 name="Aliu Musa"
                 src="/directorPro.jpeg"
-                size={"x"}
+                size={""}
             />
         </Box>
 
