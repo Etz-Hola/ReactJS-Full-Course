@@ -1,6 +1,9 @@
-import { Flex, Image } from "@chakra-ui/react"
+import { Flex, Image, useColorMode } from "@chakra-ui/react"
 
 const Header = () => {
+    
+
+
   return <Flex justifyContent={"center"} mt={6} mb="12">
     <Image alt="logo"
         w={6}
