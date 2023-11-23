@@ -24,10 +24,16 @@ const UserHeader = () => {
             <Avatar 
                 name="Aliu Musa"
                 src="/directorPro.jpeg"
-                size={""}
+                size={"xl"}
             />
         </Box>
+    </Flex>
 
+    <Text>Founder, executive chairman and CEO of DLTAfrica</Text>
+    <Flex w={"full"} justifyContent={"space-between"}>
+        <Flex gap={2} alignItems={"center"}>
+            
+        </Flex>
     </Flex>
   </VStack>
   )
