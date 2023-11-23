@@ -1,9 +1,14 @@
+import { Button } from "@chakra-ui/react"
+
+
 
 function App() {
 
   return (
     <>
-     <h1>Hello..</h1>
+     <Button colorScheme='teal' size='md'>
+    Button
+  </Button>
     </>
   )
 }
