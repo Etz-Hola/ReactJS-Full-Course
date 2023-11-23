@@ -1,7 +1,7 @@
 import { Box, Flex, VStack, Text, Link } from "@chakra-ui/layout"
 import { Avatar } from "@chakra-ui/react"
 import { BsInstagram } from "react-icons/bs";
-import { CgMoreO} from "react-icons/
+import { CgMoreO} from "react-icons/cg"
 
 const UserHeader = () => {
   return ( <VStack gap={4} alignItems={'start'}>
