@@ -33,7 +33,7 @@ const UserHeader = () => {
     <Flex w={"full"} justifyContent={"space-between"}>
         <Flex gap={2} alignItems={"center"}>
             <Text color={"gray.light"}>3.2k followers</Text>
-            <Box></Box>
+            <Box width={1} h={1} bg={"gray.light"} borderRadius="50%"></Box>
 
         </Flex>
     </Flex>
