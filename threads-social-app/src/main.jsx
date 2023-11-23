@@ -18,6 +18,12 @@ const styles = {
 const config = {
   initialColorMode: 'light',
   useSystemColorMode: false,
+};
+
+const colors = {
+  gray: {
+    d
+  }
 }
 
 ReactDOM.createRoot(document.getElementById('root')).render(
