@@ -9,7 +9,8 @@ import { CgMoreO} from "react-icons/cg"
 const UserHeader = () => {
     const toast = useToast();
     const copyURL = () => {
-        const currentURL = window.location.
+        const currentURL = window.location.href;
+        navigator
     }
 
 
