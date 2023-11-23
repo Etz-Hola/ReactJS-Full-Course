@@ -7,6 +7,14 @@ import { BsInstagram } from "react-icons/bs";
 import { CgMoreO} from "react-icons/cg"
 
 const UserHeader = () => {
+    const toast = useToast();
+    const copyURL = () => {
+
+    }
+
+
+
+    
   return ( <VStack gap={4} alignItems={'start'}>
     <Flex justifyContent={'space-between'} w={'full'}>
         <Box>
