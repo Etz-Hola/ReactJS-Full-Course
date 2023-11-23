@@ -5,6 +5,7 @@ import './index.css'
 import { ChakraProvider } from '@chakra-ui/react'
 import {mode} from "@chakra-ui/theme-tools"
 import { extendTheme } from '@chakra-ui/theme-utils'
+import { ColorModeScript } from '@chakra-ui/color-mode'
 
 const styles = {
   global: (props) => ({
@@ -16,13 +17,14 @@ const styles = {
 };
 
 const config = {
-  initialColorMode: 'light',
-  useSystemColorMode: false,
+  initialColorMode: 'dark',
+  useSystemColorMode: true,
 };
 
 const colors = {
   gray: {
-    d
+    light: '#616161',
+    dark: '#1e1e1e'
   }
 }
 
