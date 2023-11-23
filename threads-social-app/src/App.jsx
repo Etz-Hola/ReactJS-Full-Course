@@ -1,4 +1,4 @@
-import { Button } from "@chakra-ui/react"
+import { Button } from "@chakra-ui/button"
 
 
 
@@ -6,7 +6,7 @@ function App() {
 
   return (
     <>
-     <Button colorScheme='teal' size='md'>
+<Button colorScheme='teal' size='lg'>
     Button
   </Button>
     </>
