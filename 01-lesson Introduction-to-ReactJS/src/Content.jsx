@@ -1,4 +1,4 @@
-import React fro
+import React fr
 import { useState } from 'react'
 
 
