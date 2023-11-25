@@ -1,4 +1,4 @@
-import Reac
+import Rea
 import { useState } from 'react'
 
 
