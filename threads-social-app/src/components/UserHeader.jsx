@@ -89,9 +89,10 @@ const UserHeader = () => {
            
             <Flex
              flex={1}
-             borderBottom={"1.5px solid white"}
+             borderBottom={"1px solid gray"}
              justifyContent={"center"} 
              pb={"3"}
+             color={"gray"}
              cursor={"pointer"}>
              <Text fontWeight={"bold"}>Replies</Text>
             </Flex>
