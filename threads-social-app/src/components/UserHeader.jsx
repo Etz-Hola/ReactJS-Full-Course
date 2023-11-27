@@ -92,7 +92,7 @@ const UserHeader = () => {
              borderBottom={"1px solid gray"}
              justifyContent={"center"} 
              pb={"3"}
-             color={"gray"}
+             color={"gray.light"}
              cursor={"pointer"}>
              <Text fontWeight={"bold"}>Replies</Text>
             </Flex>
