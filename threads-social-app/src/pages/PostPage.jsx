@@ -1,4 +1,4 @@
-import { Avatar, Box, Button, Center, Divider, Flex, Image, Text } from "@chakra-ui/react";
+import { Avatar, Box, Button, Divider, Flex, Image, Text } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { BsThreeDots } from "react-icons/bs";
 import Actions from "../components/Actions";
