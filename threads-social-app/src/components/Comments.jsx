@@ -11,13 +11,13 @@ const Comments = ({comment, createdAt, likes, username, userAvater}) => {
             <Avatar 
                 src="https://bit.ly/ryan-florence"
                 size={"sm"}
-                name= "Ryan Florence"             
+                name= [username]             
             />
 
             <Flex flexDirection={"column"} gap={1} w={"full"}>
 
                 <Flex justifyContent={"space-between"} alignItems={"center"} w={"full"}>
-                    <Text fontSize={"sm"} fontWeight={"bold"} >JohnDoe</Text>
+                    <Text fontSize={"sm"} fontWeight={"bold"} >{createdAt}</Text>
 
                     <Flex gap={2} alignItems={"center"}>
                         <Text fontSize={"sm"} color={"gray.light"}>2 min age</Text>
@@ -28,7 +28,7 @@ const Comments = ({comment, createdAt, likes, username, userAvater}) => {
 
                 <Actions liked={liked} setLiked={setLiked}/>
 
-                <Text>{12 + (liked ? 1 : 0)}likes</Text>
+                <Text>{likes + (liked ? 1 : 0)}likes</Text>
 
             </Flex>
         </Flex>
