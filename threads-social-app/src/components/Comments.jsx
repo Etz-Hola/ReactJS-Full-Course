@@ -11,7 +11,7 @@ const Comments = ({comment, createdAt, likes, username, userAvater}) => {
             <Avatar 
                 src="https://bit.ly/ryan-florence"
                 size={"sm"}
-                name= [username]             
+                name= {username}           
             />
 
             <Flex flexDirection={"column"} gap={1} w={"full"}>
