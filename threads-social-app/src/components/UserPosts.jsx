@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 
 const UserPosts = () => {
   return (
-    <Link to={}>UserPosts</Link>
+    <Link to={"/aliumusa/post/1"}>UserPosts</Link>
   )
 }
 
