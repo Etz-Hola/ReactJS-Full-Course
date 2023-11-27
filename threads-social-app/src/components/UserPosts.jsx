@@ -1,8 +1,8 @@
-import React from 'react'
+import { Link } from "react-router-dom"
 
 const UserPosts = () => {
   return (
-    <div>UserPosts</div>
+    <Link>UserPosts</Link>
   )
 }
 
