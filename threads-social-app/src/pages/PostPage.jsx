@@ -1,8 +1,30 @@
+import { Avatar, Flex, Image, Text } from '@chakra-ui/react'
 import React from 'react'
+import { BsThreeDots} from "react-icons/bs"
 
 const PostPage = () => {
   return (
-    <div>PostPage</div>
+    <>
+      <Flex>
+        <Flex w={"full"} gap={3} alignItems={"center"} justifyContent={"center"}>
+          <Avatar src="/aliumusa.jpeg" name='Aliu Musa' size={"md"} />
+
+          <Flex alignItems={"center"}>
+          <Text fontSize={"sm"}>Aliu Musa</Text>
+          <Image src='/verified.png' h={4} w={4} ml={2}/>
+          </Flex>
+
+
+          <Flex gap={4} alignItems={"center"}>
+          <Text fontSize={"sm"} textAlign={"right"} w={36}>2dat</Text>
+          <BsThreeDots />
+          </Flex>
+
+
+        </Flex>
+      </Flex>
+
+    </>
   )
 }
 
