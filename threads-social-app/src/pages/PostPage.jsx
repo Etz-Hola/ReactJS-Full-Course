@@ -18,9 +18,9 @@ const PostPage = () => {
           <Text fontSize={{ base: "xs", md: "sm" }} textAlign={"right"} w={36} color={"gray.light"}>2dat</Text>
           <BsThreeDots />
         </Flex>
-
-
       </Flex>
+
+      <Text my={3}>Hello gbogbo ile!!!</Text>
 
 
     </>
