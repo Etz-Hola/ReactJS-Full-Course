@@ -35,7 +35,7 @@ const postSchema = mongoose.Schema(
                     type: String
                 },
                 username: {
-                    typepe: String
+                    type: String
                 },
               
 
