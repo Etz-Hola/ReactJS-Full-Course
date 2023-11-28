@@ -1,14 +1,14 @@
-import { Avatar, Box, Flex, Image, Text } from "@chakra-ui/react"
+import { Avatar, Box, Flex, Image, Menu, MenuButton, MenuDivider, MenuGroup, MenuItem, MenuList, Text } from "@chakra-ui/react"
 import { BsThreeDots } from "react-icons/bs"
 import { Link } from "react-router-dom"
 import Actions from "./Actions"
 import { useState } from "react"
 
-const UserPosts = ({likes, replies, postTitle, postImg}) => {
+const UserPosts = ({ likes, replies, postTitle, postImg }) => {
     const [liked, setLiked] = useState()
 
     return (
-        
+
         <Link to={"/aliumusa/post/1"}>
             <Flex gap={3} mb={4} py={5}>
                 <Flex flexDir={"column"} alignItems={"center"}>
@@ -29,20 +29,38 @@ const UserPosts = ({likes, replies, postTitle, postImg}) => {
                             <Text>AliuMusa</Text>
                             <Image src="/verified.png" ml={1} w={4} h={4} />
                         </Flex>
-                        
-                        <Flex alignItems={"center"} gap={4}>
+
+                        <Flex alignItems={"center"} gap={4} onClick={(e) => e.preventDefault()}>
                             <Text>1day</Text>
-                            <BsThreeDots />
+                            <Menu>
+                                <MenuButton>
+                                    <BsThreeDots cursor={'pointer'} />
+                                </MenuButton>
+                                <MenuList>
+                                    <MenuGroup>
+                                        <MenuItem color={'gray.light'}>Mute</MenuItem>
+                                    </MenuGroup>
+                                    <MenuDivider />
+                                    <MenuGroup>
+                                        <MenuItem color={'red'}>Block</MenuItem>
+                                        <MenuItem color={'gray.light'}>Hide</MenuItem>
+                                    </MenuGroup>
+                                    <MenuDivider />
+                                    <MenuGroup>
+                                        <MenuItem color={'red'}>Report</MenuItem>
+                                    </MenuGroup>
+                                </MenuList>
+                            </Menu>
                         </Flex>
                     </Flex>
 
                     <Text fontSize={"sm"}>{postTitle}</Text>
                     {postImg && (
-                    <Box overflow={"hidden"} borderRadius={"6"} border={"1px solid"} borderColor={"gray.light"} width={"full"}>
-                        <Image  src={postImg} width={"full"}/>
-                    </Box>
+                        <Box overflow={"hidden"} borderRadius={"6"} border={"1px solid"} borderColor={"gray.light"} width={"full"}>
+                            <Image src={postImg} width={"full"} />
+                        </Box>
                     )}
-                    
+
                     <Flex>
                         <Actions liked={liked} setLiked={setLiked} />
                     </Flex>
@@ -56,7 +74,7 @@ const UserPosts = ({likes, replies, postTitle, postImg}) => {
 
                 </Flex>
 
-                
+
             </Flex>
         </Link>
     )
