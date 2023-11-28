@@ -1,9 +1,15 @@
-import { express } from "express";  
-import { signUpUser } from "../controllers/userController";
+const  express = require  ("express");  
+const { signUpUser } = require ("../controllers/userController");
 
 const router = express.Router();
 
-router.post('/signup', signUpUser)
+router.get('/signup', (req, res) => {
+    res.send('signed up successfully');
+})
 
 
-export default router;
+module.exports = router
+
+
+
+
