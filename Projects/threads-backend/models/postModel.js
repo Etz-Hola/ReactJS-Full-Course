@@ -23,9 +23,22 @@ const postSchema = mongoose.Schema(
         replies: [
             {
                 userId: {
-                    type: [mongoose.Schema.Types.ObjectId],
+                    type: mongoose.Schema.Types.ObjectId,
                     ref: "User",
                     require: true
+                },
+                text: {
+                    type: String,
+                    required: true
+                },
+                userProfilePic : {
+                    type: String
+                },
+                username: {
+                    typepe: String
+                },
+              
+
                 }
             }
         ]
