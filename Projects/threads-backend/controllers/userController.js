@@ -9,6 +9,10 @@ const signUpUser = async (req, res) => {
         if (user) {
             return res.status(400).json({message: 'User already exists'})
         }
+
+        const salt = await bcrybt.genSalt(10)
+        const hashedPassword = await bcrybt.hash(password, salt)
+        
     } catch (error) {
         
     }
