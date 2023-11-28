@@ -23,4 +23,4 @@ const protectRoute = async (req, res, next) => {
 };
 
 
-module.export = protectRoute
+module.exports = protectRoute

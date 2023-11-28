@@ -3,26 +3,26 @@ const mongoose = require ("mongoose");
 const userSchema = mongoose.Schema(
     {
         name: {
-            type: 'string',
+            type: String,
             required: true
         },
         username: {
-            type: 'string',
+            type: String,
             required: true,
             unique: true
         },
         email: {
-            type: 'string',
+            type: String,
             required: true,
             unique: true,
         },
         password: {
-            type: 'string',
+            type: String,
             minLenght: 6,
             required: true
         },
         profilePic: {
-            type: "String",
+            type: String,
             default: "",
         },
         followers: {
@@ -30,11 +30,11 @@ const userSchema = mongoose.Schema(
             default: []
         },
         bio: {
-            type: 'String',
+            type: String,
             default: "",
         },
         isFrozen: {
-            type: 'Boolean',
+            type: Boolean,
             default: false,
         },
     },
@@ -43,4 +43,4 @@ const userSchema = mongoose.Schema(
 
 const User = mongoose.model("User", userSchema);
 
-module.export = User;
+module.exports = User;

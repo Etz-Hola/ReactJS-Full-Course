@@ -12,7 +12,7 @@ const postSchema = mongoose.Schema(
             maxLength: 500
         },
         img: {
-            type: String,String
+            type: String,
         },
         likes: {
             //array containing the user ids
@@ -39,7 +39,7 @@ const postSchema = mongoose.Schema(
                 }       
             }
         ]
-    }
+    },
     {
         timestamps: true
     }
