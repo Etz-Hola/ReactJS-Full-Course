@@ -12,7 +12,16 @@ const signUpUser = async (req, res) => {
 
         const salt = await bcrybt.genSalt(10)
         const hashedPassword = await bcrybt.hash(password, salt)
-        
+
+        const newUser = new User({
+            name,
+            email,
+            username,
+            password: hashedPassword,
+        })
+
+        await newUser.save()
+
     } catch (error) {
         
     }
