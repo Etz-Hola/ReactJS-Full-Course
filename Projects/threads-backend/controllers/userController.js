@@ -119,7 +119,7 @@ const followUnfollowUser = async (req, res) => {
     }
 
 }
-jju
+jj
  
 module.exports = { signUpUser, loginUser, logoutUser, followUnfollowUser };
  
