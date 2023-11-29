@@ -17,4 +17,4 @@ router.post("/follow/:id", protectRoute, followUnfollowUser); // toggles state(f
 module.exports = router;
 
 
-
+ 
