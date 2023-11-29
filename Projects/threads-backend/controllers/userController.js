@@ -12,7 +12,7 @@ const signUpUser = async (req, res) => {
         }
 
         const salt = await bcrypt.genSalt(10)
-        const hashedPassword = await bcrybt.hash(password, salt)
+        const hashedPassword = await bcrypt.hash(password, salt)
 
         const newUser = new User({
             name,
@@ -111,12 +111,13 @@ const followUnfollowUser = async (req, res) => {
                  res.status(200).json({message: "User unfollowed successfully"})
 
             }
-    } catch (error) {
+    } catch (err) {
         res.status(500).json({error: err.message});
         console.log("Error in followUnfollowUser: ", err.message);
         
     }
 
 }
-
+ 
 module.exports = { signUpUser, loginUser, logoutUser, followUnfollowUser };
+ 
