@@ -5,7 +5,7 @@ const protectRoute = require("../middleware/protectRoute");
 const router = express.Router();
 
 router.get("/profile/:query", getUserProfile);
-// router.ge
+// router.g
 router.post("/signup", signUpUser);
 router.post("/login", loginUser);
 router.post("/logout", logoutUser);
