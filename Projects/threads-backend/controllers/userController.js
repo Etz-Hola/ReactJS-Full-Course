@@ -43,4 +43,10 @@ const signUpUser = async (req, res) => {
   
 };
 
-module.exports = { signUpUser };
+
+
+const loginUser = async (reg, res) => {
+
+}
+
+module.exports = { signUpUser, loginUser };
