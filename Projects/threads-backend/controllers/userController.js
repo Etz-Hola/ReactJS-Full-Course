@@ -92,13 +92,14 @@ const followUnfollowUser = async (req, res) => {
         const currentUser = await User.findById(req.user._id);
 
         if (id === req.user._id.toString())
-            return res.status(400).json({error: 'You can not Follow/Unfollow Your self'})
+            return res.status(400).json({error: 'You can not Follow/Unfollow Yourself'})
+
         if (!userToModify || !currentUser)
             return res.status(400).json({error: "User not Found"});
 
-            const isFollowing = currentUser.folllowing.includes(id)
-            if (isFollowing) {
+            const isFollowing = currentUser.following.includes(id)
 
+            if (isFollowing) {
                 // UNFOLLOW user
                 await User.findByIdAndUpdate(id, {$pull: {followers: req.user._id}})
                 await User.findByIdAndUpdate(req.user._id, {$pull: {following: id}})
@@ -108,7 +109,7 @@ const followUnfollowUser = async (req, res) => {
                  // FOLLOW user
                  await User.findByIdAndUpdate(id, {$push: {followers: req.user._id}})
                  await User.findByIdAndUpdate(req.user._id, {$push: {following: id}})
-                 res.status(200).json({message: "User unfollowed successfully"})
+                 res.status(200).json({message: "User followed successfully"})
 
             }
     } catch (err) {
