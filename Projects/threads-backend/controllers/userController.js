@@ -57,7 +57,7 @@ const loginUser = async (req, res) => {
             user.isFrozen = false
             await user.save()
         }
-
+ 
         generateTokenAndSetCookie(user._id, res);
 
         res.status(200).json({
