@@ -8,6 +8,11 @@ const getUserProfile = async (req, res, next) => {
     // This query is either username or userId
 
     const {query} = req.params;
+        try {
+            let
+        } catch (error) {
+            
+        }
 
 
 }
