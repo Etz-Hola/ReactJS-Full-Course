@@ -46,6 +46,9 @@ const signUpUser = async (req, res) => {
 
 
 const loginUser = async (reg, res) => {
+    try {
+        const { username, password } = req.body
+    }
 
 }
 
