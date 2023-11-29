@@ -1,8 +1,6 @@
 const express = require("express");
 const {
-    getUserProfile,
-  followUnfollowUser,
-  signUpUser,
+    getUserProfile, followUnfollowUser, signUpUser,
   loginUser,
   logoutUser,
 } = require("../controllers/userController");
