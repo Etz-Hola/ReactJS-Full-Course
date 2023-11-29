@@ -9,6 +9,9 @@ const protectRoute = require("../middleware/protectRoute");
 
 const router = express.Router();
 
+router.get("/getUserProfile");
+router.get("/getUserProfile");
+
 router.post("/signup", signUpUser);
 router.post("/login", loginUser);
 router.post("/logout", logoutUser);
