@@ -10,11 +10,16 @@ const getUserProfile = async (req, res, next) => {
     const {query} = req.params;
         try {
             let user;
+            
+                // Query is userId
+            if(mongoose.Types.ObjectId.isValid(query)) {
+                
+            }
         } catch (error) {
             
         }
 
-
+ 
 }
 
 const signUpUser = async (req, res) => {
