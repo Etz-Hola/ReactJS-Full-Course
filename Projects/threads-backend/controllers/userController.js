@@ -9,7 +9,7 @@ const getUserProfile = async (req, res, next) => {
 
     const {query} = req.params;
         try {
-            let
+            let user;
         } catch (error) {
             
         }
