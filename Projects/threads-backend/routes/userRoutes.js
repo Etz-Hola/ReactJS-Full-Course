@@ -15,4 +15,3 @@ router.post("/logout", logoutUser);
 router.post("/follow/:id", protectRoute, followUnfollowUser); // toggles state(follow / unfollow)
 
 module.exports = router;
- jnn
