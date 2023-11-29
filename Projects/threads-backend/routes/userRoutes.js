@@ -1,5 +1,6 @@
 const express = require("express");
 const {
+    getUserProfile,
   followUnfollowUser,
   signUpUser,
   loginUser,
@@ -9,8 +10,8 @@ const protectRoute = require("../middleware/protectRoute");
 
 const router = express.Router();
 
-router.get("/profile/:query", "getUserProfile");
-router.get("/getU
+router.get("/profile/:query", getUserProfile);
+router.get("/get
 
 router.post("/signup", signUpUser);
 router.post("/login", loginUser);
