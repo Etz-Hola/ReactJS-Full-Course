@@ -1,10 +1,12 @@
 const  express = require  ("express");  
-const { signUpUser, loginUser } = require ("../controllers/userController");
+const { followUnfollowUser, signUpUser, loginUser, logoutUser } = require ("../controllers/userController");
 
 const router = express.Router();
 
 router.post('/signup', signUpUser)
 router.post('/login', loginUser)
+router.post('/logout', logoutUser)
+router.post('/follow/:id', protectRoute, followUnfollowUser) // toggles state(follow / unfollow)
 
 
 module.exports = router

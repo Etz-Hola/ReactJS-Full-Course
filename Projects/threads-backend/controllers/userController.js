@@ -1,5 +1,5 @@
 const User = require('../models/userModel')
-const bcrybt = require('bcryptjs');
+const bcrypt = require('bcryptjs');
 const generateTokenAndSetCookie = require('../utils/helper/generateTokenAndSetCookie');
 
 const signUpUser = async (req, res) => {
@@ -11,7 +11,7 @@ const signUpUser = async (req, res) => {
             return res.status(400).json({message: 'User already exists'})
         }
 
-        const salt = await bcrybt.genSalt(10)
+        const salt = await bcrypt.genSalt(10)
         const hashedPassword = await bcrybt.hash(password, salt)
 
         const newUser = new User({
@@ -45,10 +45,10 @@ const signUpUser = async (req, res) => {
 
 
 
-const loginUser = async (reg, res) => {
+const loginUser = async (req, res) => {
     try {
         const { username, password } = req.body;
-        const user = await User.findOne({ username })
+        const user = await User.findOne({ username: username })
         const isPasswordCorrect = await bcrypt.compare(password, user?.password || "")
 
         if(!user || !isPasswordCorrect) return res.status(400).json({error: "Invalid username or password"})
@@ -61,11 +61,38 @@ const loginUser = async (reg, res) => {
         generateTokenAndSetCookie(user._id, res);
 
         res.status(200).json({
-            
+            _id: user.id,
+            name: user.name,
+            email: user.email,
+            username: user.username,
+            bio: user.bio,
+            profilePic: user.profilePic,
         })
+    } catch (err) {
+        res.status(500).json({error: err.message});
+        console.log("Error in loginUser: ", err.message);
+    }
+}
 
+const logoutUser = (req, res) => {
+    try {
+        res.cookie("jwt", "", {maxAge: 1})
+        res.status(200).json({message: "user logged out successfully"})
+    } catch (error) {
+        res.status(500).json({error: err.message});
+        console.log("Error in logoutUser: ", err.message);        
+    }
+}
+
+
+const followUnfollowUser = async (req, res) => {
+    try {
+        const { id } = req.params.id;
+
+    } catch (error) {
+        
     }
 
 }
 
-module.exports = { signUpUser, loginUser };
+module.exports = { signUpUser, loginUser, logoutUser, followUnfollowUser };
