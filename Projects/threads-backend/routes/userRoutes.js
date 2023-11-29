@@ -13,7 +13,6 @@ router.post("/signup", signUpUser);
 router.post("/login", loginUser);
 router.post("/logout", logoutUser);
 router.post("/follow/:id", protectRoute, followUnfollowUser); // toggles state(follow / unfollow)
-router.get("/getUserProfile");
 
 
 
