@@ -148,9 +148,12 @@ const followUnfollowUser = async (req, res) => {
 const updateUser = async (req, res) => {
   const { name, email, username, password, profilePic, bio } = req.body;
   const userId = req.user._id;
+
   try {
     let user = await User.findById(userId);
     if (!user) return res.status(400).json({ message: "User not found" });
+
+    if 
 
     if (password) {
       const salt = await bcrypt.genSalt(10);
