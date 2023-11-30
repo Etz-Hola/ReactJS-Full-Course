@@ -10,6 +10,6 @@ router.delete('/:id',protectRoute, deletePost)
 
 module.exports = router 
 
-  
+   
 
 
