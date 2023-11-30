@@ -28,7 +28,7 @@ const createPost = async (req, res) => {
         res.status(201).json({message: "Post created successfully", newPost})
 
 
-    
+
 
     } catch (err) {
         res.status(500).json({ message: err.message }); //internal server error
