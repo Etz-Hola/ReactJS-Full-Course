@@ -153,7 +153,7 @@ const updateUser = async (req, res) => {
     let user = await User.findById(userId);
     if (!user) return res.status(400).json({ message: "User not found" });
 
-    if 
+    if (req.params.id !== )
 
     if (password) {
       const salt = await bcrypt.genSalt(10);
