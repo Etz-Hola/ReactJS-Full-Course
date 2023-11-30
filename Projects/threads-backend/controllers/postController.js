@@ -76,6 +76,7 @@ const likeUnlikePost = async (req, res) => {
         const {id:postId} = req.params;
         const userId = req.user._id;
         const post = await Post.findById(postId);
+
         if(!post){
             return res.status(404).json({message: "Post not found"})
         }
@@ -83,7 +84,7 @@ const likeUnlikePost = async (req, res) => {
         const userLikedPost = post.likes.includes(userId)
 
         if(userLikedPost){
-            await Post.updateOne({_id:postId}, {$pull: {like: userId}}) 
+            await Post.updateOne({_id:postId}, {$pull: {likes: userId}}) 
             res.status(200).json({message: "Post unliked successfully"})
         }else{
             post.likes.push(userId)
@@ -98,9 +99,30 @@ const likeUnlikePost = async (req, res) => {
 
 }
 
+const replyToPost = async (req, res) => {
+    try {
+        const {text} = req.body;
+        const postId = req.params.id;
+        const userId = req.user._id;
+        const userProfilePic = req.user.profilePic;
+        const username = req.user.username;
+
+        if(!text){
+            return res.status(404).json({message: "Text field is required"})
+        }
+        
+    } catch (error) {
+        res.status(500).json({ message: error.message }); //Internal server error
+        console.log("Error in Reply Post: ", error.message);
+        
+    }
+}
+
 module.exports = {
     createPost,
     getPost,
     deletePost,
-    likeUnlikePost
+    likeUnlikePost,
+    replyToPost,
+
 }
