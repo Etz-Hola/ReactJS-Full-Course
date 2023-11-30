@@ -14,6 +14,7 @@ const createPost = async (req, res) => {
         res.status(500).json({ message: err.message }); //internal server error
         console.log("Error in Create Post: ", err.message);
     }
+    
 
 }
 
