@@ -10,6 +10,7 @@ const createPost = async (req, res) => {
         }
 
         const user = await User.findById(postedBy);
+        
     } catch (err) {
         res.status(500).json({ message: err.message }); //internal server error
         console.log("Error in Create Post: ", err.message);
