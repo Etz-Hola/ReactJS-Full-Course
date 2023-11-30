@@ -173,7 +173,7 @@ const updateUser = async (req, res) => {
     console.log("Error in Update User: ", err.message);
   }
 };
-h ,, 
+
 
 module.exports = {
   getUserProfile,
