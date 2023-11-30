@@ -3,8 +3,9 @@ const dotenv = require('dotenv');
 const cookieParser = require('cookie-parser');
 const mongoose = require ('mongoose');
 const  userRoutes = require('./routes/userRoutes');
-dotenv.config();
+const  postRoutes = require('./routes/postRoutes');
 
+dotenv.config();
 const app = express()
 
 const PORT = process.env.PORT || 5000;
@@ -14,6 +15,7 @@ app.use(express.urlencoded({extended: true})); //parse form data inside the req 
 app.use(cookieParser())
 
 app.use("/api/users", userRoutes)
+app.use("/api/posts", postRoutes)
 
 app.get("/", (req, res) => {
     res.send("Welcome Home 🏠")
