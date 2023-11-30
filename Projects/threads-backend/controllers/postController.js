@@ -73,26 +73,24 @@ const deletePost = async (req, res) => {
 
 const likeUnlikePost = async (req, res) => {
     try {
-        const post = await Post.findById(req.params.id);
-
+        const {id.postId} = req.params;
+        const userId = req.user._id;
+        const post = await Post.findById(postId);
         if(!post){
-            return res.status(404).json({message: "Post not found"})        
+            return res.status(404).json({message: "Post not found"})
         }
 
-        if(post.likes.includes(req.user._id)){
-            await post.updateOne({$pull: {likes: req.user._id}})
-            return res.status(200).json({message: "Post unliked successfully"})
+        const userLikedPost = post.like.includes(userId)
+
+        if(userLikedPost){
+            await post.updateOne({$pull: {like: userId}})
+            res.status(200).json({message: "Post unliked successfully"})
         }
-
-        await post.updateOne({$push: {likes: req.user._id}})
-        res.status(200).json({message: "Post liked successfully"})
-
+        
     } catch (error) {
         res.status(500).json({ message: error.message }); //internal server error
-        console.log("Error in likeUnlike Post: ", error.message);
-        
+        console.log("Error in like/unlike  Post: ", error.message);
     }
-
 
 }
 
