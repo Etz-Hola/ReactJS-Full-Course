@@ -161,7 +161,14 @@ const updateUser = async (req, res) => {
             user.password = hashedPassword
         }
 
-        user
+        user.name = name || user.name
+        user.email = email || user.email
+        user.username = username || user.username
+        user.profilePic = profilePic || user.profilePic
+        user.bio = bio || user.bio
+
+        
+
         
     } catch (error) {
         res.status(500).json({message: err.message}); //internal server error
