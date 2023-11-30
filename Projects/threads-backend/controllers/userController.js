@@ -149,8 +149,9 @@ const followUnfollowUser = async (req, res) => {
 };
 
 const updateUser = async (req, res) => {
+    const {name, email, username, password, profilePic, bio} = req.body
+    const userId = req.user._id
     try {
-        co
         
     } catch (error) {
         res.status(500).json({message: err.message}); //internal server error
@@ -160,4 +161,5 @@ const updateUser = async (req, res) => {
 }
 
   
-module.exports = { getUserProfile, signUpUser, loginUser, logoutUser, followUnfollowUser, updat
+module.exports = { getUserProfile, signUpUser, loginUser, logoutUser, followUnfollowUser, updateUser };
+  
