@@ -71,8 +71,34 @@ const deletePost = async (req, res) => {
     }
 }
 
+const likeUnlikePost = async (req, res) => {
+    try {
+        const post = await Post.findById(req.params.id);
+
+        if(!post){
+            return res.status(404).json({message: "Post not found"})        
+        }
+
+        if(post.likes.includes(req.user._id)){
+            await post.updateOne({$pull: {likes: req.user._id}})
+            return res.status(200).json({message: "Post unliked successfully"})
+        }
+
+        await post.updateOne({$push: {likes: req.user._id}})
+        res.status(200).json({message: "Post liked successfully"})
+
+    } catch (error) {
+        res.status(500).json({ message: error.message }); //internal server error
+        console.log("Error in likeUnlike Post: ", error.message);
+        
+    }
+
+
+}
+
 module.exports = {
     createPost,
     getPost,
-    deletePost
+    deletePost,
+    likeUnlikePost
 }
