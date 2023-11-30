@@ -10,7 +10,7 @@ router.post("/signup", signUpUser);
 router.post("/login", loginUser);
 router.post("/logout", logoutUser);
 router.post("/follow/:id", protectRoute, followUnfollowUser); // toggles state(follow / unfollow)
-router.post("/update/:id", protectRoute, updateUser) // toggle state(follow / unfollow)
+router.post("/update/:id", protectRoute, updateUser) // updaates user
 
 
 
