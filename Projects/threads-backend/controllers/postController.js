@@ -90,8 +90,7 @@ const likeUnlikePost = async (req, res) => {
             await post.save()
 
             res.status(200).json({message: "POst liked successfully"})
-        }
-        
+        }        
     } catch (error) {
         res.status(500).json({ message: error.message }); //Internal server error
         console.log("Error in like/unlike  Post: ", error.message);
