@@ -167,7 +167,11 @@ const updateUser = async (req, res) => {
         user.profilePic = profilePic || user.profilePic
         user.bio = bio || user.bio
 
-        
+        user = await user.save()
+
+        res.status
+
+
 
         
     } catch (error) {
