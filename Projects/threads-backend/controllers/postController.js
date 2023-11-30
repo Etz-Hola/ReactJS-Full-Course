@@ -34,6 +34,21 @@ const createPost = async (req, res) => {
 
 }
 
+const getPost = async (req, res) => {
+    try {
+        const post = await Post.findById(req.params.id);
+        if(!post){
+        
+        
+    } catch (err) {
+        res.status(500).json({ message: err.message }); //internal server error
+        console.log("Error in Get Post: ", err.message);
+        
+    }
+
+}
+
 module.exports = {
-    createPost
+    createPost,
+    getPost
 }
