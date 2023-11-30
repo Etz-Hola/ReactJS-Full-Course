@@ -110,6 +110,15 @@ const replyToPost = async (req, res) => {
         if(!text){
             return res.status(404).json({message: "Text field is required"})
         }
+
+        const post = await Post.findById(postId);
+
+        if(!post){
+            return res.status(404).json({message: "Post not found"})        
+        }
+
+        const reply = {userId, text, userProfilePic, username}
+        post.replies.push(reply)
         
     } catch (error) {
         res.status(500).json({ message: error.message }); //Internal server error
