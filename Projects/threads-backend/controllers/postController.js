@@ -118,7 +118,11 @@ const replyToPost = async (req, res) => {
         }
 
         const reply = {userId, text, userProfilePic, username}
+
         post.replies.push(reply)
+        await post.save()
+
+        res.status(200).json({message: "Reply posted successfully", post})
         
     } catch (error) {
         res.status(500).json({ message: error.message }); //Internal server error
