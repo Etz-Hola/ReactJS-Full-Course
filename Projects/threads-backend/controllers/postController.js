@@ -49,6 +49,16 @@ const getPost = async (req, res) => {
 
 }
 
+const deletePost = async (req, res) => {
+    try {
+        
+    } catch (error) {
+        res.status(500).json({ message: error.message }); //internal server error
+        console.log("Error in delete Post: ", error.message);
+        
+    }
+}
+
 module.exports = {
     createPost,
     getPost
