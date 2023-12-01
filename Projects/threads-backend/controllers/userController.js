@@ -145,7 +145,7 @@ const followUnfollowUser = async (req, res) => {
   }
 };
 
-// const updateOneUser = async (req, res) => {
+// const updateOneUser = async (req, res) 
 
   
 
