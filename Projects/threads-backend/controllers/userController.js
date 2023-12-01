@@ -145,7 +145,7 @@ const followUnfollowUser = async (req, res) => {
   }
 };
 
-// cons
+// con
   
 
 
