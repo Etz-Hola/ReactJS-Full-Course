@@ -145,7 +145,7 @@ const followUnfollowUser = async (req, res) => {
   }
 };
 
-// const upda
+// const upd
   
 
 
