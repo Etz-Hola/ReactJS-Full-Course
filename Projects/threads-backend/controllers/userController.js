@@ -145,15 +145,15 @@ const followUnfollowUser = async (req, res) => {
   }
 };
 
-const updateOneUser = async (req, res) => {
-  const { name, email, username, password, profilePic, bio } = req.body;
-  const userId 
+// const updateOneUser = async (req, res) => {
+//   const { name, email, username, password, profilePic, bio } = req.body;
+//   const userId = 
   
 
 
-// const updateUser = async (req, res) => {
-//   const { name, email, username, password, profilePic, bio } = req.body;
-//   const userId = req.user._id;
+const updateUser = async (req, res) => {
+  const { name, email, username, password, profilePic, bio } = req.body;
+  const userId = req.user._id;
 
   try {
     let user = await User.findById(userId);
