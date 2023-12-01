@@ -16,4 +16,3 @@ router.post('/reply/:id',protectRoute, replyToPost)
 
 module.exports = router 
 
-    
