@@ -146,7 +146,6 @@ const followUnfollowUser = async (req, res) => {
 };
 
 
-const huh = signUpUser
 
 const updateUser = async (req, res) => {
   const { name, email, username, password, profilePic, bio } = req.body;
