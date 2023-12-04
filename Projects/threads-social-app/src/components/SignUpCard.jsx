@@ -17,7 +17,7 @@ import {
 import { useState } from "react";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import authScreenAtom from '../atoms/authAtom';
-import {  useSetRecoilState } from 'recoil'
+import { useSetRecoilState } from 'recoil'
 import useShowToast from "../hooks/useShowToast";
 import userAtom from "../atoms/userAtom";
 
@@ -46,7 +46,7 @@ export default function SignupCard() {
       })
       const data = await res.json()
 
-      if(data.error) {
+      if (data.error) {
         showToast("Error", data.error, "error")
         return;
       }
@@ -57,7 +57,7 @@ export default function SignupCard() {
       showToast("Error", error, "error")
     }
   }
-  
+
 
   return (
     <Flex
@@ -65,7 +65,7 @@ export default function SignupCard() {
       justify={"center"}>
       <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6}>
         <Stack align={"center"}>
-          <Heading fontSize={"4xl"} textAlign={"center"}> 
+          <Heading fontSize={"4xl"} textAlign={"center"}>
             Sign up
           </Heading>
         </Stack>
@@ -78,26 +78,40 @@ export default function SignupCard() {
           <Stack spacing={4}>
             <HStack>
               <Box>
-                <FormControl id="firstName" isRequired>
-                  <FormLabel>First Name</FormLabel>
-                  <Input type="text" />
+                <FormControl isRequired>
+                  <FormLabel>Full Name</FormLabel>
+                  <Input type="text"
+                    onChange={(e) => setInputs({ ...inputs, name: e.target.value })}
+                    value={inputs.name}
+                  />
                 </FormControl>
               </Box>
               <Box>
-                <FormControl id="lastName">
-                  <FormLabel>Last Name</FormLabel>
-                  <Input type="text" />
+                <FormControl isRequired>
+                  <FormLabel>username</FormLabel>
+                  <Input type="text"
+                    onChange={(e) => setInputs({ ...inputs, username: e.target.value })}
+                    value={inputs.username}
+                  />
+
                 </FormControl>
               </Box>
             </HStack>
-            <FormControl id="email" isRequired>
+            <FormControl isRequired>
               <FormLabel>Email address</FormLabel>
-              <Input type="email" />
+              <Input type="email"
+                onChange={(e) => setInputs({ ...inputs, email: e.target.value })}
+                value={inputs.email}
+              />
+
             </FormControl>
-            <FormControl id="password" isRequired>
+            <FormControl isRequired>
               <FormLabel>Password</FormLabel>
               <InputGroup>
-                <Input type={showPassword ? "text" : "password"} />
+                <Input type={showPassword ? "text" : "password"}
+                  onChange={(e) => setInputs({ ...inputs, password: e.target.value })}
+                  value={inputs.password}
+                />
                 <InputRightElement h={"full"}>
                   <Button
                     variant={"ghost"}
@@ -119,13 +133,14 @@ export default function SignupCard() {
                 _hover={{
                   bg: useColorModeValue("gray.700", "gray.800")
                 }}
+                onClick={handleSignup}
               >
                 Sign up
               </Button>
             </Stack>
             <Stack pt={6}>
               <Text align={"center"}>
-                Already a user? <Link color={"blue.400"}  onClick={() => setAuthScreen("login")} >Login</Link>
+                Already a user? <Link color={"blue.400"} onClick={() => setAuthScreen("login")} >Login</Link>
               </Text>
             </Stack>
           </Stack>
