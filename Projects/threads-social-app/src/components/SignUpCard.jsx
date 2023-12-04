@@ -95,7 +95,7 @@ export default function SignupCard() {
               </Text>
             </Stack>
           </Stack>
-        </Box>
+        </Box> 
       </Stack>
     </Flex>
   );
