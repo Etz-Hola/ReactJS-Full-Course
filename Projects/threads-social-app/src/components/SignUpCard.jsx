@@ -1,4 +1,4 @@
-'use cli
+'use cl
 
 import {
   Flex,
