@@ -25,7 +25,7 @@ import userAtom from "../atoms/userAtom";
 export default function SignupCard() {
   const [showPassword, setShowPassword] = useState(false);
   const setAuthScreen = useSetRecoilState(authScreenAtom)
-  const [Inputs, setInputs] = useState({
+  const [inputs, setInputs] = useState({
     name: '',
     username: '',
     email: '',
@@ -37,7 +37,22 @@ export default function SignupCard() {
 
   const handleSignup = async () => {
     try {
-      const res = await fetch()
+      const res = await fetch("api/users/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(inputs)
+      })
+      const data = await res.json()
+
+      if(data.error) {
+        showToast("Error", data.error, "error")
+        return;
+      }
+      localStorage.setItem("user-threads", JSON.stringify(data))
+      setUser(data)
+
     } catch (error) {
       showToast("Error", error, "error")
     }
