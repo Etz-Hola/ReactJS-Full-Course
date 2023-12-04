@@ -165,7 +165,7 @@ const getUserPosts = async (req, res) => {
 
     } catch (error) {
         res.status(500).json({ error: error.message }); //Internal server error
-        
+         
     }
 }
 
@@ -184,5 +184,6 @@ module.exports = {
     likeUnlikePost,
     replyToPost,
     getFeedPost,
+    getUserPosts,
 
 }
