@@ -34,7 +34,10 @@ import {
             bg={useColorModeValue("white", "gray.dark")}
             boxShadow={"lg"}
             p={8}
-            w={"464px"}
+            w={{
+                base: "full",
+                sm: "400px",
+            }}
           >
             <Stack spacing={4}>
 
