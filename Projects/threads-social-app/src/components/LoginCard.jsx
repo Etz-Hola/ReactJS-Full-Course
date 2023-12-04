@@ -41,11 +41,7 @@ import {
                 <FormControl isRequired>
                     <FormLabel>Username</FormLabel>
                     <Input type="text" />
-                </FormControl>             
-              <FormControl isRequired>
-                <FormLabel>Username</FormLabel>
-                <Input type="text" />
-              </FormControl>
+                </FormControl>
               <FormControl  isRequired>
                 <FormLabel>Password</FormLabel>
                 <InputGroup>
