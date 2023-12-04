@@ -18,11 +18,30 @@ import { useState } from "react";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import authScreenAtom from '../atoms/authAtom';
 import {  useSetRecoilState } from 'recoil'
+import useShowToast from "../hooks/useShowToast";
+import userAtom from "../atoms/userAtom";
 
 
 export default function SignupCard() {
   const [showPassword, setShowPassword] = useState(false);
   const setAuthScreen = useSetRecoilState(authScreenAtom)
+  const [Inputs, setInputs] = useState({
+    name: '',
+    username: '',
+    email: '',
+    password: '',
+  })
+
+  const showToast = useShowToast();
+  const setUser = useSetRecoilState(userAtom);
+
+  const handleSignup = async () => {
+    try {
+      
+    } catch (error) {
+      showToast({})
+    }
+  }
   
 
   return (
