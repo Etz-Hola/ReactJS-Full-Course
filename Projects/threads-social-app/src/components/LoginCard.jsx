@@ -23,7 +23,7 @@ import {
       <Flex
         align={"center"}
         justify={"center"}>
-        <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6}>
+        <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6} >
           <Stack align={"center"}>
             <Heading fontSize={"4xl"} textAlign={"center"}> 
               Login
@@ -34,6 +34,7 @@ import {
             bg={useColorModeValue("white", "gray.dark")}
             boxShadow={"lg"}
             p={8}
+            w={"464px"}
           >
             <Stack spacing={4}>
 
