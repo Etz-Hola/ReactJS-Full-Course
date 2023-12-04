@@ -20,7 +20,6 @@ import authScreenAtom from '../atoms/authAtom';
 import {  useSetRecoilState } from 'recoil'
 
 
-
 export default function SignupCard() {
   const [showPassword, setShowPassword] = useState(false);
   const setAuthScreen = useSetRecoilState(authScreenAtom)
