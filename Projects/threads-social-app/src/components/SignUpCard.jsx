@@ -1,4 +1,4 @@
-'use clien
+'use cli
 
 import {
   Flex,
