@@ -7,7 +7,7 @@ const HomePage = () => {
     <div>
         <Link to={"/markzuckerberg"}>
             <Flex w={"full"} justifyContent={"center"}>
-                <Button mx={"auto"}>Visit Profile Page</Button>
+                <Button w={""} mx={"auto"}>Visit Profile Page</Button>
             </Flex>
         </Link>
     </div>
