@@ -29,7 +29,7 @@ export default function UpdateProfilePage() {
     const fileRef = useRef(null)
     const { handleImageChange, imgUrl} = usePreviewImg() 
 
-    // console.
+    // consol
   return (
     <Flex
       align={'center'}
