@@ -23,7 +23,7 @@ export default function UpdateProfilePage() {
         name: user.name,
         username: user.username,
         email: user.email,
-        bio: user.bio, 
+        bio: user.bio,
         password: '',
     })
     const fileRef = useRef(null)
