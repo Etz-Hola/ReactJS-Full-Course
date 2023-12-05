@@ -23,7 +23,7 @@ function App() {
         <Route path="/auth" element={!user ? <AuthPage /> : <Navigate to='/'/>} />
 
         <Route path="/:username" element={<UserPage />} />
-        <Route path="/:username/post/:pid" element={<PostPage />} />
+        <Route path="/:username/post/:pid" element={<PostPage />} /> 
 
       </Routes>
         {user && <LogoutButton />}
