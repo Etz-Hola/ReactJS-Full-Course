@@ -25,6 +25,7 @@ export default function UpdateProfilePage() {
         bio: user.bio, 
         password: '',
     })
+    const fileRef = useRef(null)
 
     console.log(user, "user is here")
   return (
