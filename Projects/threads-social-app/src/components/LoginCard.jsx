@@ -28,7 +28,7 @@ export default function LoginCard() {
 
   const handleLogin = async () => {
     try {
-      console.log(inputs)
+      console.log(inputs)  
     } catch (error) {
       
     }
