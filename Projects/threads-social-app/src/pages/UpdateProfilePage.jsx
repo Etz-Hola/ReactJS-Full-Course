@@ -9,7 +9,6 @@ import {
   Input,
   Stack,
   useColorModeValue,
-  HStack,
   Avatar,
   AvatarBadge,
   IconButton,
@@ -47,13 +46,23 @@ export default function UpdateProfilePage() {
           </Stack>
         </FormControl>
         <FormControl isRequired>
-          <FormLabel>User name</FormLabel>
+          <FormLabel>Full name</FormLabel>
+          <Input
+            placeholder="Your FullName"
+            _placeholder={{ color: 'gray.500' }}
+            type="text"
+          />
+        </FormControl>
+
+        <FormControl isRequired>
+          <FormLabel>User name </FormLabel>
           <Input
             placeholder="UserName"
             _placeholder={{ color: 'gray.500' }}
             type="text"
           />
         </FormControl>
+
         <FormControl isRequired>
           <FormLabel>Email address</FormLabel>
           <Input
@@ -63,11 +72,19 @@ export default function UpdateProfilePage() {
           />
         </FormControl>
         <FormControl isRequired>
+          <FormLabel>Bio</FormLabel>
+          <Input
+            placeholder="Your bio..."
+            _placeholder={{ color: 'gray.500' }}
+            type="email"
+          />
+        </FormControl>
+        <FormControl isRequired>
           <FormLabel>Password</FormLabel>
           <Input
             placeholder="password"
             _placeholder={{ color: 'gray.500' }}
-            type="password"
+            type="textarea"
           />
         </FormControl>
         <Stack spacing={6} direction={['column', 'row']}>
