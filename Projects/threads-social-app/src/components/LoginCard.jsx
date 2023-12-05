@@ -21,6 +21,7 @@ import authScreenAtom from "../atoms/authAtom";
 export default function LoginCard() {
   const [showPassword, setShowPassword] = useState(false);
   const setAuthScreen = useSetRecoilState(authScreenAtom);
+  const setUser = useSetRecoilState(userAtom);
   const [inputs, setInputs] = useState({
     username: "",
     password: "",
@@ -30,13 +31,21 @@ export default function LoginCard() {
 
   const handleLogin = async () => {
     try {
-      const res = await fetch("api/users/login" {
+      const res = await fetch("api/users/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
         },
         body: JSON.stringify(inputs)
       })
+
+      const data = await res.json();
+      console.log(data)
+      if (data.error) {
+        showToast("Error", data.error, "error")
+        return;      
+      }
+
     } catch (error) {
       showToast("Error", error, "error")
       console.log(error);
