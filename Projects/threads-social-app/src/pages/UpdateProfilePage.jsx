@@ -21,7 +21,7 @@ export default function UpdateProfilePage() {
     const [inputs, setInputs] = useState({
         name: user.name,
         username: user.username,
-        email: user.emsil,
+        email: user.email,
         bio: user.bio, 
         password: '',
 
@@ -49,11 +49,12 @@ export default function UpdateProfilePage() {
         <FormControl id="userName">
           <Stack direction={['column', 'row']} spacing={6}>
             <Center>
-              <Avatar size="xl" src={user.profilePic}/>
+              <Avatar size="xl" boxShadow={'md'} src={user.profilePic}/>
 
             </Center>
             <Center w="full">
               <Button w="full">Change Avatar</Button>
+              <Input type='file' hidden ref={fileRef} />
             </Center>
           </Stack>
         </FormControl>
@@ -88,6 +89,7 @@ export default function UpdateProfilePage() {
             value={inputs.email}
             onChange={(e) => setInputs({ ...inputs, email: e.target.value })}
           />
+
         </FormControl>
         <FormControl isRequired>
           <FormLabel>Bio</FormLabel>
