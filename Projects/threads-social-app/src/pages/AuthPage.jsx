@@ -1,4 +1,3 @@
-import React from 'react'
 import LoginCard from '../components/LoginCard'
 import SignupCard from '../components/SignUpCard'
 import { useRecoilValue } from 'recoil'
