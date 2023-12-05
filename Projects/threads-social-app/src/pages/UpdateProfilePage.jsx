@@ -27,7 +27,7 @@ export default function UpdateProfilePage() {
         password: '',
     })
     const fileRef = useRef(null)
-    const { handleImageChange} = usePreviewImg() 
+    const { handleImageChange, imgUrl} = usePreviewImg() 
 
     // console.log(user, "user is here")
   return (
