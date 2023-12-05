@@ -16,6 +16,7 @@ import { useRef, useState } from "react";
 import { useRecoilState } from "recoil";
 import userAtom from "../atoms/userAtom";
 import usePreviewImg from "../hooks/usePreviewImg";
+import useShowToast from "../hooks/useShowToast";
 
 export default function UpdateProfilePage() {
   const [user, setUser] = useRecoilState(userAtom);
@@ -28,14 +29,24 @@ export default function UpdateProfilePage() {
   });
   const fileRef = useRef(null);
   const { handleImageChange, imgUrl } = usePreviewImg();
+  const showToast = useShowToast
 
   const handleSubmit = async (e) => {
     e.preventDefault()
 
     try {
-        
+        const res = await fetch(`/api/users/update/${user.id}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({...inputs, profilePic: imgUrl})
+        })
+
+        const data = await res.json()
+        console.log(data)
     } catch (error) {
-        
+        showToast("Error", error, "error")
     }
   }
 
