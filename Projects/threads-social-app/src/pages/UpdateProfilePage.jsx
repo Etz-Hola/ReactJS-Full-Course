@@ -27,9 +27,9 @@ export default function UpdateProfilePage() {
         password: '',
     })
     const fileRef = useRef(null)
-    const { handleImageChange} = usePreviewImg()
+    const { handleImageChange} = usePreviewImg() 
 
-    console.log(user, "user is here")
+    // console.log(user, "user is here")
   return (
     <Flex
       align={'center'}
