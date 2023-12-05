@@ -12,8 +12,16 @@ import {
   Avatar,
   Center,
 } from '@chakra-ui/react'
+import { useState } from 'react'
 
 export default function UpdateProfilePage() {
+    const [inputs, setInputs] = useState({
+        name: '',
+        username: '',
+        email: '',
+        bio: '',
+        password: '',
+    })
   return (
     <Flex
       align={'center'}
@@ -96,7 +104,7 @@ export default function UpdateProfilePage() {
             Cancel
           </Button>
           <Button
-            bg={'blue.400'}
+            bg={'green.400'}
             color={'white'}
             w="full"
             _hover={{
