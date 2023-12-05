@@ -18,6 +18,7 @@ export default function UpdateProfilePage() {
     <Flex
       align={'center'}
       justify={'center'}
+      my={6}
       >
       <Stack
         spacing={4}
