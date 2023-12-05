@@ -10,8 +10,6 @@ import {
   Stack,
   useColorModeValue,
   Avatar,
-  AvatarBadge,
-  IconButton,
   Center,
 } from '@chakra-ui/react'
 import { SmallCloseIcon } from '@chakra-ui/icons'
