@@ -22,7 +22,7 @@ export default function UpdateProfilePage() {
         name: user.name,
         username: user.username,
         email: user.emsil,
-        bio: user.bio, 
+        bio: user.bio,
         password: '',
     })
 
