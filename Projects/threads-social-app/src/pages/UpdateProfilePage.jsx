@@ -76,7 +76,7 @@ export default function UpdateProfilePage() {
               </Center>
             </Stack>
           </FormControl>
-          <FormControl isRequired>
+          <FormControl>
             <FormLabel>Full name</FormLabel>
             <Input
               placeholder="Your FullName"
@@ -87,7 +87,7 @@ export default function UpdateProfilePage() {
             />
           </FormControl>
 
-          <FormControl isRequired>
+          <FormControl>
             <FormLabel>User name </FormLabel>
             <Input
               placeholder="UserName"
@@ -100,7 +100,7 @@ export default function UpdateProfilePage() {
             />
           </FormControl>
 
-          <FormControl isRequired>
+          <FormControl>
             <FormLabel>Email address</FormLabel>
             <Input
               placeholder="your-email@example.com"
@@ -110,7 +110,7 @@ export default function UpdateProfilePage() {
               onChange={(e) => setInputs({ ...inputs, email: e.target.value })}
             />
           </FormControl>
-          <FormControl isRequired>
+          <FormControl>
             <FormLabel>Bio</FormLabel>
             <Input
               placeholder="Your bio..."
@@ -120,7 +120,7 @@ export default function UpdateProfilePage() {
               onChange={(e) => setInputs({ ...inputs, bio: e.target.value })}
             />
           </FormControl>
-          <FormControl isRequired>
+          <FormControl>
             <FormLabel>Password</FormLabel>
             <Input
               placeholder="password"
@@ -150,6 +150,7 @@ export default function UpdateProfilePage() {
               _hover={{
                 bg: "green.500",
               }}
+              type="submit"
             >
               Submit
             </Button>
