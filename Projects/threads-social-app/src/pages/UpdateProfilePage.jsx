@@ -38,20 +38,11 @@ export default function UpdateProfilePage() {
         <FormControl id="userName">
           <Stack direction={['column', 'row']} spacing={6}>
             <Center>
-              <Avatar size="xl" src="https://bit.ly/sage-adebayo">
-                <AvatarBadge
-                  as={IconButton}
-                  size="sm"
-                  rounded="full"
-                  top="-10px"
-                  colorScheme="red"
-                  aria-label="remove Image"
-                  icon={<SmallCloseIcon />}
-                />
-              </Avatar>
+              <Avatar size="xl" src="https://bit.ly/sage-adebayo"/>
+
             </Center>
             <Center w="full">
-              <Button w="full">Change Icon</Button>
+              <Button w="full">Change Avatar</Button>
             </Center>
           </Stack>
         </FormControl>
