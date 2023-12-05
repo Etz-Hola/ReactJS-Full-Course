@@ -24,7 +24,6 @@ export default function UpdateProfilePage() {
         email: user.email,
         bio: user.bio, 
         password: '',
-
     })
 
     console.log(user, "user is here")
@@ -53,7 +52,7 @@ export default function UpdateProfilePage() {
 
             </Center>
             <Center w="full">
-              <Button w="full">Change Avatar</Button>
+              <Button onClick={() => fileRef.current.click()} w="full">Change Avatar</Button>
               <Input type='file' hidden ref={fileRef} />
             </Center>
           </Stack>
