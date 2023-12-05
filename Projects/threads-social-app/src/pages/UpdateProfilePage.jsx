@@ -23,7 +23,7 @@ export default function UpdateProfilePage() {
         username: user.username,
         email: user.emsil,
         bio: user.bio,  
-        password: '',  
+        password: '',   
     })
 
     console.log(user, "user is here")
