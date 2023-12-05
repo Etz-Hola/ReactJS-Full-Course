@@ -26,10 +26,22 @@ export default function LoginCard() {
     password: "",
   });
 
+  const showToast = useShowToast()
+
   const handleLogin = async () => {
     try {
-      console.log(inputs);
-    } catch (error) {}
+      const res = await fetch("api/users/login" {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(inputs)
+      })
+    } catch (error) {
+      showToast("Error", error, "error")
+      console.log(error);
+    
+    }
   };
 
   return (
