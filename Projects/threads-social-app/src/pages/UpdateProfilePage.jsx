@@ -46,7 +46,7 @@ export default function UpdateProfilePage() {
             </Center>
           </Stack>
         </FormControl>
-        <FormControl id="userName" isRequired>
+        <FormControl isRequired>
           <FormLabel>User name</FormLabel>
           <Input
             placeholder="UserName"
@@ -54,7 +54,7 @@ export default function UpdateProfilePage() {
             type="text"
           />
         </FormControl>
-        <FormControl id="email" isRequired>
+        <FormControl isRequired>
           <FormLabel>Email address</FormLabel>
           <Input
             placeholder="your-email@example.com"
@@ -62,7 +62,7 @@ export default function UpdateProfilePage() {
             type="email"
           />
         </FormControl>
-        <FormControl id="password" isRequired>
+        <FormControl isRequired>
           <FormLabel>Password</FormLabel>
           <Input
             placeholder="password"
