@@ -21,7 +21,7 @@ import authScreenAtom from "../atoms/authAtom";
 export default function LoginCard() {
   const [showPassword, setShowPassword] = useState(false);
   const setAuthScreen = useSetRecoilState(authScreenAtom);
-  const setUser = useSetRecoilState(userAtom);
+  const setUser = useSetRecoilState(useAtom);
   const [inputs, setInputs] = useState({
     username: "",
     password: "",
