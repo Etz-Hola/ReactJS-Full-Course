@@ -29,13 +29,13 @@ export default function UpdateProfilePage() {
   });
   const fileRef = useRef(null);
   const { handleImageChange, imgUrl } = usePreviewImg();
-  const showToast = useShowToast
+  const showToast = useShowToast()
 
   const handleSubmit = async (e) => {
     e.preventDefault()
 
     try {
-        const res = await fetch(`/api/users/update/${user.id}`, {
+        const res = await fetch(`/api/users/update/${user._id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"

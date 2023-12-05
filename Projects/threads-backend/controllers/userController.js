@@ -2,7 +2,7 @@ const User = require("../models/userModel");
 const bcrypt = require("bcryptjs");
 const generateTokenAndSetCookie = require("../utils/helper/generateTokenAndSetCookie");
 const mongoose = require("mongoose");
-import * as cloudinary from 'cloudinary';
+const cloudinary = require('cloudinary').v2;
 
 const getUserProfile = async (req, res, next) => {
   // We fetch the user profile either by username or userId
@@ -151,7 +151,7 @@ const followUnfollowUser = async (req, res) => {
 
 
 const updateUser = async (req, res) => {
-  const { name, email, username, password, profilePic, bio } = req.body;
+  const { name, email, username, password, bio } = req.body;
   let {profilePic} = req.body;
   const userId = req.user._id;
 
@@ -171,7 +171,7 @@ const updateUser = async (req, res) => {
     if(profilePic){
       if(user.profilePic){
         await cloudinary.uploader.destroy(user.profilePic.split('/').pop().split('.')[0])
-        
+
       }
       const uploadResponse = await cloudinary.uploader.upload(profilePic);
       profilePic = uploadResponse.secure_url;
@@ -185,7 +185,7 @@ const updateUser = async (req, res) => {
 
     user = await user.save();
 
-    res.status(200).json({ error: "Profile update successfully", user });
+    res.status(200).json({ message: "Profile update successfully", user });
 
   } catch (error) {
     res.status(500).json({ error: error.message }); //internal server error
