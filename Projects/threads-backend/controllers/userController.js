@@ -140,7 +140,7 @@ const followUnfollowUser = async (req, res) => {
       // FOLLOW user
       await User.findByIdAndUpdate(id, { $push: { followers: req.user._id } });
       await User.findByIdAndUpdate(req.user._id, { $push: { following: id } });
-      res.status(200).json({ error: "User followed successfully" });
+      res.status(200).json({ message: "User followed successfully" });
     }
   } catch (err) {
     res.status(500).json({ error: err.message }); //internal server error
