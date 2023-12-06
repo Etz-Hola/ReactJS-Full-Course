@@ -6,7 +6,7 @@ import { Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/menu";
 import { BsInstagram } from "react-icons/bs";
 import { CgMoreO } from "react-icons/cg"
 
-const UserHeader = () => {
+const UserHeader = ({user}) => {
     const toast = useToast();
     const copyURL = () => {
         const currentURL = window.location.href;
@@ -28,10 +28,10 @@ const UserHeader = () => {
                 <Text
                     fontSize={"2xl"}
                     fontWeight={"bold"} >
-                    Aliu Musa
+                    {user.name}
                 </Text>
                 <Flex gap={2} alignItems={"center"}>
-                    <Text fontSize={"sm"}>aliumusa@99</Text>
+                    <Text fontSize={"sm"}> {user.username} </Text>
                     <Text fontSize={'xs'}
                         bg={"gray.dark"}
                         color={"gray.light"}
@@ -49,7 +49,7 @@ const UserHeader = () => {
             </Box>
         </Flex>
 
-        <Text>Founder, executive chairman and CEO of DLTAfrica</Text>
+        <Text>{user.bio}</Text>
         <Flex w={"full"} justifyContent={"space-between"}>
             <Flex gap={2} alignItems={"center"}>
                 <Text color={"gray.light"}>3.2k followers</Text>
