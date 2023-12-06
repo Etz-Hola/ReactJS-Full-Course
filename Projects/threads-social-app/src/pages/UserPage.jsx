@@ -1,7 +1,23 @@
+import { useEffect, useState } from 'react'
 import UserHeader from "../components/UserHeader"
 import UserPosts from "../components/UserPosts"
 
 const UserPage = () => {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const getUser = async () => {
+      try {
+        
+      } catch (error) {
+        console.log(error)
+      }      
+    }
+  
+  }, [username])
+  
+
+
   return (
     <>
       <UserHeader/>
