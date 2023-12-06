@@ -39,7 +39,7 @@ const UserHeader = ({ user }) => {
                         borderRadius={"full"}>threads.net</Text>
                 </Flex>
             </Box>
-{/* i */}
+{/*  */}
             <Box>
                 {user.profilePic && (
                     <Avatar
