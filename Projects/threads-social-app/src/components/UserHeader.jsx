@@ -6,7 +6,7 @@ import { Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/menu";
 import { BsInstagram } from "react-icons/bs";
 import { CgMoreO } from "react-icons/cg"
 
-const UserHeader = ({user}) => {
+const UserHeader = ({ user }) => {
     const toast = useToast();
     const copyURL = () => {
         const currentURL = window.location.href;
@@ -41,11 +41,20 @@ const UserHeader = ({user}) => {
             </Box>
 
             <Box>
-                <Avatar
-                    name="Aliu Musa"
-                    src="/directorPro.jpeg"
-                    size={{base: "md", md: "xl"}}
+                {user.profilePic && (
+                    <Avatar
+                        name={user.name}
+                        src={user.profilePic}
+                        size={{ base: "md", md: "xl" }}
+                    />
+                )}
+                {!user.profilePic && (
+                    <Avatar
+                    name={user.name}
+                    src="https://bit.ly/broken-link"
+                    size={{ base: "md", md: "xl" }}
                 />
+                )}
             </Box>
         </Flex>
 
@@ -78,25 +87,25 @@ const UserHeader = ({user}) => {
 
         <Flex w={"full"}>
             <Flex
-             flex={1}
-             borderBottom={"1.5px solid white"}
-             justifyContent={"center"} 
-             pb={"3"}
-             cursor={"pointer"}
-             >
+                flex={1}
+                borderBottom={"1.5px solid white"}
+                justifyContent={"center"}
+                pb={"3"}
+                cursor={"pointer"}
+            >
                 <Text fontWeight={"bold"}>Thread</Text>
             </Flex>
-           
+
             <Flex
-             flex={1}
-             borderBottom={"1px solid gray"}
-             justifyContent={"center"} 
-             pb={"3"}
-             color={"gray.light"}
-             cursor={"pointer"}>
-             <Text fontWeight={"bold"}>Replies</Text>
+                flex={1}
+                borderBottom={"1px solid gray"}
+                justifyContent={"center"}
+                pb={"3"}
+                color={"gray.light"}
+                cursor={"pointer"}>
+                <Text fontWeight={"bold"}>Replies</Text>
             </Flex>
-           
+
 
         </Flex>
     </VStack>
