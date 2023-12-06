@@ -184,8 +184,9 @@ const updateUser = async (req, res) => {
     user.bio = bio || user.bio;
 
     user = await user.save();
+    user.password = null;
 
-    res.status(200).json({ message: "Profile update successfully", user });
+    res.status(200).json( user );
 
   } catch (error) {
     res.status(500).json({ error: error.message }); //internal server error

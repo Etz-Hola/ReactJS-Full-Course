@@ -34,6 +34,7 @@ export default function UpdateProfilePage() {
   const handleSubmit = async (e) => {
     e.preventDefault()
 
+
     try {
         const res = await fetch(`/api/users/update/${user._id}`, {
             method: "PUT",
@@ -44,7 +45,15 @@ export default function UpdateProfilePage() {
         })
 
         const data = await res.json()
-        console.log(data)
+        if (data.error) {
+            showToast("Error", data.error, "error")
+            return;        
+        }
+        showToast("Success", "Profile Updated Successfully", "success")
+        setUser(data)
+        localStorage.setItem("user-threads", JSON.stringify(data))
+
+
     } catch (error) {
         showToast("Error", error, "error")
     }
@@ -126,7 +135,7 @@ export default function UpdateProfilePage() {
             <Input
               placeholder="Your bio..."
               _placeholder={{ color: "gray.500" }}
-              type="email"
+              type="text"
               value={inputs.bio}
               onChange={(e) => setInputs({ ...inputs, bio: e.target.value })}
             />
