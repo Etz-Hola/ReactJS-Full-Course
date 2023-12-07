@@ -31,10 +31,10 @@ const MAX_CHAR = 500
 
 const CreatePosts = () => {
     const { isOpen, onOpen, onClose } = useDisclosure()
-    const { postText, setPostText } = useState('')
+    const [ postText, setPostText ] = useState('')
     const imageRef = useRef(null)
     const [remainingChar, setRemainingChar] = useState(MAX_CHAR)
-    const { handleImageChange, imdUrl, setImgUrl } = usePreviewImg()
+    const { handleImageChange, imgUrl, setImgUrl } = usePreviewImg()
     const [loading, setLoading] = useState(false)
     const user = useRecoilValue(userAtom)
     const showToast = useShowToast();
@@ -47,7 +47,7 @@ const CreatePosts = () => {
         if (inputText.length > MAX_CHAR) {
             const truncatedText = inputText.slice(0, MAX_CHAR);
             setPostText(truncatedText);
-            setRemainingChar(0)
+            setRemainingChar(0);
         } else {
             setPostText(inputText);
             setRemainingChar(MAX_CHAR - inputText.length);
@@ -60,9 +60,9 @@ const CreatePosts = () => {
             const res = await fetch("/api/posts/create", {
                 method: "POST",
                 headers: {
-                    "content-type": "application/json",
+                    "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ postedBy: user._id, text: postText, image: imdUrl }),
+                body: JSON.stringify({ postedBy: user._id, text: postText, image: imgUrl }),
             })
             const data = await res.json();
             if (data.error) {
@@ -73,6 +73,8 @@ const CreatePosts = () => {
             if(username === user.username){
                 setPosts([data, ...posts])
             }
+
+            console.log(data);
 
             onClose()
 
@@ -107,7 +109,7 @@ const CreatePosts = () => {
                                 onChange={handleTextChange}
                                 value={postText}
                             />
-                            <Text fontSize="xs" fontweight="bold" textAlign={"right"} m={1} color={"gray.800"}>
+                            <Text fontSize={"xs"} fontWeight={"bold"} textAlign={"right"} m={1} color={"gray.800"}>
                                 {remainingChar} / {MAX_CHAR}
                             </Text>
                             <Input type="file" hidden ref={imageRef} onChange={handleImageChange} />
@@ -119,12 +121,12 @@ const CreatePosts = () => {
                             />
                         </FormControl>
 
-                        {imdUrl && (
+                        {imgUrl && (
                             <Flex
                                 mt={"full"}
                                 position={"relative"}
                             >
-                                <Image src={imdUrl} alt='select img' />
+                                <Image src={imgUrl} alt='select img' />
                                 <CloseButton
                                     onClick={() => {
                                         setImgUrl('')

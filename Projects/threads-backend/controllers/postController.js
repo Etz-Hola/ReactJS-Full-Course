@@ -1,6 +1,6 @@
 const Post = require("../models/postModel");
 const User = require("../models/userModel")
-const cloudinary = require("cloudinary")
+const cloudinary = require("cloudinary").v2
 
 const createPost = async (req, res) => {
     try {
@@ -8,7 +8,7 @@ const createPost = async (req, res) => {
         let {img } = req.body
 
         if(!postedBy || !text) {
-            return res.status(404).json({message: "postedBy and text fields are required"})
+            return res.status(400).json({message: "postedBy and text fields are required"})
         }
 
         const user = await User.findById(postedBy);
