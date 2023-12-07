@@ -20,8 +20,10 @@ import {
 } from '@chakra-ui/react'
 import usePreviewImg from '../hooks/usePreviewImg'
 import { BsFillImageFill } from 'react-icons/bs'
-import { useRecoilValue } from 'recoil'
+import { useRecoilState, useRecoilValue } from 'recoil'
 import userAtom from '../atoms/userAtom'
+import useShowToast from '../hooks/useShowToast'
+import { useParams } from 'react-router-dom'
 
 
 const MAX_CHAR = 500
@@ -34,10 +36,14 @@ const CreatePosts = () => {
     const { handleImageChange, imdUrl, setImgUrl } = usePreviewImg()
     const [loading, setLoading] = useState(false)
     const user = useRecoilValue(userAtom)
+    const showToast = useShowToast()
+    const username = useParams()
+    const [posts, setPosts] = useRecoilState(postsAtom)
+
 
     const handleTextChange = (e) => {
         const inputText = e.target.value;
-        if(inputText.length > MAX_CHAR) {
+        if (inputText.length > MAX_CHAR) {
             const truncatedText = inputText.slice(0, MAX_CHAR);
             setPostText(truncatedText);
             setRemainingChar(0)
@@ -45,9 +51,9 @@ const CreatePosts = () => {
             setPostText(inputText);
             setRemainingChar(MAX_CHAR - inputText.length);
         }
-     }
-     
-    const handleCreatePost = () => {
+    }
+
+    const handleCreatePost = async () => {
         setLoading(true)
         try {
             const res = await fatch("/api/posts/create", {
@@ -55,13 +61,22 @@ const CreatePosts = () => {
                 headers: {
                     "content-type": "application/json",
                 },
-                body: JSON.stringify({postedBy: user.-id, text: postText, image: imdUrl}),
+                body: JSON.stringify({ postedBy: user._id, text: postText, image: imdUrl }),
             })
+            const data = await res.json();
+            if (data.error) {
+                showToast("Error", data.error, "error")
+                return
+            }
+            showToast("Success", "Post Created Successfully", "success")
+            if(username === user.username){
+                setPosts([data, ...posts])
+            }
 
         } catch (error) {
-            
+
         }
-     }
+    }
 
     return (
         <>
