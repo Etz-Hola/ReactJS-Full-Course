@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { AddIcon } from '@chakra-ui/icons'
 import {
     Button,
@@ -9,11 +10,23 @@ import {
     ModalBody,
     ModalCloseButton,
     useDisclosure,
+    FormControl,
+    Textarea,
+    Text,
 } from '@chakra-ui/react'
+import usePreviewImg from '../hooks/usePreviewImg'
+import { BsFillImageFill } from 'react-icons/bs'
 
 
 const CreatePosts = () => {
     const { isOpen, onOpen, onClose } = useDisclosure()
+    const { postText, setPostText } = useState('')
+    const {handleImageChange, imdUrl} = usePreviewImg()
+
+    const handleTextChange = () => {
+
+    }
+    
     return (
         <>
             <Button
@@ -29,17 +42,28 @@ const CreatePosts = () => {
             <Modal isOpen={isOpen} onClose={onClose}>
                 <ModalOverlay />
                 <ModalContent>
-                    <ModalHeader>Modal Title</ModalHeader>
+                    <ModalHeader>Create Post</ModalHeader>
                     <ModalCloseButton />
-                    <ModalBody>
-                        Let Post!
+                    <ModalBody pd={6}>
+                        <FormControl>
+                            <Textarea
+                                placeholder='Post Content goes here'
+                                onChange={handleTextChange}
+                                value={postText}
+                            />
+                            <Text fontSize="xs" fontweight="bold" textAlign={"right"} m={1} color={"gray.800"}>
+                                500/500
+                            </Text>
+                            <input type="file" hidden ref={imageRef} onChange={handleImageChange}/>
+                            
+                        </FormControl>
                     </ModalBody>
 
                     <ModalFooter>
                         <Button colorScheme='blue' mr={3} onClick={onClose}>
                             Close
                         </Button>
-                        <Button variant='ghost'>Secondary Action</Button>
+                        
                     </ModalFooter>
                 </ModalContent>
             </Modal>
