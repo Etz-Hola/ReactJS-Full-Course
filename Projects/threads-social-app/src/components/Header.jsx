@@ -17,6 +17,10 @@ const Header = () => {
           <AiFillHome size={24} />
         </Link>
       )}
+
+      {!user && (
+        <Link as={RouterLink} to={"/auth"} onClick={() => setAuthScreen("login")}> Login </Link>
+      )}
     <Image className="toggle" alt="logo" cursor="pointer"
         w={6}
         src={colorMode === "dark" ? "/light-logo.svg" : "/dark-logo.svg"}
