@@ -3,7 +3,7 @@ import UserHeader from "../components/UserHeader"
 import UserPosts from "../components/UserPosts"
 import { useParams } from 'react-router-dom';
 import useShowToast from '../hooks/useShowToast';
-import { Flex } from '@chakra-ui/react';
+import { Flex, Spinner } from '@chakra-ui/react';
 
 const UserPage = () => {
   const [user, setUser] = useState(null);
@@ -31,14 +31,16 @@ const UserPage = () => {
       }
     }
     getUser();
-  }, [username, showToast])
+  }, [username, showToast]);
 
-  if (!user && loading){
+  if (!user && loading) {
     return (
-      <Flex justifyContent={"center"} />
+      <Flex justifyContent={"center"}>
+        <Spinner size={"x1"} />
+      </Flex>
     )
   }
-    
+
 
 
   return (
