@@ -12,7 +12,7 @@ const Header = () => {
   const user = useRecoilValue(userAtom)
 
 
-  return <Flex justifyContent={"center"} mt={6} mb="12">
+  return <Flex justifyContent={"space-between"} gap={300} mt={6} mb="12">
     {user && (
       <Link as={RouterLink} to="/">
         <AiFillHome size={24} />
