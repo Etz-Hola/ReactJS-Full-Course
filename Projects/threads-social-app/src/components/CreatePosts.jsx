@@ -14,6 +14,9 @@ import {
     Textarea,
     Text,
     Input,
+    Flex,
+    Image,
+    CloseButton,
 } from '@chakra-ui/react'
 import usePreviewImg from '../hooks/usePreviewImg'
 import { BsFillImageFill } from 'react-icons/bs'
@@ -23,11 +26,10 @@ const CreatePosts = () => {
     const { isOpen, onOpen, onClose } = useDisclosure()
     const { postText, setPostText } = useState('')
     const imageRef = useRef(null)
-    const {handleImageChange, imdUrl} = usePreviewImg()
+    const {handleImageChange, imdUrl, setImgUrl} = usePreviewImg()
 
-    const handleTextChange = () => {
-
-    } ////////////
+    const handleTextChange = () => {}
+    const handleCreatePost = () => {}
     
     return (
         <>
@@ -64,11 +66,31 @@ const CreatePosts = () => {
                                 onClick={() => imageRef.current.click()}
                             />
                         </FormControl>
+
+                        {imdUrl &&  (
+                            <Flex
+                                mt={"full"}
+                                position={"relative"}
+                            >
+                                <Image src={imdUrl} alt='select img'/>
+                                <CloseButton 
+                                    onClick={() => {
+                                        setImgUrl('')                                        
+                                    }}
+                                    bg={"gray.800"}
+                                    position={"absolute"}
+                                    top={2}
+                                    right={2}
+                                />
+
+                            </Flex>
+
+                        )}
                     </ModalBody>
 
                     <ModalFooter>
-                        <Button colorScheme='blue' mr={3} onClick={onClose}>
-                            Close
+                        <Button colorScheme='blue' mr={3} onClick={handleCreatePost} isLoading={loading}>
+                            Post
                         </Button>
                         
                     </ModalFooter>
