@@ -28,6 +28,11 @@ const Header = () => {
         src={colorMode === "dark" ? "/light-logo.svg" : "/dark-logo.svg"}
         onClick={toggleColorMode}
     />
+    {user && (
+      <Link as={RouterLink} to={`/${user.username}`}>
+        <RxAvatar size={24} />
+      </Link>
+      )}
   </Flex>
 }
 
