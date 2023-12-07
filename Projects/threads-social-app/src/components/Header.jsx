@@ -8,10 +8,15 @@ import { Link as RouterLink } from "react-router-dom"
 
 const Header = () => {
     const {colorMode, toggleColorMode} = useColorMode()
-    
+    const user = useRecoilValue(userAtom)
 
     
   return <Flex justifyContent={"center"} mt={6} mb="12">
+      {user && (
+        <Link as={RouterLink} to="/">
+          <AiFillHome size={24} />
+        </Link>
+      )}
     <Image className="toggle" alt="logo" cursor="pointer"
         w={6}
         src={colorMode === "dark" ? "/light-logo.svg" : "/dark-logo.svg"}
