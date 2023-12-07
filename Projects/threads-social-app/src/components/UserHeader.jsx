@@ -16,6 +16,7 @@ const UserHeader = ({ user }) => {
     const currentUser = useRecoilValue(userAtom)
     const [following, setFollowing] = useState(user.followers.includes(currentUser._id))
     const showToast = useShowToast()
+    const [updating, setUpdating] = useState(false)
 
 
     const copyURL = () => {
@@ -32,6 +33,14 @@ const UserHeader = ({ user }) => {
     };
 
     const handleFollowUnfollow = async () => {
+        if(!currentUser) {
+            showToast("Error", "Please login to follow", "error")
+            return;
+        }
+        if(updating) return;
+        setUpdating(true)
+
+
         try {
             const res = await fetch(`/api/users/follow/${user._id}`, {
                 method: "POST",
@@ -47,12 +56,17 @@ const UserHeader = ({ user }) => {
             if(following) {
                 showToast("Success", `Unfollowed ${user.name}`, "success")
                 user.followers.pop()
+            } else {
+                showToast("Success", `Followed ${user.name}`, "success")
+                user.followers.push(currentUser._id)
             }
 
             setFollowing(!following)
             console.log(data)
         } catch (error) {
             showToast("Error", error, "error")
+        }finally {
+            setUpdating(false)
         }
 
     }
@@ -103,7 +117,7 @@ const UserHeader = ({ user }) => {
 
         {currentUser._id !== user._id && (
             <Link as={RouterLink} >
-                <Button size={"sm"} onClick={handleFollowUnfollow}>{following ? "unFollow" : "Follow"}</Button>
+                <Button size={"sm"} onClick={handleFollowUnfollow} isLoading={updating}>{following ? "unFollow" : "Follow"}</Button>
             </Link>
         )}
 
