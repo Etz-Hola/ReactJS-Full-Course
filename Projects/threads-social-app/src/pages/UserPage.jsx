@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import useShowToast from "../hooks/useShowToast";
 import { Flex, Spinner } from "@chakra-ui/react";
 
+
 const UserPage = () => {
 	const [user, setUser] = useState(null);
 	const { username } = useParams();
