@@ -8,7 +8,7 @@ const UserPage = () => {
   const [user, setUser] = useState(null);
   const { username } = useParams();
   const showToast = useShowToast()
-  
+  const {loading, setLoading} = useState(true) 
 
 
   useEffect(() => {
@@ -25,13 +25,14 @@ const UserPage = () => {
 
       } catch (error) {
         showToast("Error", error, "error")
-      }      
+      } finally{
+        setLoading(false)
+      }   
     }
-    getUser()
-  
+    getUser();  
   }, [username, showToast])
 
-  if(!user) return null
+  if(!user && loading) return null
   
 
   return (
