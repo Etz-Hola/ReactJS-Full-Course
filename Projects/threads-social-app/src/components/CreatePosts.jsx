@@ -22,9 +22,9 @@ import usePreviewImg from '../hooks/usePreviewImg'
 import { BsFillImageFill } from 'react-icons/bs'
 import { useRecoilState, useRecoilValue } from 'recoil'
 import userAtom from '../atoms/userAtom'
-import useShowToast from '../hooks/useShowToast'
 import { useParams } from 'react-router-dom'
 import postsAtom from '../atoms/postsAtom'
+import useShowToast from '../hooks/useShowToast'
 
 
 const MAX_CHAR = 500
@@ -37,7 +37,7 @@ const CreatePosts = () => {
     const { handleImageChange, imdUrl, setImgUrl } = usePreviewImg()
     const [loading, setLoading] = useState(false)
     const user = useRecoilValue(userAtom)
-    const showToast = useShowToast()
+    const showToast = useShowToast();
     const {username} = useParams()
     const [posts, setPosts] = useRecoilState(postsAtom)
 
@@ -74,8 +74,12 @@ const CreatePosts = () => {
                 setPosts([data, ...posts])
             }
 
-        } catch (error) {
+            onClose()
 
+        } catch (error) {
+            showToast("Error", error.message, "error")        
+        } finally{
+            setLoading(false)
         }
     }
 
@@ -149,5 +153,5 @@ const CreatePosts = () => {
 }
 
 
-//////////
+/////////
 export default CreatePosts
