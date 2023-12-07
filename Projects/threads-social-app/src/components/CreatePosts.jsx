@@ -30,6 +30,7 @@ const CreatePosts = () => {
     const imageRef = useRef(null)
     const [remainingChar, setRemainingChar] = useState(MAX_CHAR)
     const { handleImageChange, imdUrl, setImgUrl } = usePreviewImg()
+    const [loading, setLoading] = useState(false)
 
     const handleTextChange = (e) => {
         const inputText = e.target.value;
@@ -43,7 +44,9 @@ const CreatePosts = () => {
         }
      }
      
-    const handleCreatePost = () => { }
+    const handleCreatePost = () => {
+        setLoading(true)
+     }
 
     return (
         <>
