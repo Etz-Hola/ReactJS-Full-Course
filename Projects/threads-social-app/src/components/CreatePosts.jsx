@@ -24,6 +24,7 @@ import { useRecoilState, useRecoilValue } from 'recoil'
 import userAtom from '../atoms/userAtom'
 import useShowToast from '../hooks/useShowToast'
 import { useParams } from 'react-router-dom'
+import postsAtom from '../atoms/postsAtom'
 
 
 const MAX_CHAR = 500
@@ -37,7 +38,7 @@ const CreatePosts = () => {
     const [loading, setLoading] = useState(false)
     const user = useRecoilValue(userAtom)
     const showToast = useShowToast()
-    const username = useParams()
+    const {username} = useParams()
     const [posts, setPosts] = useRecoilState(postsAtom)
 
 
@@ -56,7 +57,7 @@ const CreatePosts = () => {
     const handleCreatePost = async () => {
         setLoading(true)
         try {
-            const res = await fatch("/api/posts/create", {
+            const res = await fetch("/api/posts/create", {
                 method: "POST",
                 headers: {
                     "content-type": "application/json",
