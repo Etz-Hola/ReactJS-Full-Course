@@ -55,7 +55,7 @@ const CreatePosts = () => {
                                 500/500
                             </Text>
                             <input type="file" hidden ref={imageRef} onChange={handleImageChange}/>
-                            
+                            h
                         </FormControl>
                     </ModalBody>
 
