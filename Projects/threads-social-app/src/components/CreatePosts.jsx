@@ -26,11 +26,11 @@ const CreatePosts = () => {
     const { isOpen, onOpen, onClose } = useDisclosure()
     const { postText, setPostText } = useState('')
     const imageRef = useRef(null)
-    const {handleImageChange, imdUrl, setImgUrl} = usePreviewImg()
+    const { handleImageChange, imdUrl, setImgUrl } = usePreviewImg()
 
-    const handleTextChange = () => {}
-    const handleCreatePost = () => {}
-    
+    const handleTextChange = () => { }
+    const handleCreatePost = () => { }
+
     return (
         <>
             <Button
@@ -58,24 +58,24 @@ const CreatePosts = () => {
                             <Text fontSize="xs" fontweight="bold" textAlign={"right"} m={1} color={"gray.800"}>
                                 500/500
                             </Text>
-                            <Input type="file" hidden ref={imageRef} onChange={handleImageChange}/>
-                            
-                            <BsFillImageFill 
-                                style={{marginLeft: "5px",cursor: "pointer"}}
+                            <Input type="file" hidden ref={imageRef} onChange={handleImageChange} />
+
+                            <BsFillImageFill
+                                style={{ marginLeft: "5px", cursor: "pointer" }}
                                 size={16}
                                 onClick={() => imageRef.current.click()}
                             />
                         </FormControl>
 
-                        {imdUrl &&  (
+                        {imdUrl && (
                             <Flex
                                 mt={"full"}
                                 position={"relative"}
                             >
-                                <Image src={imdUrl} alt='select img'/>
-                                <CloseButton 
+                                <Image src={imdUrl} alt='select img' />
+                                <CloseButton
                                     onClick={() => {
-                                        setImgUrl('')                                        
+                                        setImgUrl('')
                                     }}
                                     bg={"gray.800"}
                                     position={"absolute"}
@@ -92,7 +92,7 @@ const CreatePosts = () => {
                         <Button colorScheme='blue' mr={3} onClick={handleCreatePost} isLoading={loading}>
                             Post
                         </Button>
-                        
+
                     </ModalFooter>
                 </ModalContent>
             </Modal>
