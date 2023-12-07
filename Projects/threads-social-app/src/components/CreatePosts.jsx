@@ -42,6 +42,7 @@ const CreatePosts = () => {
             setRemainingChar(MAX_CHAR - inputText.length);
         }
      }
+     ////////////
     const handleCreatePost = () => { }
 
     return (
