@@ -12,25 +12,36 @@ import {
 import { BsThreeDots } from "react-icons/bs"
 import { Link } from "react-router-dom"
 import Actions from "./Actions"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import useShowToast from "../hooks/useShowToast"
 
 const Post = ({ post, postedBy }) => {
     const [liked, setLiked] = useState()
+    const [user, setUser] = useState(null)
+
+
+    const showToast = useShowToast()
 
     useEffect(() => {
       const getUser = async () => {
         try { 
             const res = await fetch(`/api/users/profile/${postedBy}`);
             const data = await res.json();
-            console.log(data)        
+            console.log(data)    
+            setUser(data)   
+            if (data.error) {
+                showToast("Error", data.error, "error");
+                return;
+            } 
         } catch (error) {
-            useShowToast("Error", error.message, "error");            
-        }
+            showToast("Error", error.message, "error");            
+            setUser(null)
+        }        
       }
-
-    }, [userId])
-
+      getUser()
+    }, [postedBy, showToast])
+    
+    if (!user) return null
 
     return (
 
@@ -51,7 +62,7 @@ const Post = ({ post, postedBy }) => {
                 <Flex flex={1} flexDir={"column"} gap={2} >
                     <Flex w={"full"} justifyContent={"space-between"}>
                         <Flex alignItems={"center"} w={"full"}>
-                            <Text>AliuMusa</Text>
+                            <Text>{user.username}</Text>
                             <Image src="/verified.png" ml={1} w={4} h={4} />
                         </Flex>
 
