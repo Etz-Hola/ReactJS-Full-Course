@@ -1,116 +1,165 @@
 import {
-    Avatar,
-    Box, Flex,
-    Image, Menu,
-    MenuButton,
-    MenuDivider,
-    MenuGroup,
-    MenuItem,
-    MenuList,
-    Text
-} from "@chakra-ui/react"
-import { BsThreeDots } from "react-icons/bs"
-import { Link } from "react-router-dom"
-import Actions from "./Actions"
-import { useEffect, useState } from "react"
-import useShowToast from "../hooks/useShowToast"
+  Avatar,
+  Box,
+  Flex,
+  Image,
+  Menu,
+  MenuButton,
+  MenuDivider,
+  MenuGroup,
+  MenuItem,
+  MenuList,
+  Text,
+} from "@chakra-ui/react";
+import { BsThreeDots } from "react-icons/bs";
+import { Link } from "react-router-dom";
+import Actions from "./Actions";
+import { useEffect, useState } from "react";
+import useShowToast from "../hooks/useShowToast";
 
 const Post = ({ post, postedBy }) => {
-    const [liked, setLiked] = useState()
-    const [user, setUser] = useState(null)
+  const [liked, setLiked] = useState();
+  const [user, setUser] = useState(null);
 
+  const showToast = useShowToast();
 
-    const showToast = useShowToast()
-
-    useEffect(() => {
-      const getUser = async () => {
-        try { 
-            const res = await fetch(`/api/users/profile/${postedBy}`);
-            const data = await res.json();
-            console.log(data)    
-            setUser(data)   
-            if (data.error) {
-                showToast("Error", data.error, "error");
-                return;
-            } 
-        } catch (error) {
-            showToast("Error", error.message, "error");            
-            setUser(null)
-        }        
+  useEffect(() => {
+    const getUser = async () => {
+      try {
+        const res = await fetch(`/api/users/profile/${postedBy}`);
+        const data = await res.json();
+        console.log(data);
+        setUser(data);
+        if (data.error) {
+          showToast("Error", data.error, "error");
+          return;
+        }
+      } catch (error) {
+        showToast("Error", error.message, "error");
+        setUser(null);
       }
-      getUser()
-    }, [postedBy, showToast])
-    
-    if (!user) return null
+    };
+    getUser();
+  }, [postedBy, showToast]);
 
-    return (
+  if (!user) return null;
 
-        <Link to={"/aliumusa/post/1"}>
-            <Flex gap={3} mb={4} py={5}>
-                <Flex flexDir={"column"} alignItems={"center"}>
-                    <Avatar src="/post1.png"
-                        name="Mark Zuckerberg"
-                        size={"md"} />
-                    <Box w={"1px"} h={"full"} bg={"gray.light"} my={2}></Box>
-                    <Box pos={"relative"} w={"full"}>
-                        <Avatar src="/post1.png" name="Wale Shola" size={"xs"} pos={"absolute"} top={"0"} left={"15px"} padding={"2px"} />
-                        <Avatar src="/post1.png" name="Bola Kola" size={"xs"} pos={"absolute"} bottom={"0"} right={"-5px"} padding={"2px"} />
-                        <Avatar src="/post1.png" name="Tola Driver" size={"xs"} pos={"absolute"} bottom={"0"} left={"4px"} padding={"2px"} />
-                    </Box>
-                </Flex>
+  return (
+    <Link to={"/aliumusa/post/1"}>
+      <Flex gap={3} mb={4} py={5}>
+        <Flex flexDir={"column"} alignItems={"center"}>
+          <Avatar
+            src={user.profilePic}
+            name={`${user.name} ${user.username}`}
+            size={"md"}
+          />
+          <Box w={"1px"} h={"full"} bg={"gray.light"} my={2}></Box>
+          <Box pos={"relative"} w={"full"}>
+            {post.replies.length === 0 && <Text textAlign={"center"}>😍🙄</Text>}
+            {post.replies[0] && (
+              <Avatar
+                src={post.replies[0].userProfilePic}
+                name={post.replies[0].username}
+                size={"xs"}
+                pos={"absolute"}
+                top={"0"}
+                left={"15px"}
+                padding={"2px"}
+              />
+            )}
 
-                <Flex flex={1} flexDir={"column"} gap={2} >
-                    <Flex w={"full"} justifyContent={"space-between"}>
-                        <Flex alignItems={"center"} w={"full"}>
-                            <Text>{user.username}</Text>
-                            <Image src="/verified.png" ml={1} w={4} h={4} />
-                        </Flex>
+            {post.replies[1] && (
+              <Avatar
+                src={post.replies[1].userProfilePic}
+                name={post.replies[1].username}
+                size={"xs"}
+                pos={"absolute"}
+                bottom={"0"}
+                right={"-5px"}
+                padding={"2px"}
+              />
+            )}
 
-                        <Flex alignItems={"center"} gap={4} onClick={(e) => e.preventDefault()}>
-                            <Text>1day</Text>
-                            <Menu>
-                                <MenuButton>
-                                    <BsThreeDots cursor={'pointer'} />
-                                </MenuButton>
-                                <MenuList>
-                                    <MenuGroup>
-                                        <MenuItem color={'gray.light'}>Mute</MenuItem>
-                                    </MenuGroup>
-                                    <MenuDivider />
-                                    <MenuGroup>
-                                        <MenuItem color={'red'}>Block</MenuItem>
-                                        <MenuItem color={'gray.light'}>Hide</MenuItem>
-                                    </MenuGroup>
-                                    <MenuDivider />
-                                    <MenuGroup>
-                                        <MenuItem color={'red'}>Report</MenuItem>
-                                    </MenuGroup>
-                                </MenuList>
-                            </Menu>
-                        </Flex>
-                    </Flex>
+            {post.replies[2] && (
+              <Avatar
+                src={post.replies[2].userProfilePic}
+                name={post.replies[2].username}
+                size={"xs"}
+                pos={"absolute"}
+                bottom={"0"}
+                left={"4px"}
+                padding={"2px"}
+              />
+            )}
+          </Box>
+        </Flex>
 
-                    <Text fontSize={"sm"}>{post.text}</Text>
-                    {post.img && (
-                        <Box overflow={"hidden"} borderRadius={"6"} border={"1px solid"} borderColor={"gray.light"} width={"full"}>
-                            <Image src={post.img} width={"full"} />
-                        </Box>
-                    )}
-
-                    <Flex>
-                        <Actions liked={liked} setLiked={setLiked} />
-                    </Flex>
-
-                    <Flex gap={2} color={"gray.light"} fontSize={"sm"} alignItems={"center"}>
-                        <Text>{post.replies.length} replies</Text>
-                        <Box w={0.5} h={0.5} borderRadius={"full"} bg={"gray.light"}></Box>
-                        <Text >{post.likes} likes</Text>
-                    </Flex>
-                </Flex>
+        <Flex flex={1} flexDir={"column"} gap={2}>
+          <Flex w={"full"} justifyContent={"space-between"}>
+            <Flex alignItems={"center"} w={"full"}>
+              <Text>{user.username}</Text>
+              <Image src="/verified.png" ml={1} w={4} h={4} />
             </Flex>
-        </Link>
 
-    )
-}
+            <Flex
+              alignItems={"center"}
+              gap={4}
+              onClick={(e) => e.preventDefault()}
+            >
+              <Text>1day</Text>
+              <Menu>
+                <MenuButton>
+                  <BsThreeDots cursor={"pointer"} />
+                </MenuButton>
+                <MenuList>
+                  <MenuGroup>
+                    <MenuItem color={"gray.light"}>Mute</MenuItem>
+                  </MenuGroup>
+                  <MenuDivider />
+                  <MenuGroup>
+                    <MenuItem color={"red"}>Block</MenuItem>
+                    <MenuItem color={"gray.light"}>Hide</MenuItem>
+                  </MenuGroup>
+                  <MenuDivider />
+                  <MenuGroup>
+                    <MenuItem color={"red"}>Report</MenuItem>
+                  </MenuGroup>
+                </MenuList>
+              </Menu>
+            </Flex>
+          </Flex>
 
-export default Post
+          <Text fontSize={"sm"}>{post.text}</Text>
+          {post.img && (
+            <Box
+              overflow={"hidden"}
+              borderRadius={"6"}
+              border={"1px solid"}
+              borderColor={"gray.light"}
+              width={"full"}
+            >
+              <Image src={post.img} width={"full"} />
+            </Box>
+          )}
+
+          <Flex>
+            <Actions liked={liked} setLiked={setLiked} />
+          </Flex>
+
+          <Flex
+            gap={2}
+            color={"gray.light"}
+            fontSize={"sm"}
+            alignItems={"center"}
+          >
+            <Text>{post.replies.length} replies</Text>
+            <Box w={0.5} h={0.5} borderRadius={"full"} bg={"gray.light"}></Box>
+            <Text>{post.likes} likes</Text>
+          </Flex>
+        </Flex>
+      </Flex>
+    </Link>
+  );
+};
+
+export default Post;
