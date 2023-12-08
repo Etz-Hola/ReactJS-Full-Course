@@ -17,10 +17,10 @@ import { useState } from "react"
 const Post = ({ post, postedBy }) => {
     const [liked, setLiked] = useState()
 
-    // useEffect(() => {
-    //   f
+    useEffect(() => {
+      f
 
-    // }, [third])
+    }, [third])
 
 
     return (
@@ -89,7 +89,7 @@ const Post = ({ post, postedBy }) => {
                 </Flex>
             </Flex>
         </Link>
-        
+
     )
 }
 
