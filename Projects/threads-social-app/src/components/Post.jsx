@@ -89,6 +89,7 @@ const Post = ({ post, postedBy }) => {
                 </Flex>
             </Flex>
         </Link>
+        
     )
 }
 
