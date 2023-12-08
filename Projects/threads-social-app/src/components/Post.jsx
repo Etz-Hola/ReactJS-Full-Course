@@ -13,12 +13,19 @@ import { BsThreeDots } from "react-icons/bs"
 import { Link } from "react-router-dom"
 import Actions from "./Actions"
 import { useState } from "react"
+import useShowToast from "../hooks/useShowToast"
 
 const Post = ({ post, postedBy }) => {
     const [liked, setLiked] = useState()
 
     useEffect(() => {
-      f
+      const getUser = async () => {
+        try {
+            
+        } catch (error) {
+            useShowToast("Error", error.message, "error");            
+        }
+      }
 
     }, [third])
 
