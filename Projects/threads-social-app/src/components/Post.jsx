@@ -1,4 +1,14 @@
-import { Avatar, Box, Flex, Image, Menu, MenuButton, MenuDivider, MenuGroup, MenuItem, MenuList, Text } from "@chakra-ui/react"
+import { 
+    Avatar, 
+    Box, Flex, 
+    Image, Menu, 
+    MenuButton, 
+    MenuDivider,
+     MenuGroup, 
+     MenuItem,
+      MenuList, 
+      Text 
+    } from "@chakra-ui/react"
 import { BsThreeDots } from "react-icons/bs"
 import { Link } from "react-router-dom"
 import Actions from "./Actions"
@@ -6,6 +16,12 @@ import { useState } from "react"
 
 const Post = ({ post, postedBy }) => {
     const [liked, setLiked] = useState()
+
+    useEffect(() => {
+      f
+      
+    }, [third])
+    
 
     return (
 
