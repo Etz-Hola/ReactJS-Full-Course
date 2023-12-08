@@ -1,14 +1,14 @@
-import { 
-    Avatar, 
-    Box, Flex, 
-    Image, Menu, 
-    MenuButton, 
+import {
+    Avatar,
+    Box, Flex,
+    Image, Menu,
+    MenuButton,
     MenuDivider,
-     MenuGroup, 
-     MenuItem,
-      MenuList, 
-      Text 
-    } from "@chakra-ui/react"
+    MenuGroup,
+    MenuItem,
+    MenuList,
+    Text
+} from "@chakra-ui/react"
 import { BsThreeDots } from "react-icons/bs"
 import { Link } from "react-router-dom"
 import Actions from "./Actions"
@@ -17,11 +17,11 @@ import { useState } from "react"
 const Post = ({ post, postedBy }) => {
     const [liked, setLiked] = useState()
 
-    useEffect(() => {
-      f
-      
-    }, [third])
-    
+    // useEffect(() => {
+    //   f
+
+    // }, [third])
+
 
     return (
 
@@ -70,10 +70,10 @@ const Post = ({ post, postedBy }) => {
                         </Flex>
                     </Flex>
 
-                    <Text fontSize={"sm"}>{postTitle}</Text>
-                    {postImg && (
+                    <Text fontSize={"sm"}>{post.text}</Text>
+                    {post.img && (
                         <Box overflow={"hidden"} borderRadius={"6"} border={"1px solid"} borderColor={"gray.light"} width={"full"}>
-                            <Image src={postImg} width={"full"} />
+                            <Image src={post.img} width={"full"} />
                         </Box>
                     )}
 
@@ -82,15 +82,11 @@ const Post = ({ post, postedBy }) => {
                     </Flex>
 
                     <Flex gap={2} color={"gray.light"} fontSize={"sm"} alignItems={"center"}>
-                        <Text>{replies} replies</Text>
+                        <Text>{post.replies.length} replies</Text>
                         <Box w={0.5} h={0.5} borderRadius={"full"} bg={"gray.light"}></Box>
-                        <Text >{likes} likes</Text>
+                        <Text >{post.likes} likes</Text>
                     </Flex>
-
-
                 </Flex>
-
-
             </Flex>
         </Link>
     )
