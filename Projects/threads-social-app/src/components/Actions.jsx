@@ -1,4 +1,19 @@
-import { Box, Flex, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Flex,
+  FormControl,
+  FormLabel,
+  Input,
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  ModalOverlay,
+  Text,
+} from "@chakra-ui/react";
 import React, { useState } from "react";
 import userAtom from "../atoms/userAtom";
 import { useRecoilValue } from "recoil";
@@ -67,7 +82,6 @@ const Actions = ({ post: post_ }) => {
 
       setPost({ ...post, replies: [...post.replies, data] });
       setReply("");
-
     } catch (error) {
       showToast("Error", error.message, "error");
     }
@@ -127,11 +141,7 @@ const Actions = ({ post: post_ }) => {
         <Text>{post.likes.length} likes</Text>
       </Flex>
 
-      <Modal
-        
-        isOpen={isOpen}
-        onClose={onClose}
-      >
+      <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
           <ModalHeader>Create your account</ModalHeader>
@@ -139,17 +149,12 @@ const Actions = ({ post: post_ }) => {
           <ModalBody pb={6}>
             <FormControl>
               <FormLabel>First name</FormLabel>
-              <Input ref={initialRef} placeholder='First name' />
-            </FormControl>
-
-            <FormControl mt={4}>
-              <FormLabel>Last name</FormLabel>
-              <Input placeholder='Last name' />
+              <Input ref={initialRef} placeholder="First name" />
             </FormControl>
           </ModalBody>
 
           <ModalFooter>
-            <Button colorScheme='blue' mr={3}>
+            <Button colorScheme="blue" mr={3}>
               Save
             </Button>
             <Button onClick={onClose}>Cancel</Button>
