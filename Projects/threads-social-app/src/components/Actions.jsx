@@ -1,13 +1,22 @@
-import { Flex } from "@chakra-ui/react";
+import { Box, Flex, Text } from "@chakra-ui/react";
+import React, { useState } from "react";
+import userAtom from "../atoms/userAtom";
+import { useRecoilValue } from "recoil";
 
-const Actions = ({ liked, setLiked }) => {
+const Actions = ({ post: post_}) => {
+  const user = useRecoilValue(userAtom)
+  const [post, setPost] = useState(post_)
+  const [liked, setLiked] = useState(post.likes.includes(user?._id))
+
   return (
     <>
       <Flex
         cursor={"pointer"}
         gap={3}
         my={2}
-        onClick={(e) => e.preventDefault()}>
+        onClick={(e) => e.preventDefault()}
+        flexDirection="column"
+      >
         <svg
           aria-label="Unlike"
           fill={liked ? "rgb(237,73,86" : "transparent"}
@@ -83,6 +92,17 @@ const Actions = ({ liked, setLiked }) => {
             strokeWidth="2"
           ></polygon>
         </svg>
+
+        <Flex
+          gap={2}
+          color={"gray.light"}
+          fontSize={"sm"}
+          alignItems={"center"}
+        >
+          <Text>{post.replies.length} replies</Text>
+          <Box w={0.5} h={0.5} borderRadius={"full"} bg={"gray.light"}></Box>
+          <Text>{post.likes} likes</Text>
+        </Flex>
       </Flex>
     </>
   );
