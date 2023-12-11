@@ -27,6 +27,7 @@ const Actions = ({ post: post_ }) => {
   const [reply, setReply] = useState("");
   const [isRreplying, setIsReplying] = useState(false);
   const showToast = useShowToast();
+
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const handleLikeAndUnlike = async () => {
@@ -85,7 +86,6 @@ const Actions = ({ post: post_ }) => {
       showToast("Success", "Reply posted successfully", "success");
       onClose();
       setReply("");
-
     } catch (error) {
       showToast("Error", error.message, "error");
     } finally {
@@ -120,14 +120,15 @@ const Actions = ({ post: post_ }) => {
         </svg>
 
         <svg
-          aria-label="Reply"
+          aria-label="Comment"
           fill="currentColor"
           height="20"
           role="img"
           viewBox="0 0 24 24"
           width="20"
+          onClick={onOpen}
         >
-          <title>Reply</title>
+          <title>Comment</title>
           <path
             d="M20.656 17.008a9.993 9.993 0 1 0-3.59 3.615L22 22Z"
             fill="none"
@@ -147,7 +148,6 @@ const Actions = ({ post: post_ }) => {
         <Text>{post.likes.length} likes</Text>
       </Flex>
 
-
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
@@ -155,12 +155,20 @@ const Actions = ({ post: post_ }) => {
           <ModalCloseButton />
           <ModalBody pb={6}>
             <FormControl>
-              <Input  placeholder="Reply goes here..." />
+              <Input
+                placeholder="Reply goes here..."
+                value={reply}
+                onChange={(e) => setReply(e.target.value)}
+              />
             </FormControl>
           </ModalBody>
 
           <ModalFooter>
-            <Button colorScheme="blue" mr={3}>
+            <Button colorScheme="blue" mr={3}
+              size={"sm"}
+              isLoading={isRreplying}
+              onClick={handleReply}
+            >
               Reply
             </Button>
           </ModalFooter>
@@ -171,9 +179,6 @@ const Actions = ({ post: post_ }) => {
 };
 
 export default Actions;
-
-
-
 
 const RepostSVG = () => {
   return (
