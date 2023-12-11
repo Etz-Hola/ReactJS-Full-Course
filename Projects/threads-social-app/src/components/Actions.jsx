@@ -145,18 +145,17 @@ const Actions = ({ post: post_ }) => {
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Create your account</ModalHeader>
+          <ModalHeader></ModalHeader>
           <ModalCloseButton />
           <ModalBody pb={6}>
             <FormControl>
-              <FormLabel>First name</FormLabel>
-              <Input ref={initialRef} placeholder="First name" />
+              <Input  placeholder="Reply goes here..." />
             </FormControl>
           </ModalBody>
 
           <ModalFooter>
             <Button colorScheme="blue" mr={3}>
-              Save
+              Reply
             </Button>
           </ModalFooter>
         </ModalContent>
@@ -166,6 +165,9 @@ const Actions = ({ post: post_ }) => {
 };
 
 export default Actions;
+
+
+
 
 const RepostSVG = () => {
   return (
