@@ -21,7 +21,17 @@ const Actions = ({ post: post_}) => {
           }
         })
         const data = await res.json();
-        console.log(data)
+
+        if(!liked) {
+          //add thr id of the user to the likes array
+          setPost({...post, likes: [...post.likes, user._id]})
+        } else {
+          //remove the id of the user from the likes array
+          setPost({...post, likes: post.likes.filter(id => id !== user._id)})
+        }
+        setLiked(!liked)
+        
+
       } catch (error) {
         showToast("Error", error.message, "error");
         
@@ -45,7 +55,7 @@ const Actions = ({ post: post_}) => {
           role="img"
           viewBox="0 0 20 20"
           width="20"
-          onClick={() => setLiked(!liked)}
+          onClick={handleLikeAndUnlike}
         >
           <title>Like</title>
           <path
