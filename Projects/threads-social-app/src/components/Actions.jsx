@@ -8,6 +8,9 @@ const Actions = ({ post: post_ }) => {
   const user = useRecoilValue(userAtom);
   const [post, setPost] = useState(post_);
   const [liked, setLiked] = useState(post.likes.includes(user?._id));
+  const [isLiking, setIsLiking] = useState(false);
+  const showToast = useShowToast();
+
 
   const handleLikeAndUnlike = async () => {
     if (!user)
@@ -82,6 +85,7 @@ const Actions = ({ post: post_ }) => {
         <RepostSVG />
         <ShareSVG />
       </Flex>
+
       <Flex gap={2} color={"gray.light"} fontSize={"sm"} alignItems={"center"}>
         <Text>{post.replies.length} replies</Text>
         <Box w={0.5} h={0.5} borderRadius={"full"} bg={"gray.light"}></Box>
