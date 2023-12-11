@@ -12,9 +12,16 @@ const Actions = ({ post: post_}) => {
   const handleLikeAndUnlike = async () => {
     if(!user) 
       return showToast("Error", "You must be login to like a post", "error");
-    
+
       try {
-        
+        const res = await fetch(`/api/posts/like/${post._id}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          }
+        })
+        const data = await res.json();
+        console.log(data)
       } catch (error) {
         showToast("Error", error.message, "error");
         
