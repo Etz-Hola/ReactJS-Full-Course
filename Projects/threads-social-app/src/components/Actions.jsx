@@ -67,7 +67,7 @@ const Actions = ({ post: post_ }) => {
 
       setPost({ ...post, replies: [...post.replies, data] });
       setReply("");
-      
+
     } catch (error) {
       showToast("Error", error.message, "error");
     }
@@ -126,6 +126,36 @@ const Actions = ({ post: post_ }) => {
         <Box w={0.5} h={0.5} borderRadius={"full"} bg={"gray.light"}></Box>
         <Text>{post.likes.length} likes</Text>
       </Flex>
+
+      <Modal
+        
+        isOpen={isOpen}
+        onClose={onClose}
+      >
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>Create your account</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody pb={6}>
+            <FormControl>
+              <FormLabel>First name</FormLabel>
+              <Input ref={initialRef} placeholder='First name' />
+            </FormControl>
+
+            <FormControl mt={4}>
+              <FormLabel>Last name</FormLabel>
+              <Input placeholder='Last name' />
+            </FormControl>
+          </ModalBody>
+
+          <ModalFooter>
+            <Button colorScheme='blue' mr={3}>
+              Save
+            </Button>
+            <Button onClick={onClose}>Cancel</Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
     </Flex>
   );
 };
