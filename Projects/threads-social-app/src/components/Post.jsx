@@ -64,6 +64,7 @@ const Post = ({ post, postedBy }) => {
         showToast("Error", data.error, "error");
         return;
       }
+      showToast("Success", "Post deleted successfully", "success");
       
     } catch (error) {
       showToast("Error", error.message, "error");
