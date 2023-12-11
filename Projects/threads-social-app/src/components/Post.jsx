@@ -53,8 +53,7 @@ const Post = ({ post, postedBy }) => {
   const handleDeletePost = async (e) => {
     try {
       e.preventDefault();
-
-      if(window.confirm("Are you sure you want to delete this post")) return;
+      if(!window.confirm("Are you sure you want to delete this post")) return;
       const res = await fetch(`/api/posts/${post._id}`, {
         method: "DELETE",
       });
@@ -65,7 +64,7 @@ const Post = ({ post, postedBy }) => {
         showToast("Error", data.error, "error");
         return;
       }
-      
+
       showToast("Success", "Post deleted successfully", "success");
 
       
