@@ -9,10 +9,9 @@ const Actions = ({ post: post_ }) => {
   const [post, setPost] = useState(post_);
   const [liked, setLiked] = useState(post.likes.includes(user?._id));
   const [isLiking, setIsLiking] = useState(false);
-  const [reply, setReply] = useState('');
+  const [reply, setReply] = useState("");
   const [isRreplying, setIsReplying] = useState(false);
   const showToast = useShowToast();
-
 
   const handleLikeAndUnlike = async () => {
     if (!user)
@@ -20,8 +19,6 @@ const Actions = ({ post: post_ }) => {
 
     if (isLiking) return;
     setIsLiking(true);
-
-    
 
     try {
       const res = await fetch(`/api/posts/like/${post._id}`, {
@@ -43,13 +40,17 @@ const Actions = ({ post: post_ }) => {
     } catch (error) {
       showToast("Error", error.message, "error");
     } finally {
-      setIsLiking(false)
+      setIsLiking(false);
     }
   };
 
   const handleReply = async () => {
     if (!user)
-    return showToast("Error", "You must be login to reply to a post", "error");
+      return showToast(
+        "Error",
+        "You must be login to reply to a post",
+        "error"
+      );
 
     if (isRreplying) return;
     setIsReplying(true);
@@ -60,17 +61,13 @@ const Actions = ({ post: post_ }) => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ text: reply })
-
-      })
+        body: JSON.stringify({ text: reply }),
+      });
       const data = await res.json();
     } catch (error) {
       showToast("Error", error.message, "error");
-    
-      
     }
-  
-  }
+  };
 
   return (
     <Flex flexDirection="column">
