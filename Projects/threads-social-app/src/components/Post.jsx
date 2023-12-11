@@ -1,3 +1,4 @@
+import { useRecoilValue } from 'recoil';
 import { useNavigate } from "react-router-dom";
 import {
   Avatar,
@@ -19,13 +20,14 @@ import { useEffect, useState } from "react";
 import useShowToast from "../hooks/useShowToast";
 import {formatDistanceToNow} from 'date-fns'
 import {DeleteIcon} from '@chakra-ui/icons'
+import userAtom from '../atoms/userAtom';
 
 const Post = ({ post, postedBy }) => {
   const [liked, setLiked] = useState();
   const [user, setUser] = useState(null);
-
   const navigate = useNavigate();
   const showToast = useShowToast();
+  const currentUser = useRecoilValue(userAtom);
 
   useEffect(() => {
     const getUser = async () => {
@@ -47,6 +49,8 @@ const Post = ({ post, postedBy }) => {
   }, [postedBy, showToast]);
 
   if (!user) return null;
+
+  const handleDeletePost = () => {}
 
   return (
     <Link to={`/${user.username}/post/${post._id}`}>
@@ -126,7 +130,7 @@ const Post = ({ post, postedBy }) => {
               <Text fontSize={"xs"} width={36} textAlign={"right"}>{formatDistanceToNow(new Date(post.createdAt))} ago</Text>
               {currentUser?._id === user._id && <DeleteIcon size={20} onClick={handleDeletePost} />}
 
-              
+
               {/* <Menu>
                 <MenuButton>
                   <BsThreeDots cursor={"pointer"} />
