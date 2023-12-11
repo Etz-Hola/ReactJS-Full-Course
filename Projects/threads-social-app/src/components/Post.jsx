@@ -170,7 +170,7 @@ const Post = ({ post, postedBy }) => {
           >
             <Text>{post.replies.length} replies</Text>
             <Box w={0.5} h={0.5} borderRadius={"full"} bg={"gray.light"}></Box>
-            <Text>{post.like} likes</Text>
+            <Text>{post.likes} likes</Text>
           </Flex>
         </Flex>
       </Flex>
