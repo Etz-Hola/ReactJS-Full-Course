@@ -141,6 +141,7 @@ const Actions = ({ post: post_ }) => {
         <Text>{post.likes.length} likes</Text>
       </Flex>
 
+
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
