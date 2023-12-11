@@ -16,6 +16,11 @@ const Actions = ({ post: post_ }) => {
     if (!user)
       return showToast("Error", "You must be login to like a post", "error");
 
+    if (isLiking) return;
+    setIsLiking(true);
+
+    
+
     try {
       const res = await fetch(`/api/posts/like/${post._id}`, {
         method: "PUT",
@@ -35,6 +40,8 @@ const Actions = ({ post: post_ }) => {
       setLiked(!liked);
     } catch (error) {
       showToast("Error", error.message, "error");
+    } finally {
+      setIsLiking(false)
     }
   };
 
