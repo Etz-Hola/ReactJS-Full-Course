@@ -131,7 +131,7 @@ const Actions = ({ post: post_}) => {
         >
           <Text>{post.replies.length} replies</Text>
           <Box w={0.5} h={0.5} borderRadius={"full"} bg={"gray.light"}></Box>
-          <Text>{post.likes} likes</Text>
+          <Text>{post.likes.length} likes</Text>
         </Flex>
     </Flex>
   );
