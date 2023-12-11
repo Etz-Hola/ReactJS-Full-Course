@@ -4,39 +4,36 @@ import userAtom from "../atoms/userAtom";
 import { useRecoilValue } from "recoil";
 import useShowToast from "../hooks/useShowToast";
 
-const Actions = ({ post: post_}) => {
-  const user = useRecoilValue(userAtom)
-  const [post, setPost] = useState(post_)
-  const [liked, setLiked] = useState(post.likes.includes(user?._id))
+const Actions = ({ post: post_ }) => {
+  const user = useRecoilValue(userAtom);
+  const [post, setPost] = useState(post_);
+  const [liked, setLiked] = useState(post.likes.includes(user?._id));
 
   const handleLikeAndUnlike = async () => {
-    if(!user) 
+    if (!user)
       return showToast("Error", "You must be login to like a post", "error");
 
-      try {
-        const res = await fetch(`/api/posts/like/${post._id}`, {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-          }
-        })
-        const data = await res.json();
+    try {
+      const res = await fetch(`/api/posts/like/${post._id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const data = await res.json();
 
-        if(!liked) {
-          //add thr id of the user to the likes array
-          setPost({...post, likes: [...post.likes, user._id]})
-        } else {
-          //remove the id of the user from the likes array
-          setPost({...post, likes: post.likes.filter(id => id !== user._id)})
-        }
-        setLiked(!liked)
-        
-
-      } catch (error) {
-        showToast("Error", error.message, "error");
-        
+      if (!liked) {
+        //add thr id of the user to the likes array
+        setPost({ ...post, likes: [...post.likes, user._id] });
+      } else {
+        //remove the id of the user from the likes array
+        setPost({ ...post, likes: post.likes.filter((id) => id !== user._id) });
       }
-  }
+      setLiked(!liked);
+    } catch (error) {
+      showToast("Error", error.message, "error");
+    }
+  };
 
   return (
     <Flex flexDirection="column">
@@ -45,7 +42,6 @@ const Actions = ({ post: post_}) => {
         gap={3}
         my={2}
         onClick={(e) => e.preventDefault()}
-        
       >
         <svg
           aria-label="Like"
@@ -84,18 +80,6 @@ const Actions = ({ post: post_}) => {
         </svg>
 
         <svg
-          aria-label="Repost"
-          fill="currentColor"
-          height="20"
-          role="img"
-          viewBox="0 0 24 24"
-          width="20"
-        >
-          <title>Repost</title>
-          <path d="M19.998 9.497a1 1 0 0 0-1 1v4.228a3.274 3.274 0 0 1-3.27 3.27h-5.313l1.791-1.787a1 1 0 0 0-1.412-1.416L7.29 18.287a1.004 1.004 0 0 0-.294.707v.001c0 .023.012.042.013.065a.923.923 0 0 0 .281.643l3.502 3.504a1 1 0 0 0 1.414-1.414l-1.797-1.798h5.318a5.276 5.276 0 0 0 5.27-5.27v-4.228a1 1 0 0 0-1-1Zm-6.41-3.496-1.795 1.795a1 1 0 1 0 1.414 1.414l3.5-3.5a1.003 1.003 0 0 0 0-1.417l-3.5-3.5a1 1 0 0 0-1.414 1.414l1.794 1.794H8.27A5.277 5.277 0 0 0 3 9.271V13.5a1 1 0 0 0 2 0V9.271a3.275 3.275 0 0 1 3.271-3.27Z"></path>
-        </svg>
-
-        <svg
           aria-label="Share"
           fill="currentColor"
           height="20"
@@ -123,18 +107,30 @@ const Actions = ({ post: post_}) => {
           ></polygon>
         </svg>
       </Flex>
-        <Flex
-          gap={2}
-          color={"gray.light"}
-          fontSize={"sm"}
-          alignItems={"center"}
-        >
-          <Text>{post.replies.length} replies</Text>
-          <Box w={0.5} h={0.5} borderRadius={"full"} bg={"gray.light"}></Box>
-          <Text>{post.likes.length} likes</Text>
-        </Flex>
+      <Flex gap={2} color={"gray.light"} fontSize={"sm"} alignItems={"center"}>
+        <Text>{post.replies.length} replies</Text>
+        <Box w={0.5} h={0.5} borderRadius={"full"} bg={"gray.light"}></Box>
+        <Text>{post.likes.length} likes</Text>
+      </Flex>
     </Flex>
   );
 };
 
 export default Actions;
+
+const RepostSVG = () => {
+  return (
+    <svg
+      aria-label="Repost"
+      fill="currentColor"
+      height="20"
+      role="img"
+      viewBox="0 0 24 24"
+      width="20"
+    >
+      <title>Repost</title>
+      <path d="M19.998 9.497a1 1 0 0 0-1 1v4.228a3.274 3.274 0 0 1-3.27 3.27h-5.313l1.791-1.787a1 1 0 0 0-1.412-1.416L7.29 18.287a1.004 1.004 0 0 0-.294.707v.001c0 .023.012.042.013.065a.923.923 0 0 0 .281.643l3.502 3.504a1 1 0 0 0 1.414-1.414l-1.797-1.798h5.318a5.276 5.276 0 0 0 5.27-5.27v-4.228a1 1 0 0 0-1-1Zm-6.41-3.496-1.795 1.795a1 1 0 1 0 1.414 1.414l3.5-3.5a1.003 1.003 0 0 0 0-1.417l-3.5-3.5a1 1 0 0 0-1.414 1.414l1.794 1.794H8.27A5.277 5.277 0 0 0 3 9.271V13.5a1 1 0 0 0 2 0V9.271a3.275 3.275 0 0 1 3.271-3.27Z"></path>
+    </svg>
+  );
+};
+const ShareSVG = () => {};
