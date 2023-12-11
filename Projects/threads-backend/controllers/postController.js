@@ -21,6 +21,7 @@ const createPost = async (req, res) => {
         if(text.length > maxLength) {
             return res.status(404).json({message: `Text  must be less than ${maxLength} characters`})
         }
+        
          if (img) {
             const uploadResponse = await cloudinary.uploader.upload(img);
             img = uploadResponse.secure_url
@@ -65,6 +66,11 @@ const deletePost = async (req, res) => {
 
         if(post.postedBy.toString() !== req.user._id.toString()){
             return res.status(401).json({message: "Unauthorized to delete this post"})
+        }
+
+        if (post.img) {
+            const imgId = post.img.split("/").pop().split(".")[0];
+            await cloudinary.uploader.destroy(imgId);
         }
 
         await Post.findByIdAndDelete(req.params.id);

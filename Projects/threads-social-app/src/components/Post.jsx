@@ -50,7 +50,13 @@ const Post = ({ post, postedBy }) => {
 
   if (!user) return null;
 
-  const handleDeletePost = () => {}
+  const handleDeletePost = () => {
+    try {
+      
+    } catch (error) {
+      showToast("Error", error.message, "error");
+    }
+  }
 
   return (
     <Link to={`/${user.username}/post/${post._id}`}>
