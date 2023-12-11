@@ -81,9 +81,14 @@ const Actions = ({ post: post_ }) => {
       const data = await res.json();
 
       setPost({ ...post, replies: [...post.replies, data] });
+      showToast("Success", "Reply posted successfully", "success");
+      onClose();
       setReply("");
+
     } catch (error) {
       showToast("Error", error.message, "error");
+    } finally {
+      setIsReplying(false);
     }
   };
 
