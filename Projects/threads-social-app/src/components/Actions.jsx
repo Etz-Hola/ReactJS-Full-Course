@@ -64,6 +64,10 @@ const Actions = ({ post: post_ }) => {
         body: JSON.stringify({ text: reply }),
       });
       const data = await res.json();
+
+      setPost({ ...post, replies: [...post.replies, data] });
+      setReply("");
+      
     } catch (error) {
       showToast("Error", error.message, "error");
     }
