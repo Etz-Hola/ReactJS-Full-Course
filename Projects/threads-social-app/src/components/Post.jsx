@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import {
   Avatar,
   Box,
@@ -16,11 +17,13 @@ import { Link } from "react-router-dom";
 import Actions from "./Actions";
 import { useEffect, useState } from "react";
 import useShowToast from "../hooks/useShowToast";
+import {formatDistanceToNow} from 'date-fns'
 
 const Post = ({ post, postedBy }) => {
   const [liked, setLiked] = useState();
   const [user, setUser] = useState(null);
 
+  const navigate = useNavigate();
   const showToast = useShowToast();
 
   useEffect(() => {
@@ -45,17 +48,23 @@ const Post = ({ post, postedBy }) => {
   if (!user) return null;
 
   return (
-    <Link to={"/aliumusa/post/1"}>
+    <Link to={`/${user.username}/post/${post._id}`}>
       <Flex gap={3} mb={4} py={5}>
         <Flex flexDir={"column"} alignItems={"center"}>
           <Avatar
             src={user.profilePic}
             name={`${user.name} ${user.username}`}
             size={"md"}
+            onClick={(e) => {
+              e.preventDefault();
+              navigate(`/${user.username}`);
+            }}
           />
           <Box w={"1px"} h={"full"} bg={"gray.light"} my={2}></Box>
           <Box pos={"relative"} w={"full"}>
-            {post.replies.length === 0 && <Text textAlign={"center"}>😍🙄</Text>}
+            {post.replies.length === 0 && (
+              <Text textAlign={"center"}>😍🙄</Text>
+            )}
             {post.replies[0] && (
               <Avatar
                 src={post.replies[0].userProfilePic}
@@ -96,7 +105,14 @@ const Post = ({ post, postedBy }) => {
 
         <Flex flex={1} flexDir={"column"} gap={2}>
           <Flex w={"full"} justifyContent={"space-between"}>
-            <Flex alignItems={"center"} w={"full"}>
+            <Flex
+              alignItems={"center"}
+            //   w={"full"}
+              onClick={(e) => {
+                e.preventDefault();
+                navigate(`/${user.username}`);
+              }}
+            >
               <Text>{user.username}</Text>
               <Image src="/verified.png" ml={1} w={4} h={4} />
             </Flex>
@@ -106,7 +122,7 @@ const Post = ({ post, postedBy }) => {
               gap={4}
               onClick={(e) => e.preventDefault()}
             >
-              <Text>1day</Text>
+              <Text fontSize={"xs"} width={36} textAlign={"right"}>{formatDistanceToNow(new Date(post.createdAt))} ago</Text>
               <Menu>
                 <MenuButton>
                   <BsThreeDots cursor={"pointer"} />
