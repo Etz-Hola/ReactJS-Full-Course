@@ -60,11 +60,12 @@ const Post = ({ post, postedBy }) => {
       });
 
       const data = await res.json();
-      
+
       if (data.error) {
         showToast("Error", data.error, "error");
         return;
       }
+      
       showToast("Success", "Post deleted successfully", "success");
 
       
