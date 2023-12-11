@@ -5,7 +5,6 @@ import { useParams } from "react-router-dom";
 import useShowToast from "../hooks/useShowToast";
 import { Flex, Spinner } from "@chakra-ui/react";
 
-
 const UserPage = () => {
 	const [user, setUser] = useState(null);
 	const { username } = useParams();
@@ -32,31 +31,30 @@ const UserPage = () => {
 		};
 
 		const getPosts = async () => {
-			setFetchingPosts(true);
+			setFetchingPosts(true)
 			try {
 				const res = await fetch(`api/posts/user/${username}`);
 				const data = await res.json();
-				// console.log(data)
-				getPosts(data);
+				console.log(data);
+				setPosts(data);
 			} catch (error) {
 				showToast("Error", error.message, "error");
-				setPosts([])
-			} finally{
+				setPosts([]);
+			} finally {
 				setFetchingPosts(false);
-			
 			}
-		}
+		};
 
 		getUser();
-		getPosts();
+		getPosts()
 	}, [username, showToast]);
 
 	if (!user && loading) {
 		return (
-			<Flex justifyContent={'center'}>
+			<Flex justifyContent={"center"}>
 				<Spinner size={"xl"} />
 			</Flex>
-		)
+		);
 	}
 
 	return (
