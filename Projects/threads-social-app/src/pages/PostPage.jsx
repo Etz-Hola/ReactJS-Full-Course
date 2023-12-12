@@ -48,8 +48,10 @@ const PostPage = () => {
       <Flex justifyContent={"center"}>
         <Spinner size={"xl"} />
       </Flex>
-
     )
+  }
+  if(!post) {
+    return (null)
   }
  
   return (
@@ -97,7 +99,7 @@ const PostPage = () => {
         </Flex>
       </Flex>
 
-      <Text my={3}>{post.post.text}</Text>
+      <Text my={3}>{post.text}</Text>
 
       <Box
         overflow={"hidden"}
@@ -109,13 +111,13 @@ const PostPage = () => {
       </Box>
 
       <Flex>
-        <Actions liked={liked} setLiked={setLiked} />
+        <Actions post={post} />
       </Flex>
 
       <Flex gap={2} color={"gray.light"} fontSize={"sm"} alignItems={"center"}>
         <Text>200 replies</Text>
         <Box w={0.5} h={0.5} borderRadius={"full"} bg={"gray.light"}></Box>
-        <Text>{29 + (liked ? 1 : 0)} likes</Text>
+        <Text>{post.likes.length} likes</Text>
       </Flex>
 
       <Divider my={4} />

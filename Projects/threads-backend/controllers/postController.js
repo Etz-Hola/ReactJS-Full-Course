@@ -21,7 +21,7 @@ const createPost = async (req, res) => {
         if(text.length > maxLength) {
             return res.status(404).json({message: `Text  must be less than ${maxLength} characters`})
         }
-        
+
          if (img) {
             const uploadResponse = await cloudinary.uploader.upload(img);
             img = uploadResponse.secure_url
@@ -47,7 +47,7 @@ const getPost = async (req, res) => {
             return res.status(404).json({message: "Post not found"})
         }
 
-        res.status(200).json({post})
+        res.status(200).json(post)
     } catch (err) {
         res.status(500).json({ message: err.message }); //internal server error
         console.log("Error in Get Post: ", err.message);
