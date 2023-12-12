@@ -27,14 +27,21 @@ const PostPage = () => {
       try {
         const res = await fetch(`api/posts/${pid}`);
         const data = await res.json();
+
+        if(data.error) {
+          showToast("Error", data.error, "error");
+          return;
+        }
+        console.log(data);
         setPost(data);
+
       } catch (error) {
         showToast("Error", error.message, "error");
       }
-    
-
     }
-  }, [])
+    getPost();
+  }, [showToast, pid])
+  
 
   if(!user && loading) {
     return  (
