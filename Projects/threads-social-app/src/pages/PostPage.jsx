@@ -20,20 +20,8 @@ import Comments from "../components/Comments";
 
 const PostPage = () => {
   // const [liked, setLiked] = useState(false);
-  const [ suer, setUser] = useState(null);
+  const [suer, setUser] = useState(null);
 
-  useEffect(() => {
-    const getUser = async () => {
-      try {
-
-      } catch (error) {
-
-      }
-    } 
-    getUser
-  
-
-  }, [third])
   
 
   return (
