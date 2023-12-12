@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { useParams } from "react-router-dom";
 import {
   Avatar,
   Box,
@@ -10,17 +10,20 @@ import {
   Text,
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
-import { BsThreeDots } from "react-icons/bs";
 import Actions from "../components/Actions";
 import Comments from "../components/Comments";
 import useGetUserProfile from "../hooks/useGetUserProfile";
 import useShowToast from "../hooks/useShowToast";
+import { DeleteIcon } from "@chakra-ui/icons";
+import { useRecoilValue } from "recoil";
+import userAtom from "../atoms/userAtom";
 
 const PostPage = () => {
-  const {user, loading} = useGetUserProfile()
+  const { user, loading } = useGetUserProfile();
   const [post, setPost] = useState(null);
   const showToast = useShowToast();
-  const {pid} = useParams();
+  const { pid } = useParams();
+  const currentUser = useRecoilValue(userAtom)
 
   useEffect(() => {
     const getPost = async () => {
@@ -28,32 +31,30 @@ const PostPage = () => {
         const res = await fetch(`api/posts/${pid}`);
         const data = await res.json();
 
-        if(data.error) {
+        if (data.error) {
           showToast("Error", data.error, "error");
           return;
         }
         console.log(data);
         setPost(data);
-
       } catch (error) {
         showToast("Error", error.message, "error");
       }
-    }
+    };
     getPost();
-  }, [showToast, pid])
+  }, [showToast, pid]);
 
-
-  if(!user && loading) {
-    return  (
+  if (!user && loading) {
+    return (
       <Flex justifyContent={"center"}>
         <Spinner size={"xl"} />
       </Flex>
-    )
+    );
   }
-  if(!post) {
-    return (null)
+  if (!post) {
+    return null;
   }
- 
+
   return (
     <>
       <Flex
@@ -68,54 +69,35 @@ const PostPage = () => {
           <Image src="/verified.png" h={4} w={4} ml={2} />
         </Flex>
 
-        <Flex gap={4} alignItems={"center"}>
-          <Text
-            fontSize={{ base: "xs", md: "sm" }}
-            textAlign={"right"}
-            w={36}
-            color={"gray.light"}
-          >
-            2day
+        <Flex alignItems={"center"} gap={4} onClick={(e) => e.preventDefault()}>
+          <Text fontSize={"xs"} width={36} textAlign={"right"}>
+            {formatDistanceToNow(new Date(post.createdAt))} ago
           </Text>
-          {/* <Menu>
-            <MenuButton>
-              <BsThreeDots cursor={'pointer'} />
-            </MenuButton>
-            <MenuList>
-              <MenuGroup>
-                <MenuItem color={'gray.light'}>Mute</MenuItem>
-              </MenuGroup>
-              <MenuDivider />
-              <MenuGroup>
-                <MenuItem color={'red'}>Block</MenuItem>
-                <MenuItem color={'gray.light'}>Hide</MenuItem>
-              </MenuGroup>
-              <MenuDivider />
-              <MenuGroup>
-                <MenuItem color={'red'}>Report</MenuItem>
-              </MenuGroup>
-            </MenuList>
-          </Menu> */}
+          {currentUser?._id === user._id && (
+            <DeleteIcon size={20} onClick={handleDeletePost} />
+          )}
         </Flex>
       </Flex>
 
       <Text my={3}>{post.text}</Text>
 
-      <Box
-        overflow={"hidden"}
-        borderRadius={"6"}
-        border={"1px solid"}
-        borderColor={"gray.light"}
-      >
-        <Image src="/post1.png" width={"full"} />
-      </Box>
+      {post.img && (
+        <Box
+          overflow={"hidden"}
+          borderRadius={"6"}
+          border={"1px solid"}
+          borderColor={"gray.light"}
+        >
+          <Image src={post.img} width={"full"} />
+        </Box>
+      )}
 
       <Flex>
         <Actions post={post} />
       </Flex>
 
       <Flex gap={2} color={"gray.light"} fontSize={"sm"} alignItems={"center"}>
-        <Text>200 replies</Text>
+        <Text>{post.replies.length} replies</Text>
         <Box w={0.5} h={0.5} borderRadius={"full"} bg={"gray.light"}></Box>
         <Text>{post.likes.length} likes</Text>
       </Flex>

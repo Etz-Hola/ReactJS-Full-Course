@@ -133,7 +133,7 @@ const Post = ({ post, postedBy }) => {
           <Flex w={"full"} justifyContent={"space-between"}>
             <Flex
               alignItems={"center"}
-            //   w={"full"}
+              //   w={"full"}
               onClick={(e) => {
                 e.preventDefault();
                 navigate(`/${user.username}`);
@@ -148,29 +148,12 @@ const Post = ({ post, postedBy }) => {
               gap={4}
               onClick={(e) => e.preventDefault()}
             >
-              <Text fontSize={"xs"} width={36} textAlign={"right"}>{formatDistanceToNow(new Date(post.createdAt))} ago</Text>
-              {currentUser?._id === user._id && <DeleteIcon size={20} onClick={handleDeletePost} />}
-
-
-              {/* <Menu>
-                <MenuButton>
-                  <BsThreeDots cursor={"pointer"} />
-                </MenuButton>
-                <MenuList>
-                  <MenuGroup>
-                    <MenuItem color={"gray.light"}>Mute</MenuItem>
-                  </MenuGroup>
-                  <MenuDivider />
-                  <MenuGroup>
-                    <MenuItem color={"red"}>Block</MenuItem>
-                    <MenuItem color={"gray.light"}>Hide</MenuItem>
-                  </MenuGroup>
-                  <MenuDivider />
-                  <MenuGroup>
-                    <MenuItem color={"red"}>Report</MenuItem>
-                  </MenuGroup>
-                </MenuList>
-              </Menu> */}
+              <Text fontSize={"xs"} width={36} textAlign={"right"}>
+                {formatDistanceToNow(new Date(post.createdAt))} ago
+              </Text>
+              {currentUser?._id === user._id && (
+                <DeleteIcon size={20} onClick={handleDeletePost} />
+              )}
             </Flex>
           </Flex>
 
@@ -190,11 +173,9 @@ const Post = ({ post, postedBy }) => {
           <Flex gap={3} my={1}>
             <Actions post={post} />
           </Flex>
-
-          
         </Flex>
       </Flex>
-    </Link> 
+    </Link>
   );
 };
 
