@@ -25,12 +25,20 @@ function App() {
         <Route path="/auth" element={!user ? <AuthPage /> : <Navigate to='/'/>} />
         <Route path="/update" element={user ? <UpdateProfilePage /> : <Navigate to='/auth'/>} />
 
-        <Route path="/:username" element={<UserPage />} />
+        <Route path="/:username" element={ user ? (
+          <>
+            <UserPage />
+            <CreatePosts />
+          </>
+        ):(
+          <UserPage />
+        )} />
+
         <Route path="/:username/post/:pid" element={<PostPage />} /> 
 
       </Routes>
         {user && <LogoutButton />}
-        {user && <CreatePosts />}
+        {/* {user && <CreatePosts />} */}
     </Container>
   )
 }
