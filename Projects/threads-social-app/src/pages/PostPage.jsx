@@ -1,11 +1,40 @@
-import { Avatar, Box, Button, Divider, Flex, Image, Menu, MenuButton, MenuDivider, MenuGroup, MenuItem, MenuList, Text } from "@chakra-ui/react";
-import React, { useState } from "react";
+import {
+  Avatar,
+  Box,
+  Button,
+  Divider,
+  Flex,
+  Image,
+  Menu,
+  MenuButton,
+  MenuDivider,
+  MenuGroup,
+  MenuItem,
+  MenuList,
+  Text,
+} from "@chakra-ui/react";
+import React, { useEffect, useState } from "react";
 import { BsThreeDots } from "react-icons/bs";
 import Actions from "../components/Actions";
 import Comments from "../components/Comments";
 
 const PostPage = () => {
-  const [liked, setLiked] = useState(false)
+  // const [liked, setLiked] = useState(false);
+  const [ suer, setUser] = useState(null);
+
+  useEffect(() => {
+    const getUser = async () => {
+      try {
+
+      } catch (error) {
+
+      }
+    } 
+    getUser
+  
+
+  }, [third])
+  
 
   return (
     <>
@@ -28,7 +57,7 @@ const PostPage = () => {
             w={36}
             color={"gray.light"}
           >
-          2day
+            2day
           </Text>
           {/* <Menu>
             <MenuButton>
@@ -54,12 +83,12 @@ const PostPage = () => {
 
       <Text my={3}>Hello gbogbo ile!!!</Text>
 
-
       <Box
         overflow={"hidden"}
         borderRadius={"6"}
         border={"1px solid"}
-        borderColor={"gray.light"}>
+        borderColor={"gray.light"}
+      >
         <Image src="/post1.png" width={"full"} />
       </Box>
 
@@ -81,16 +110,13 @@ const PostPage = () => {
           <Text color={"gray.light"}>Get the app to like, reply and post.</Text>
         </Flex>
         <Button>Get</Button>
-
       </Flex>
 
       <Divider my={4} />
       {/* <Comments username={"Ryan florence"} userAvater={"https://bit.ly/ryan-florence"} comment={"Yoo! how far"} likes={12} createdAt={"2 min ago"} /> */}
-      
     </>
   );
 };
-
 
 /////////////////////////////
 
