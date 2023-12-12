@@ -30,7 +30,7 @@ const PostPage = () => {
           >
           2day
           </Text>
-          <Menu>
+          {/* <Menu>
             <MenuButton>
               <BsThreeDots cursor={'pointer'} />
             </MenuButton>
@@ -48,7 +48,7 @@ const PostPage = () => {
                 <MenuItem color={'red'}>Report</MenuItem>
               </MenuGroup>
             </MenuList>
-          </Menu>
+          </Menu> */}
         </Flex>
       </Flex>
 
