@@ -98,11 +98,16 @@ const Actions = ({ post }) => {
 
       if(data.error) {
         showToast("Error", data.error, "error");
-        return;
       }
 
       const updatedPosts = posts.map((p) => {
-      
+        if (p._id === post._id) {
+          return { ...p, replies: [...p.replies, data] };
+          }
+          return p;        
+        })
+        seetPost(updatedPosts);
+
       showToast("Success", "Reply posted successfully", "success");
       onClose();
       setReply("");
