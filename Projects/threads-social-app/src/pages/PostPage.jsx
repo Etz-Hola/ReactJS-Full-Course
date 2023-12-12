@@ -85,9 +85,8 @@ const PostPage = () => {
       </Flex>
 
       <Divider my={4} />
-      <Comments username={"Ryan florence"} userAvater={"https://bit.ly/ryan-florence"} comment={"Yoo! how far"} likes={12} createdAt={"2 min ago"} />
-      <Comments username={"Dave Rocco"} userAvater={"https://bit.ly/ryan-florence"} comment={"Yoo! how far"} likes={12} createdAt={"3 hr ago"} />
-      <Comments username={"Shola Ola"} userAvater={"https://bit.ly/ryan-florence"} comment={"Yoo! how far"} likes={12} createdAt={"1 day ago"} />
+      {/* <Comments username={"Ryan florence"} userAvater={"https://bit.ly/ryan-florence"} comment={"Yoo! how far"} likes={12} createdAt={"2 min ago"} /> */}
+      
     </>
   );
 };
