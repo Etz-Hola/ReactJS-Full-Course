@@ -97,7 +97,7 @@ const PostPage = () => {
         </Flex>
       </Flex>
 
-      <Text my={3}>Hello gbogbo ile!!!</Text>
+      <Text my={3}>{post.post.text}</Text>
 
       <Box
         overflow={"hidden"}
