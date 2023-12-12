@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import {
   Avatar,
@@ -24,7 +25,8 @@ const PostPage = () => {
   const [post, setPost] = useState(null);
   const showToast = useShowToast();
   const { pid } = useParams();
-  const currentUser = useRecoilValue(userAtom)
+  const currentUser = useRecoilValue(userAtom);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const getPost = async () => {
@@ -45,7 +47,27 @@ const PostPage = () => {
     getPost();
   }, [showToast, pid]);
 
-  const handleDeletePost = async () => {}
+  const handleDeletePost = async () => {
+    try {
+      if (!window.confirm("Are you sure you want to delete this post")) return;
+      const res = await fetch(`/api/posts/${post._id}`, {
+        method: "DELETE",
+      });
+
+      const data = await res.json();
+
+      if (data.error) {
+        showToast("Error", data.error, "error");
+        return;
+      }
+
+      showToast("Success", "Post deleted successfully", "success");
+
+      navigate(`/${user.username}`);
+    } catch (error) {
+      showToast("Error", error.message, "error");
+    }
+  };
 
   if (!user && loading) {
     return (
@@ -109,7 +131,16 @@ const PostPage = () => {
       </Flex>
 
       <Divider my={4} />
-      {/* <Comments username={"Ryan florence"} userAvater={"https://bit.ly/ryan-florence"} comment={"Yoo! how far"} likes={12} createdAt={"2 min ago"} /> */}
+
+      <Divider my={4} />
+        {post.replies.map(reply => (
+          <Comments
+          key={reply._id}
+          reply={reply}
+          lastReply = {reply._id === post.replies[post.replies.length -1]._id }
+          />
+        ))}
+
     </>
   );
 };
