@@ -1,3 +1,4 @@
+import { useParams } from 'react-router-dom';
 import {
   Avatar,
   Box,
@@ -13,9 +14,27 @@ import { BsThreeDots } from "react-icons/bs";
 import Actions from "../components/Actions";
 import Comments from "../components/Comments";
 import useGetUserProfile from "../hooks/useGetUserProfile";
+import useShowToast from "../hooks/useShowToast";
 
 const PostPage = () => {
   const {user, loading} = useGetUserProfile()
+  const [post, setPost] = useState(null);
+  const showToast = useShowToast();
+  const {pid} = useParams();
+
+  useEffect(() => {
+    const getPost = async () => {
+      try {
+        const res = await fetch(`api/posts/${pid}`);
+        const data = await res.json();
+        setPost(data);
+      } catch (error) {
+        showToast("Error", error.message, "error");
+      }
+    
+
+    }
+  }, [])
 
   if(!user && loading) {
     return  (
