@@ -19,11 +19,7 @@ import Actions from "../components/Actions";
 import Comments from "../components/Comments";
 
 const PostPage = () => {
-  // const [liked, setLiked] = useState(false);
-  const [suer, setUser] = useState(null);
-
-  
-
+ 
   return (
     <>
       <Flex
