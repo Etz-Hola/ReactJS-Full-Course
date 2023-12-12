@@ -11,13 +11,11 @@ const Header = () => {
   const user = useRecoilValue(userAtom);
 
   return (
-    <Flex justifyContent={"space-between"} mt={6} mb="12">
+    <Flex justifyContent={"space-between"} gap={300} mt={6} mb="12">
       {user && (
-        <Flex>
-          <Link as={RouterLink} to="/">
-            <AiFillHome size={24} />
-          </Link>
-        </Flex>
+        <Link as={RouterLink} to="/">
+          <AiFillHome size={24} />
+        </Link>
       )}
 
       {/* {!user && (
@@ -33,9 +31,11 @@ const Header = () => {
         onClick={toggleColorMode}
       />
       {user && (
-        <Link as={RouterLink} to={`/${user.username}`}>
-          <RxAvatar size={24} />
-        </Link>
+        <Flex>
+          <Link as={RouterLink} to={`/${user.username}`}>
+            <RxAvatar size={24} />
+          </Link>
+        </Flex>
       )}
     </Flex>
   );
