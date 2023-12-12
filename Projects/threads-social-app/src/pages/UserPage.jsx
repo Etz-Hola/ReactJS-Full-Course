@@ -7,7 +7,7 @@ import { Flex, Spinner } from "@chakra-ui/react";
 import Post from "../components/Post";
 import useGetUserProfile from "../hooks/useGetUserProfile";
 import { useRecoilState } from "recoil";
-import { postsAtom } from "../atoms/postsAtom";
+import  postsAtom  from "../atoms/postsAtom";
 
 const UserPage = () => {
 	const {user, loading} = useGetUserProfile()
@@ -33,9 +33,9 @@ const UserPage = () => {
 			}
 		};
 
-		// getUser();
 		getPosts()
 	}, [username, showToast, setPosts]);
+	console.log('posts is here and recoil state', posts)
 
 	if (!user && loading) {
 		return (
