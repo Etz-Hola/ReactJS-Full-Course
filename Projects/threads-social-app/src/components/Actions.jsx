@@ -45,6 +45,7 @@ const Actions = ({ post }) => {
           "Content-Type": "application/json",
         },
       });
+
       const data = await res.json();
 
       if (!liked) {
@@ -95,7 +96,13 @@ const Actions = ({ post }) => {
       });
       const data = await res.json();
 
-      setPost({ ...post, replies: [...post.replies, data] });
+      if(data.error) {
+        showToast("Error", data.error, "error");
+        return;
+      }
+
+      const updatedPosts = posts.map((p) => {
+      
       showToast("Success", "Reply posted successfully", "success");
       onClose();
       setReply("");
