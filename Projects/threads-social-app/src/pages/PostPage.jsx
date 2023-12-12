@@ -98,7 +98,6 @@ const PostPage = () => {
         <Actions post={post} />
       </Flex>
 
-
       <Divider my={4} />
 
       <Flex justifyContent={"space-between"}>
