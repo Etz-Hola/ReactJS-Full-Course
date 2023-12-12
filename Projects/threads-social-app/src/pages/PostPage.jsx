@@ -41,7 +41,7 @@ const PostPage = () => {
     }
     getPost();
   }, [showToast, pid])
-  
+
 
   if(!user && loading) {
     return  (
@@ -134,6 +134,6 @@ const PostPage = () => {
   );
 };
 
-/////////////////////////////
+////////////////////////////
 
 export default PostPage;
