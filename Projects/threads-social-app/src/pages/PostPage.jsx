@@ -6,7 +6,7 @@ import Comments from "../components/Comments";
 
 const PostPage = () => {
   const [liked, setLiked] = useState(false)
-  
+
   return (
     <>
       <Flex
@@ -91,5 +91,6 @@ const PostPage = () => {
     </>
   );
 };
+///////////////////////////////////////////////////////////
 
 export default PostPage;
