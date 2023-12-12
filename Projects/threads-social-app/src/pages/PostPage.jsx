@@ -17,6 +17,7 @@ import useShowToast from "../hooks/useShowToast";
 import { DeleteIcon } from "@chakra-ui/icons";
 import { useRecoilValue } from "recoil";
 import userAtom from "../atoms/userAtom";
+import { formatDistanceToNow } from "date-fns";
 
 const PostPage = () => {
   const { user, loading } = useGetUserProfile();
@@ -28,7 +29,7 @@ const PostPage = () => {
   useEffect(() => {
     const getPost = async () => {
       try {
-        const res = await fetch(`api/posts/${pid}`);
+        const res = await fetch(`/api/posts/${pid}`);
         const data = await res.json();
 
         if (data.error) {
@@ -44,6 +45,8 @@ const PostPage = () => {
     getPost();
   }, [showToast, pid]);
 
+  const handleDeletePost = async () => {}
+
   if (!user && loading) {
     return (
       <Flex justifyContent={"center"}>
@@ -51,9 +54,8 @@ const PostPage = () => {
       </Flex>
     );
   }
-  if (!post) {
-    return null;
-  }
+
+  if (!post) return null;
 
   return (
     <>
@@ -96,11 +98,11 @@ const PostPage = () => {
         <Actions post={post} />
       </Flex>
 
-      <Flex gap={2} color={"gray.light"} fontSize={"sm"} alignItems={"center"}>
+      {/* <Flex gap={2} color={"gray.light"} fontSize={"sm"} alignItems={"center"}>
         <Text>{post.replies.length} replies</Text>
         <Box w={0.5} h={0.5} borderRadius={"full"} bg={"gray.light"}></Box>
         <Text>{post.likes.length} likes</Text>
-      </Flex>
+      </Flex> */}
 
       <Divider my={4} />
 
