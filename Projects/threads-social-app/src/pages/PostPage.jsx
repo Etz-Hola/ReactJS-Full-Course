@@ -5,20 +5,26 @@ import {
   Divider,
   Flex,
   Image,
-  Menu,
-  MenuButton,
-  MenuDivider,
-  MenuGroup,
-  MenuItem,
-  MenuList,
+  Spinner,
   Text,
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { BsThreeDots } from "react-icons/bs";
 import Actions from "../components/Actions";
 import Comments from "../components/Comments";
+import useGetUserProfile from "../hooks/useGetUserProfile";
 
 const PostPage = () => {
+  const {user, loading} = useGetUserProfile()
+
+  if(!user && loading) {
+    return  (
+      <Flex justifyContent={"center"}>
+        <Spinner size={"xl"} />
+      </Flex>
+
+    )
+  }
  
   return (
     <>
@@ -29,8 +35,8 @@ const PostPage = () => {
         justifyContent={"space-between"}
       >
         <Flex alignItems={"center"}>
-          <Avatar src="/aliumusa.jpeg" name="Aliu Musa" size={"md"} mr={2} />
-          <Text fontSize={"sm"}>Aliu Musa</Text>
+          <Avatar src={user.profilePic} name="Aliu Musa" size={"md"} mr={2} />
+          <Text fontSize={"sm"}>{user.username}</Text>
           <Image src="/verified.png" h={4} w={4} ml={2} />
         </Flex>
 
