@@ -24,7 +24,7 @@ const HomePage = () => {
           return;
         }
         console.log(data)
-        setPosts(data)
+        setPosts([data])
       } catch (err) {
         console.log(err)
         showToast("Error", err.message, "error");
