@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 "use client";
 
 import {
@@ -20,6 +21,8 @@ import useShowToast from "../hooks/useShowToast";
 
 export default function UpdateProfilePage() {
   const [user, setUser] = useRecoilState(userAtom);
+  const navigate = useNavigate();
+
   const [inputs, setInputs] = useState({
     name: user.name,
     username: user.username,
@@ -161,6 +164,7 @@ export default function UpdateProfilePage() {
               bg={"red.400"}
               color={"white"}
               w="full"
+              onClick={() => navigate(-1)}
               _hover={{
                 bg: "red.500",
               }}
