@@ -1,23 +1,31 @@
 import { Flex, Image, Link, useColorMode, Button } from "@chakra-ui/react";
-import { useRecoilValue } from "recoil";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 import userAtom from "../atoms/userAtom";
 import { AiFillHome } from "react-icons/ai";
 import { RxAvatar } from "react-icons/rx";
 import { Link as RouterLink } from "react-router-dom";
 import { FiLogOut } from "react-icons/fi";
 import useLogout from "../hooks/useLogout";
+import authScreenAtom from "../atoms/authAtom";
 // import RxAvatar from "./RxAvatar"
 
 const Header = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   const user = useRecoilValue(userAtom);
   const logout = useLogout()
+  const setAuthScreen = useSetRecoilState(authScreenAtom)
 
   return (
     <Flex justifyContent={"space-between"} mt={6} mb="12">
       {user && (
         <Link as={RouterLink} to="/">
           <AiFillHome size={24} />
+        </Link>
+      )}
+
+      {!user && (
+        <Link as={RouterLink} to={"/auth"} onClick={() => setAuthScreen("login")}>
+          Login
         </Link>
       )}
 
@@ -42,6 +50,12 @@ const Header = () => {
             <FiLogOut size={20} />
           </Button>
         </Flex>
+      )}
+
+{!user && (
+        <Link as={RouterLink} to={"/auth"} onClick={() => setAuthScreen("signup")}>
+          Sign up
+        </Link>
       )}
     </Flex>
   );
