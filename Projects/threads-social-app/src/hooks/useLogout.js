@@ -1,4 +1,3 @@
-import React from 'react'
 import { useRecoilState } from 'recoil'
 import userAtom from '../atoms/userAtom'
 import useShowToast from './useShowToast'
@@ -27,9 +26,7 @@ const useLogout = () => {
             showToast("Error", error, "error")            
         }
     }
-  return (
-    <div>useLogout</div>
-  )
+  return logout
 }
 
 export default useLogout
